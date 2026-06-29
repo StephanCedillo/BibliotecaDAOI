@@ -4,6 +4,13 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author stephancedillo
@@ -33,28 +40,27 @@ public class crearLibroView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblTituloCreacionLibro = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
+        lblISBN = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        txtISBN = new javax.swing.JTextField();
+        lblGenero = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
+        lblNumeroPagina = new javax.swing.JLabel();
+        txtIdioma = new javax.swing.JTextField();
+        txtNumeroPaginas = new javax.swing.JTextField();
+        lblIdioma = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
+        lblNombre2 = new javax.swing.JLabel();
+        txtNombre2 = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
+        lblApellido = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JFormattedTextField();
+        lblPreguntaExistenciaAutor = new javax.swing.JLabel();
+        radioButtonRestriccion = new javax.swing.JRadioButton();
+        comboBoxAutores = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
@@ -94,8 +100,8 @@ public class crearLibroView extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(249, 245, 245));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setFont(new java.awt.Font("Menlo", 1, 18)); // NOI18N
-        jLabel3.setText("Creación de Libro");
+        lblTituloCreacionLibro.setFont(new java.awt.Font("Menlo", 1, 18)); // NOI18N
+        lblTituloCreacionLibro.setText("Creación de Libro");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -103,87 +109,76 @@ public class crearLibroView extends javax.swing.JInternalFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
-                .addComponent(jLabel3)
+                .addComponent(lblTituloCreacionLibro)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+            .addComponent(lblTituloCreacionLibro, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel4.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("ISBN:");
+        lblISBN.setBackground(new java.awt.Color(51, 51, 51));
+        lblISBN.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblISBN.setForeground(new java.awt.Color(51, 51, 51));
+        lblISBN.setText("ISBN:");
 
-        jLabel5.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel5.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Nombre:");
+        lblNombre.setBackground(new java.awt.Color(51, 51, 51));
+        lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setText("Nombre:");
 
-        jTextField1.setText("jTextField1");
+        lblGenero.setBackground(new java.awt.Color(51, 51, 51));
+        lblGenero.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblGenero.setForeground(new java.awt.Color(51, 51, 51));
+        lblGenero.setText("Genero:");
 
-        jLabel6.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel6.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Genero:");
+        txtGenero.addActionListener(this::txtGeneroActionPerformed);
 
-        jTextField2.setText("jTextField1");
+        lblNumeroPagina.setBackground(new java.awt.Color(51, 51, 51));
+        lblNumeroPagina.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNumeroPagina.setForeground(new java.awt.Color(51, 51, 51));
+        lblNumeroPagina.setText("Numero de paginas:");
 
-        jTextField3.setText("jTextField1");
+        lblIdioma.setBackground(new java.awt.Color(51, 51, 51));
+        lblIdioma.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblIdioma.setForeground(new java.awt.Color(51, 51, 51));
+        lblIdioma.setText("Idioma:");
 
-        jLabel8.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel8.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Numero de paginas:");
+        lblAutor.setBackground(new java.awt.Color(51, 51, 51));
+        lblAutor.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(51, 51, 51));
+        lblAutor.setText("Autor:");
 
-        jTextField4.setText("jTextField1");
+        lblNombre2.setBackground(new java.awt.Color(51, 51, 51));
+        lblNombre2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNombre2.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre2.setText("Nombre:");
 
-        jTextField5.setText("jTextField1");
+        txtNombre2.addActionListener(this::txtNombre2ActionPerformed);
 
-        jLabel9.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel9.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Idioma:");
+        btnAceptar.setBackground(new java.awt.Color(51, 51, 51));
+        btnAceptar.setText("Aceptar");
 
-        jLabel10.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel10.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Nombre del Autor:");
+        lblApellido.setBackground(new java.awt.Color(51, 51, 51));
+        lblApellido.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblApellido.setText("Apellido:");
 
-        jCheckBox2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jCheckBox2.setText("¿Restriccion de edad?");
-        jCheckBox2.addActionListener(this::jCheckBox2ActionPerformed);
+        txtApellido.addActionListener(this::txtApellidoActionPerformed);
 
-        jLabel11.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel11.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Nombre:");
+        lblPreguntaExistenciaAutor.setBackground(new java.awt.Color(51, 51, 51));
+        lblPreguntaExistenciaAutor.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblPreguntaExistenciaAutor.setForeground(new java.awt.Color(51, 51, 51));
+        lblPreguntaExistenciaAutor.setText("Si no existe dentro del sistema:");
 
-        jTextField6.setText("jTextField6");
+        radioButtonRestriccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        radioButtonRestriccion.setForeground(new java.awt.Color(0, 0, 0));
+        radioButtonRestriccion.setText("¿Restriccion de edad?");
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Aceptar");
-
-        jLabel12.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel12.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setText("Apellido:");
-
-        jFormattedTextField2.setText("jFormattedTextField1");
-        jFormattedTextField2.addActionListener(this::jFormattedTextField2ActionPerformed);
-
-        jLabel13.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel13.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel13.setText("Si no existe dentro del sistema:");
-
-        jButton2.setText("Buscar Autor");
-
-        jTextField7.setText("jTextField1");
+        comboBoxAutores.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
+        comboBoxAutores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -193,107 +188,101 @@ public class crearLibroView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtISBN, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(lblISBN)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(lblNombre)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
+                        .addComponent(lblGenero)
                         .addGap(120, 120, 120))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
+                        .addComponent(lblIdioma)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
+                        .addComponent(lblNumeroPagina)
                         .addGap(46, 46, 46))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addGap(0, 1, Short.MAX_VALUE)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(182, 182, 182)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnAceptar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)))
+                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(radioButtonRestriccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(lblISBN)
                 .addGap(1, 1, 1)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                    .addComponent(lblNombre)
+                    .addComponent(lblGenero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblIdioma)
+                    .addComponent(lblNumeroPagina, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel13)
+                .addComponent(radioButtonRestriccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAutor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(lblPreguntaExistenciaAutor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblApellido)
+                    .addComponent(lblNombre2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel11))
+                    .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAceptar)
                 .addContainerGap())
         );
 
@@ -364,44 +353,129 @@ public class crearLibroView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    public JLabel getLblTituloCreacionLibro() {
+        return lblTituloCreacionLibro;
+    }
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    
+    public JButton getBtnAceptar() {
+        return btnAceptar;
+    }
+
+    public JComboBox<String> getComboBoxAutores() {
+        return comboBoxAutores;
+    }
+
+    public JLabel getLblApellido() {
+        return lblApellido;
+    }
+
+    public JLabel getLblAutor() {
+        return lblAutor;
+    }
+
+    public JLabel getLblGenero() {
+        return lblGenero;
+    }
+
+    public JLabel getLblISBN() {
+        return lblISBN;
+    }
+
+    public JLabel getLblIdioma() {
+        return lblIdioma;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public JLabel getLblNombre2() {
+        return lblNombre2;
+    }
+
+    public JLabel getLblNumeroPagina() {
+        return lblNumeroPagina;
+    }
+
+    public JLabel getLblPreguntaExistenciaAutor() {
+        return lblPreguntaExistenciaAutor;
+    }
+
+    public JRadioButton getRadioButtonRestriccion() {
+        return radioButtonRestriccion;
+    }
+
+    public JFormattedTextField getTxtApellido() {
+        return txtApellido;
+    }
+
+    public JTextField getTxtGenero() {
+        return txtGenero;
+    }
+
+    public JTextField getTxtISBN() {
+        return txtISBN;
+    }
+
+    public JTextField getTxtIdioma() {
+        return txtIdioma;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public JTextField getTxtNombre2() {
+        return txtNombre2;
+    }
+
+    public JTextField getTxtNumeroPaginas() {
+        return txtNumeroPaginas;
+    }
+    
+    
+    private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField2ActionPerformed
+    }//GEN-LAST:event_txtApellidoActionPerformed
+
+    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGeneroActionPerformed
+
+    private void txtNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JComboBox<String> comboBoxAutores;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblAutor;
+    private javax.swing.JLabel lblGenero;
+    private javax.swing.JLabel lblISBN;
+    private javax.swing.JLabel lblIdioma;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre2;
+    private javax.swing.JLabel lblNumeroPagina;
+    private javax.swing.JLabel lblPreguntaExistenciaAutor;
+    private javax.swing.JLabel lblTituloCreacionLibro;
+    private javax.swing.JRadioButton radioButtonRestriccion;
+    private javax.swing.JFormattedTextField txtApellido;
+    private javax.swing.JTextField txtGenero;
+    private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtIdioma;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombre2;
+    private javax.swing.JTextField txtNumeroPaginas;
     // End of variables declaration//GEN-END:variables
 }
