@@ -39,16 +39,18 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem18 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem19 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem20 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
@@ -96,6 +98,9 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem5.addActionListener(this::jMenuItem5ActionPerformed);
         jMenu3.add(jMenuItem5);
 
+        jMenuItem18.setText("Buscar");
+        jMenu3.add(jMenuItem18);
+
         jMenuBar2.add(jMenu3);
 
         jMenu4.setText("Usuarios");
@@ -115,23 +120,26 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem9.setText("Listar");
         jMenu4.add(jMenuItem9);
 
+        jMenuItem19.setText("Buscar");
+        jMenu4.add(jMenuItem19);
+
         jMenuBar2.add(jMenu4);
 
         jMenu5.setText("Registros");
 
-        jMenuItem11.setText("Crear");
+        jMenuItem11.setText("Registro");
         jMenuItem11.addActionListener(this::jMenuItem11ActionPerformed);
         jMenu5.add(jMenuItem11);
 
-        jMenuItem13.setText("Eliminar");
+        jMenuItem13.setText("Devolucion");
         jMenuItem13.setToolTipText("");
         jMenu5.add(jMenuItem13);
 
-        jMenuItem12.setText("Actualizar");
-        jMenu5.add(jMenuItem12);
-
         jMenuItem10.setText("Listar");
         jMenu5.add(jMenuItem10);
+
+        jMenuItem20.setText("Buscar");
+        jMenu5.add(jMenuItem20);
 
         jMenuBar2.add(jMenu5);
 
@@ -241,13 +249,15 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenuItem jMenuItem18;
+    private javax.swing.JMenuItem jMenuItem19;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
