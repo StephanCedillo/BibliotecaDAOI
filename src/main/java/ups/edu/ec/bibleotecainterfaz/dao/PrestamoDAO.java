@@ -4,10 +4,22 @@
  */
 package ups.edu.ec.bibleotecainterfaz.dao;
 
+import java.util.List;
+
+import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
+
+
 /**
  *
  * @author stephancedillo
  */
-public class PrestamoDAO {
-    
+public interface PrestamoDAO {
+    void crear(Prestamo prestamo);
+    Prestamo buscarID(int cedula);
+    Prestamo buscarISBN(String cedula);
+    Prestamo buscarCedula(String cedula);
+    boolean actualizar(Prestamo prestamo);
+    boolean eliminar(String cedula);
+    List<Prestamo> listar();
+    void crearListadoTemporal(int cantidad);
 }

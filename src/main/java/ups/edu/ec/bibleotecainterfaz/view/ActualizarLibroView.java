@@ -21,6 +21,20 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnActualizacion() {
+        return btnActualizacion;
+    }
+
+    public JLabel getLblTitulo() {
+        return lblTitulo;
+    }
+
+    public JTextField getTxtTituloBuscado() {
+        return txtTituloBuscado;
+    }
+    
+    
+
     public JButton getBtnBuscar() {
         return btnBuscar;
     }

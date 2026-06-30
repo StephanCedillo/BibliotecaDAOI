@@ -12,12 +12,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class CrearRegistroView extends javax.swing.JInternalFrame {
+public class CrearPrestamoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form crearLibroView
      */
-    public CrearRegistroView() {
+    public CrearPrestamoView() {
         initComponents();
     }
 

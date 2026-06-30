@@ -21,6 +21,7 @@ public class LibroController {
     private BuscarLibroView buscarLibroView;
     private EliminarLibroView eliminarLibroView;
     private CrearLibroView crearLibroView;
+   
 
     public LibroController(ActualizarLibroView actualizarLibroView, BuscarLibroView buscarLibroView, EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView) {
         this.actualizarLibroView = actualizarLibroView;
@@ -41,26 +42,85 @@ public class LibroController {
 
     private void configurarEventosActualizarLibro() {
         actualizarLibroView.getBtnBuscar().addActionListener(
-        new ActionListener() {
+                new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarActLibro();
             }
         });
-        
-        
+        actualizarLibroView.getBtnActualizacion().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarLibro();
+            }
+        });
     }
 
     private void configurarEventosEliminarLibro() {
 
+        eliminarLibroView.getBtnBuscar().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 buscarElimLibro();
+            }
+        });
+        eliminarLibroView.getBtnEliminar().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 eliminarLibro();
+            }
+        });
+ 
     }
 
     private void configurarEventosCrearLibro() {
+        crearLibroView.getBtnAceptar().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 crearLibro();
+            }
+        });
+        
        
     }
 
     private void configurarEventosBuscarLibro() {
+          buscarLibroView.getBtnBuscar().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 buscarLibro();
+            }
+        });    
+    }
 
+    
+    private void buscarActLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void actualizarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void buscarElimLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void eliminarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void crearLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void buscarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void cambioIdioma() {
@@ -86,5 +146,4 @@ public class LibroController {
 
     }
 
-    
 }

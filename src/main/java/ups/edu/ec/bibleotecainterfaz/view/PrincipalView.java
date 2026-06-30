@@ -11,9 +11,22 @@ import ups.edu.ec.bibleotecainterfaz.view.*;
 public class PrincipalView extends javax.swing.JFrame {
 
 
-    /**
-     * Creates new form PrincipalView
-     */
+    //======= LIBRO =========
+    private CrearLibroView crearLibroView;
+    private ActualizarLibroView actualizarLibroView;
+    private EliminarLibroView eliminarLibroView;
+    private BuscarLibroView buscarLibroView;
+
+     //======= USUARIO =========
+    private CrearUsuarioView crearUsuarioView;
+    private ActualizarUsuarioView actualizarUsuarioView;
+    private EliminarUsuarioView eliminarUsuarioView;
+    private BuscarUsuarioView buscarUsuarioView;
+    
+     //======= PRESTAMO =========
+   private CrearPrestamoView crearPrestamoView;
+   private BuscarPrestamoView buscarPrestamoView;
+    
     public PrincipalView() {
         initComponents();
         
