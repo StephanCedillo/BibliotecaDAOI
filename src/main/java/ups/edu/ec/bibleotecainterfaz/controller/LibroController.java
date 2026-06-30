@@ -4,6 +4,8 @@
  */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import ups.edu.ec.bibleotecainterfaz.view.ActualizarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.BuscarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.EliminarLibroView;
@@ -38,7 +40,15 @@ public class LibroController {
     }
 
     private void configurarEventosActualizarLibro() {
-
+        actualizarLibroView.getBtnBuscar().addActionListener(
+        new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarActLibro();
+            }
+        });
+        
+        
     }
 
     private void configurarEventosEliminarLibro() {
@@ -76,4 +86,5 @@ public class LibroController {
 
     }
 
+    
 }
