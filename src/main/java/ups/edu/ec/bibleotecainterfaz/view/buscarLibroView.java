@@ -21,6 +21,7 @@ public class BuscarLibroView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    
     public JButton getBtnBuscar() {
         return btnBuscar;
     }
