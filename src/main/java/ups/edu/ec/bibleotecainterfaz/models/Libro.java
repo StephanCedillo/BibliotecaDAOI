@@ -85,6 +85,11 @@ public class Libro {
         this.siestadoDisponibilidad = siestadoDisponibilidad;
     }
 
+    public Autor getAutor() {
+        return autor;
+    }
+    
+
     @Override
     public String toString() {
         return "-Libro-" + "\n"
