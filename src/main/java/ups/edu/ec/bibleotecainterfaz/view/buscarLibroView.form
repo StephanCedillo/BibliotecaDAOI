@@ -285,6 +285,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtISBNBuscado">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="ITF Devanagari" size="13" style="0"/>
                 </Property>
@@ -325,7 +326,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtRestriccionEdadBuscada">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblRestriccionEdad">
@@ -341,7 +342,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtAutorBuscado">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAutorBuscadoActionPerformed"/>
@@ -360,7 +361,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdiomaBuscado">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblISBN2">
@@ -376,7 +377,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtGeneroBuscado">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNumeroPaginas">
@@ -392,7 +393,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumeroPaginas">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEstado">

@@ -12,12 +12,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class buscarLibroView extends javax.swing.JInternalFrame {
+public class BuscarLibroView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form buscarLibroView
      */
-    public buscarLibroView() {
+    public BuscarLibroView() {
         initComponents();
     }
 
@@ -170,6 +170,7 @@ public class buscarLibroView extends javax.swing.JInternalFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LibroBuscar.png"))); // NOI18N
 
+        txtISBNBuscado.setEditable(false);
         txtISBNBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
         lblTituloBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
@@ -184,32 +185,32 @@ public class buscarLibroView extends javax.swing.JInternalFrame {
         lblGenero.setForeground(new java.awt.Color(51, 51, 51));
         lblGenero.setText("Genero:");
 
-        txtRestriccionEdadBuscada.setText("jTextField2");
+        txtRestriccionEdadBuscada.setEditable(false);
 
         lblRestriccionEdad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblRestriccionEdad.setForeground(new java.awt.Color(51, 51, 51));
         lblRestriccionEdad.setText("Restriccion de edad: ");
 
-        txtAutorBuscado.setText("jTextField2");
+        txtAutorBuscado.setEditable(false);
         txtAutorBuscado.addActionListener(this::txtAutorBuscadoActionPerformed);
 
         lblIdioma.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblIdioma.setForeground(new java.awt.Color(51, 51, 51));
         lblIdioma.setText("Idioma:");
 
-        txtIdiomaBuscado.setText("jTextField2");
+        txtIdiomaBuscado.setEditable(false);
 
         lblISBN2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblISBN2.setForeground(new java.awt.Color(51, 51, 51));
         lblISBN2.setText("ISBN:");
 
-        txtGeneroBuscado.setText("jTextField2");
+        txtGeneroBuscado.setEditable(false);
 
         lblNumeroPaginas.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblNumeroPaginas.setForeground(new java.awt.Color(51, 51, 51));
         lblNumeroPaginas.setText("Numero de paginas:");
 
-        txtNumeroPaginas.setText("jTextField2");
+        txtNumeroPaginas.setEditable(false);
 
         lblEstado.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(51, 51, 51));

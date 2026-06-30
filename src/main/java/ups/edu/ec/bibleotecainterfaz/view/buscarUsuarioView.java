@@ -14,12 +14,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class buscarUsuarioView extends javax.swing.JInternalFrame {
+public class BuscarUsuarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form buscarLibroView
      */
-    public buscarUsuarioView() {
+    public BuscarUsuarioView() {
         initComponents();
     }
 

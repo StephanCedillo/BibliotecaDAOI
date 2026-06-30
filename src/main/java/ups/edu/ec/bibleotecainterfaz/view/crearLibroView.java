@@ -15,12 +15,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class crearLibroView extends javax.swing.JInternalFrame {
+public class CrearLibroView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form crearLibroView
      */
-    public crearLibroView() {
+    public CrearLibroView() {
         initComponents();
     }
 

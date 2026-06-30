@@ -8,12 +8,12 @@ package ups.edu.ec.bibleotecainterfaz.view;
  *
  * @author stephancedillo
  */
-public class buscarPrestamoView extends javax.swing.JInternalFrame {
+public class BuscarPrestamoView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form buscarLibroView
      */
-    public buscarPrestamoView() {
+    public BuscarPrestamoView() {
         initComponents();
     }
 
@@ -129,6 +129,7 @@ public class buscarPrestamoView extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(249, 245, 245));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
         jTextField2.setText("jTextField2");
 
@@ -148,6 +149,7 @@ public class buscarPrestamoView extends javax.swing.JInternalFrame {
         jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Nombre:");
 
+        jTextField4.setEditable(false);
         jTextField4.setText("jTextField2");
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
 

@@ -14,12 +14,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class crearUsuarioView extends javax.swing.JInternalFrame {
+public class CrearUsuarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form crearLibroView
      */
-    public crearUsuarioView() {
+    public CrearUsuarioView() {
         initComponents();
     }
 

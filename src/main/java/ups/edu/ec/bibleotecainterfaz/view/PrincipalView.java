@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
  */
 package ups.edu.ec.bibleotecainterfaz.view;
-
+import ups.edu.ec.bibleotecainterfaz.view.*;
 /**
  *
  * @author stephancedillo
  */
 public class PrincipalView extends javax.swing.JFrame {
+
 
     /**
      * Creates new form PrincipalView

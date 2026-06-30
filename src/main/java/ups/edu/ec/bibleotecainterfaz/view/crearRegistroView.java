@@ -12,12 +12,12 @@ import javax.swing.JTextField;
  *
  * @author stephancedillo
  */
-public class crearRegistroView extends javax.swing.JInternalFrame {
+public class CrearRegistroView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form crearLibroView
      */
-    public crearRegistroView() {
+    public CrearRegistroView() {
         initComponents();
     }
 
@@ -38,7 +38,7 @@ public class crearRegistroView extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblTituloCreacionRegistro() {
-        return lblTituloCreacionRegistro;
+        return lblTituloCreacionPrestamo;
     }
 
     public JTextField getTxtCedula() {
@@ -66,7 +66,7 @@ public class crearRegistroView extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        lblTituloCreacionRegistro = new javax.swing.JLabel();
+        lblTituloCreacionPrestamo = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         lblCedula = new javax.swing.JLabel();
         lblISBN = new javax.swing.JLabel();
@@ -113,8 +113,8 @@ public class crearRegistroView extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(249, 245, 245));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        lblTituloCreacionRegistro.setFont(new java.awt.Font("Menlo", 1, 18)); // NOI18N
-        lblTituloCreacionRegistro.setText("Creacion de Registro");
+        lblTituloCreacionPrestamo.setFont(new java.awt.Font("Menlo", 1, 18)); // NOI18N
+        lblTituloCreacionPrestamo.setText("Creacion de Prestamo");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -122,12 +122,12 @@ public class crearRegistroView extends javax.swing.JInternalFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTituloCreacionRegistro)
+                .addComponent(lblTituloCreacionPrestamo)
                 .addGap(55, 55, 55))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTituloCreacionRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+            .addComponent(lblTituloCreacionPrestamo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -264,7 +264,7 @@ public class crearRegistroView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblISBN;
-    private javax.swing.JLabel lblTituloCreacionRegistro;
+    private javax.swing.JLabel lblTituloCreacionPrestamo;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtISBN;
     // End of variables declaration//GEN-END:variables
