@@ -60,9 +60,7 @@ public class Prestamo {
         return libros;
     }
 
-    public void setLibro(Libro libro) {
-        this.libros = libros;
-    }
+    
 
     public boolean isEstado() {
         return estado;

@@ -14,50 +14,90 @@ import ups.edu.ec.bibleotecainterfaz.dao.*;
  */
 public class PrincipalController {
 
-    //=======PANTALLA PRINCIPAL========
+    // =======PANTALLA PRINCIPAL========
     private PrincipalView principalView;
 
-    //======= LIBRO =========
-    private CrearLibroView crearLibroView;
+    // ======= LIBRO =========
     private ActualizarLibroView actualizarLibroView;
-    private EliminarLibroView eliminarLibroView;
     private BuscarLibroView buscarLibroView;
+    private EliminarLibroView eliminarLibroView;
+    private CrearLibroView crearLibroView;
+    private ListarLibroView listarLibroView;
 
-    //======= USUARIO =========
-    private CrearUsuarioView crearUsuarioView;
+    // ======= USUARIO =========
     private ActualizarUsuarioView actualizarUsuarioView;
-    private EliminarUsuarioView eliminarUsuarioView;
     private BuscarUsuarioView buscarUsuarioView;
+    private EliminarUsuarioView eliminarUsuarioView;
+    private CrearUsuarioView crearUsuarioView;
+    private ListarUsuarioView listarUsuarioView;
 
-    //======= PRESTAMO =========
-    private CrearPrestamoView crearPrestamoView;
-    private BuscarPrestamoView buscarPrestamoView;
+    // ======= PRESTAMO =========
+    private DevolucionPrestamoView devolucionPrestamoView;
+    private BuscarPrestamoView buscarPrestamoiew;
+    private EliminarUsuarioView eliminarPrestamoiew;
+    private ListarPrestamoView listarPrestamoView;
 
-    //======= CONTROLLERS LOGICA SEPARADA =========
+    // ======= CONTROLLERS LOGICA SEPARADA =========
     private LibroController libroController;
     private PrestamoController prestamoController;
     private UserController userController;
 
-    //Cambiar Constructor cuando el Alfonso acabe 
+     // ======= DAO LOGICA SEPARADA =========
+     private LibroDAO libroDAO;
+     private UsuarioDAO usuarioDAO;
+     private PrestamoDAO prestamoDAO;
+
+    // Cambiar Constructor cuando el Alfonso acabe
     
-    public PrincipalController(PrincipalView principalView, CrearLibroView crearLibroView, ActualizarLibroView actualizarLibroView, EliminarLibroView eliminarLibroView, BuscarLibroView buscarLibroView, CrearUsuarioView crearUsuarioView, ActualizarUsuarioView actualizarUsuarioView, EliminarUsuarioView eliminarUsuarioView, BuscarUsuarioView buscarUsuarioView, CrearPrestamoView crearPrestamoView, BuscarPrestamoView buscarPrestamoView) {
+    public PrincipalController(PrincipalView principalView, ActualizarLibroView actualizarLibroView,
+            BuscarLibroView buscarLibroView, EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView,
+            ListarLibroView listarLibroView, ActualizarUsuarioView actualizarUsuarioView,
+            BuscarUsuarioView buscarUsuarioView, EliminarUsuarioView eliminarUsuarioView,
+            CrearUsuarioView crearUsuarioView, ListarUsuarioView listarUsuarioView,
+            DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
+            EliminarUsuarioView eliminarPrestamoiew, ListarPrestamoView listarPrestamoView,
+            LibroController libroController, PrestamoController prestamoController, UserController userController,
+            LibroDAO libroDAO, UsuarioDAO usuarioDAO, PrestamoDAO prestamoDAO) {
         this.principalView = principalView;
-        this.crearLibroView = crearLibroView;
         this.actualizarLibroView = actualizarLibroView;
-        this.eliminarLibroView = eliminarLibroView;
         this.buscarLibroView = buscarLibroView;
-        this.crearUsuarioView = crearUsuarioView;
+        this.eliminarLibroView = eliminarLibroView;
+        this.crearLibroView = crearLibroView;
+        this.listarLibroView = listarLibroView;
         this.actualizarUsuarioView = actualizarUsuarioView;
-        this.eliminarUsuarioView = eliminarUsuarioView;
         this.buscarUsuarioView = buscarUsuarioView;
-        this.crearPrestamoView = crearPrestamoView;
-        this.buscarPrestamoView = buscarPrestamoView;
+        this.eliminarUsuarioView = eliminarUsuarioView;
+        this.crearUsuarioView = crearUsuarioView;
+        this.listarUsuarioView = listarUsuarioView;
+        this.devolucionPrestamoView = devolucionPrestamoView;
+        this.buscarPrestamoiew = buscarPrestamoiew;
+        this.eliminarPrestamoiew = eliminarPrestamoiew;
+        this.listarPrestamoView = listarPrestamoView;
+        this.libroController = libroController;
+        this.prestamoController = prestamoController;
+        this.userController = userController;
+        this.libroDAO = libroDAO;
+        this.usuarioDAO = usuarioDAO;
+        this.prestamoDAO = prestamoDAO;
         inicializarControllers();
+        configurarEvento();
     }
+
+
+    private void configurarEvento() {
+       
+    }
+
 
     private void inicializarControllers() {
-        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView);
-        //INICIALIZAR PRESTAMO Y USUARIO
+        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
+                listarLibroView);
+
+        userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
+                crearUsuarioView, listarUsuarioView);
+        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, eliminarPrestamoiew,
+                listarPrestamoView);
     }
 
+    
 }

@@ -15,11 +15,11 @@ import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
  */
 public interface PrestamoDAO {
     void crear(Prestamo prestamo);
-    Prestamo buscarID(int cedula);
-    Prestamo buscarISBN(String cedula);
+    Prestamo buscarID(int id);
+    Prestamo buscarISBN(String ISBN);
     Prestamo buscarCedula(String cedula);
-    boolean actualizar(Prestamo prestamo);
-    boolean eliminar(String cedula);
+    boolean devolucion(Prestamo prestamo);
+   
     List<Prestamo> listar();
     void crearListadoTemporal(int cantidad);
 }

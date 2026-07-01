@@ -12,12 +12,12 @@ import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
  *
  * @author ASUS
  */
-public class ListarRegistroView extends javax.swing.JInternalFrame {
+public class ListarPrestamoView extends javax.swing.JInternalFrame {
 private DefaultTableModel modelo;
     /**
      * Creates new form ListarRegistroView
      */
-    public ListarRegistroView() {
+    public ListarPrestamoView() {
         initComponents();
         configurarTabla();
     }

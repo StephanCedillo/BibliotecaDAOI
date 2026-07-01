@@ -4,121 +4,82 @@
  */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
+import ups.edu.ec.bibleotecainterfaz.view.*;;
+
 /**
  *
  * @author stephancedillo
  */
 public class PrestamoController {
-    
-    private ActualizarPrestamoiew actualizarPrestamoiew;
-    private BuscarPrestamoiew buscarPrestamoiew;
-    private EliminarPrestamoiew eliminarPrestamoiew;
-    private CrearPrestamoiew crearPrestamoioView;
 
-    public PrestamoController(ActualizarPrestamoView actualizarPrestamoView, BuscarPrestamoView buscarPrestamoView, EliminarPrestamoView eliminarPrestamoView, CrearPrestamoView crearPrestamoView;) {
-        this.actualizarPrestamoView = actualizarPrestamoView;
-        this.buscarPrestamoView= buscarPrestamoView;
-        this.eliminarPrestamoView = eliminarPrestamoView;
+    private DevolucionPrestamoView devolucionPrestamoView;
+    private BuscarPrestamoView buscarPrestamoView;
+    private CrearPrestamoView crearPrestamoView;
+    private ListarPrestamoView listarPrestamoView;
+
+    public PrestamoController(DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
+            CrearPrestamoView crearPrestamoView, ListarPrestamoView listarPrestamoView) {
+        this.devolucionPrestamoView = devolucionPrestamoView;
+        this.buscarPrestamoView = buscarPrestamoiew;
         this.crearPrestamoView = crearPrestamoView;
+        this.listarPrestamoView = listarPrestamoView;
         configurarEventos();
         cambioIdioma();
     }
 
-     private void configurarEventos() {
-        configurarEventosActualizarPrestamo();
+    private void configurarEventos() {
+        configurarEventosDevolucionPrestamo();
         configurarEventosBuscarPrestamo();
-        configurarEventosEliminarPrestamo();
+        configurarEventosListarPrestamo();
         configurarEventosCrearPrestamo();
 
     }
 
-    private void configurarEventosActualizarPrestamo() {
-        actualizarPrestamoView.getBtnBuscar().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                buscarAcrPrestamo();
-            }
-        });
-        actualizarPrestamoView.getBtnActualizacion().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actualizarPrestamo();
-            }
-        });
+    private void configurarEventosDevolucionPrestamo() {
+
     }
 
-    private void configurarEventosEliminarPrestamo() {
+    private void configurarEventosListarPrestamo() {
 
-        eliminarPrestamoView.getBtnBuscar().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 buscarElirPrestamo();
-            }
-        });
-        eliminarPrestamoView.getBtnEliminar().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 eliminarPrestamo();
-            }
-        });
- 
     }
 
     private void configurarEventosCrearPrestamo() {
-        crearPrestamoView.getBtnAceptar().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 crearPrestamo();
-            }
-        });
-        
-       
+
     }
 
     private void configurarEventosBuscarPrestamo() {
-          buscarPrestamoView.getBtnBuscar().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 buscarPrestamo();
-            }
-        });    
+
+
     }
 
-    
     private void buscarAcrPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
-    private void actualizarPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void DevolucionPrestamo() {
+
     }
 
     private void buscarElirPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
-    private void eliminarPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void ListarPrestamo() {
+
     }
 
     private void crearPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
     private void buscarPrestamo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
     private void cambioIdioma() {
-        cambioIdiomaActualizarPrestamo();
+        cambioIdiomaDevolucionPrestamo();
         cambioIdiomaBuscarPrestamo();
-        cambioIdiomaEliminarPrestamo();
+        cambioIdiomaListarPrestamo();
         cambioIdiomaCrearPrestamo();
     }
 
@@ -126,7 +87,7 @@ public class PrestamoController {
 
     }
 
-    private void cambioIdiomaEliminarPrestamo() {
+    private void cambioIdiomaListarPrestamo() {
 
     }
 
@@ -134,9 +95,8 @@ public class PrestamoController {
 
     }
 
-    private void cambioIdiomaActualizarPrestamo() {
+    private void cambioIdiomaDevolucionPrestamo() {
 
     }
-
 
 }

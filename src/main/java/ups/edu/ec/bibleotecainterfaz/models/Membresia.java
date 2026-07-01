@@ -70,9 +70,8 @@ public class Membresia {
         return fechaVencimiento.isBefore(hoy);
     }
     public void renovar(){
-        fechaInicio = hoy;
-        fechaVencimiento = hoy;
-        fechaVencimiento.plusMonths(3);
+        fechaInicio = LocalDate.now();
+        fechaVencimiento = fechaInicio.plusMonths(3);
     }
     public String obtenerDiasRestantes(){
         int mesesRestantes = fechaVencimiento.getMonthValue() - fechaInicio.getMonthValue();

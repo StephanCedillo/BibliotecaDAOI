@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
  */
 package ups.edu.ec.bibleotecainterfaz.view;
+
 import ups.edu.ec.bibleotecainterfaz.view.*;
+
 /**
  *
  * @author stephancedillo
  */
 public class PrincipalView extends javax.swing.JFrame {
-
 
     //======= LIBRO =========
     private CrearLibroView crearLibroView;
@@ -17,19 +18,21 @@ public class PrincipalView extends javax.swing.JFrame {
     private EliminarLibroView eliminarLibroView;
     private BuscarLibroView buscarLibroView;
 
-     //======= USUARIO =========
+    //======= USUARIO =========
     private CrearUsuarioView crearUsuarioView;
     private ActualizarUsuarioView actualizarUsuarioView;
     private EliminarUsuarioView eliminarUsuarioView;
     private BuscarUsuarioView buscarUsuarioView;
-    
-     //======= PRESTAMO =========
-   private CrearPrestamoView crearPrestamoView;
-   private BuscarPrestamoView buscarPrestamoView;
+
+    //======= PRESTAMO =========
+    private CrearPrestamoView crearPrestamoView;
+    private BuscarPrestamoView buscarPrestamoView;
     
     public PrincipalView() {
         initComponents();
         
+        
+
     }
 
     /**

@@ -4,6 +4,10 @@
  */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import ups.edu.ec.bibleotecainterfaz.view.*;
+
 /**
  *
  * @author stephancedillo
@@ -14,12 +18,16 @@ public class UserController {
     private BuscarUsuarioView buscarUsuarioView;
     private EliminarUsuarioView eliminarUsuarioView;
     private CrearUsuarioView crearUsuarioView;
-    
-    public UserController(ActualizarUsuarioView actualizarUsuarioView, BuscarUsuarioView buscarUsuarioView, EliminarUsuarioView eliminarUsuarioView, CrearUsuarioView crearUsuarioView;) {
+    private ListarUsuarioView listarUsuarioView;
+
+    public UserController(ActualizarUsuarioView actualizarUsuarioView, BuscarUsuarioView buscarUsuarioView,
+            EliminarUsuarioView eliminarUsuarioView, CrearUsuarioView crearUsuarioView,
+            ListarUsuarioView listarUsuarioView) {
         this.actualizarUsuarioView = actualizarUsuarioView;
-        this.buscarUsuarioView= buscarUsuarioView;
+        this.buscarUsuarioView = buscarUsuarioView;
         this.eliminarUsuarioView = eliminarUsuarioView;
         this.crearUsuarioView = crearUsuarioView;
+        this.listarUsuarioView = listarUsuarioView;
         configurarEventos();
         cambioIdioma();
     }
@@ -29,90 +37,102 @@ public class UserController {
         configurarEventosBuscarUsuario();
         configurarEventosEliminarUsuario();
         configurarEventosCrearUsuario();
-
+        configurarEventosListarUsuario();
     }
 
     private void configurarEventosActualizarUsuario() {
         actualizarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                buscarAcrUsuario();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        buscarAcrUsuario();
+                    }
+                });
         actualizarUsuarioView.getBtnActualizacion().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                actualizarUsuario();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        actualizarUsuario();
+                    }
+                });
     }
 
     private void configurarEventosEliminarUsuario() {
 
         eliminarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 buscarElirUsuario();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        buscarElirUsuario();
+                    }
+                });
         eliminarUsuarioView.getBtnEliminar().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 eliminarUsuario();
-            }
-        });
- 
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        eliminarUsuario();
+                    }
+                });
+
     }
 
     private void configurarEventosCrearUsuario() {
         crearUsuarioView.getBtnAceptar().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 crearUsuario();
-            }
-        });
-        
-       
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        crearUsuario();
+                    }
+                });
+
     }
 
     private void configurarEventosBuscarUsuario() {
-          buscarUsuarioView.getBtnBuscar().addActionListener(
+        buscarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 buscarUsuario();
-            }
-        });    
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        buscarUsuario();
+                    }
+                });
     }
 
-    
+    private void configurarEventosListarUsuario() {
+        listarUsuario();
+    }
+
     private void buscarAcrUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void actualizarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void buscarElirUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void eliminarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void crearUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void buscarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from
+                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void listarUsuario() {
+
     }
 
     private void cambioIdioma() {
@@ -120,6 +140,8 @@ public class UserController {
         cambioIdiomaBuscarUsuario();
         cambioIdiomaEliminarUsuario();
         cambioIdiomaCrearUsuario();
+        cambioIdiomaListarUsuario();
+
     }
 
     private void cambioIdiomaCrearUsuario() {
@@ -138,5 +160,8 @@ public class UserController {
 
     }
 
-    
+    private void cambioIdiomaListarUsuario() {
+
+    }
+
 }

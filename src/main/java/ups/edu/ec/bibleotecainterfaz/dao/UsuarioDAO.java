@@ -13,7 +13,7 @@ import ups.edu.ec.bibleotecainterfaz.models.Usuario;
  * @author stephancedillo
  */
 public interface UsuarioDAO {
-     void crear(Usuario usuario);
+    void crear(Usuario usuario);
     Usuario buscar(String cedula);
     boolean actualizar(Usuario usuario);
     boolean eliminar(String cedula);
