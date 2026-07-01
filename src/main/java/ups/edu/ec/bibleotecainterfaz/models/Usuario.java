@@ -9,9 +9,7 @@ public class Usuario extends Persona {
     private String contrasena;
     private Membresia membresia;
 
-    public Usuario() {
-        membresia = new Membresia();
-    }
+  
 
     public Usuario(String email, String contrasena, String cedula,
             int edad, String nombre, String apellido, String direccion,

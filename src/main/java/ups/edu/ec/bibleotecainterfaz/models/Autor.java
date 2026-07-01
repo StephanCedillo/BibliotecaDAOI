@@ -11,15 +11,12 @@ public class Autor extends Persona {
 
     private ArrayList<Libro> libros;
 
-    public Autor() {
-        libros = new ArrayList<>();
+   
 
-    }
+    
 
-    public Autor(String cedula, int edad, String nombre, String apellido, 
-            String direccion, boolean estadoVivo, boolean tieneDiscapacidad,
-            String genero) {
-        super(cedula, edad, nombre, apellido, direccion, estadoVivo, tieneDiscapacidad, genero);
+    public Autor(String nombre, String apellido) {
+        super(nombre, apellido);
         libros = new ArrayList<>();
     }
     
@@ -27,9 +24,7 @@ public class Autor extends Persona {
     @Override
     public String toString() {
 
-        //ARREGLAR
-      return ""+super.getNombre() + super.getApellido();
-      
+       return super.getNombre() +" "+super.getApellido();
     }
 
     public void agregarLibro(Libro libro) {

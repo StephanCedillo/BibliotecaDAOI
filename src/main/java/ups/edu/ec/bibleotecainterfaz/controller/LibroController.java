@@ -4,11 +4,13 @@
  */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import ups.edu.ec.bibleotecainterfaz.dao.LibroDAO;
 import ups.edu.ec.bibleotecainterfaz.models.Autor;
+import ups.edu.ec.bibleotecainterfaz.models.Libro;
 import ups.edu.ec.bibleotecainterfaz.view.ActualizarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.BuscarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.EliminarLibroView;
@@ -28,13 +30,12 @@ public class LibroController {
     private ListarLibroView listarLibroView;
 
     // =========DAO =========
-    
+
     private LibroDAO libroDAO;
-    
-    
+
     public LibroController(ActualizarLibroView actualizarLibroView, BuscarLibroView buscarLibroView,
-            EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView
-        ,LibroDAO libroDAO) {
+            EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView,
+            LibroDAO libroDAO) {
         this.actualizarLibroView = actualizarLibroView;
         this.buscarLibroView = buscarLibroView;
         this.eliminarLibroView = eliminarLibroView;
@@ -55,10 +56,8 @@ public class LibroController {
     }
 
     private void configurarEventosListarLibro() {
-       // listarLibro();
+        // listarLibro();
     }
-
-   
 
     private void configurarEventosActualizarLibro() {
         actualizarLibroView.getBtnBuscar().addActionListener(
@@ -104,12 +103,17 @@ public class LibroController {
                         crearLibro();
                     }
                 });
+        crearLibroView.getBtnCrearAutor().addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        crearAutor();
+                    }
+                });
         actualizarAutores();
-       
 
     }
 
-   
     private void configurarEventosBuscarLibro() {
         buscarLibroView.getBtnBuscar().addActionListener(
                 new ActionListener() {
@@ -120,41 +124,99 @@ public class LibroController {
                 });
     }
 
-     private void actualizarAutores(){
-         if(libroDAO.listarAutores().size() == 0){
-             return;
-         }
-         for (Autor autor : libroDAO.listarAutores()) {
+    private void actualizarAutores() {
+         crearLibroView.getComboBoxAutores().removeAllItems();
+        if (libroDAO.listarAutores().size() == 0) {
+            return;
+        }
+        for (Autor autor : libroDAO.listarAutores()) {
             crearLibroView.getComboBoxAutores().addItem(autor);
         }
-        crearLibroView.getComboBoxAutores().addItem(new Autor("-1", 0, "No Encontrado", null, null, false, false, null));   
+
     }
-     
+
     private void buscarActLibro() {
+
+        Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
+        
+        //=======CAMBIOS EN TODAS LAS VARIABLES ===========
+        
+        actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+        actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+        actualizarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+       
+        actualizarLibroView.getTxtRestriccionEdadBuscada().setText(libro.isSirestriccionEdad()?restriccionEdad:restriccionEdadNo);
+        actualizarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+        actualizarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+        actualizarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+
+        if(libro.estaDisponible()){
+          //  actualizarLibroView.getPnlEstado().setBackground(new Color(0,255,0));
+        }else{
+            //actualizarLibroView.getPnlEstado().setBackground(new Color(255,51,51));
+        }
       
     }
 
     private void actualizarLibro() {
-    
+
     }
 
     private void buscarElimLibro() {
-    
+
     }
 
     private void eliminarLibro() {
-  
+
     }
 
     private void crearLibro() {
-    
+        libroDAO.crear(new Libro(crearLibroView.getTxtISBN().getText(),
+                (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
+                crearLibroView.getTxtNombre().getText(),
+                crearLibroView.getTxtGenero().getText(),
+                crearLibroView.getRadioButtonRestriccion().isSelected(),
+                Integer.parseInt(crearLibroView.getTxtNumeroPaginas().getText()),
+                crearLibroView.getTxtIdioma().getText(),
+                false));
+
+        System.out.println("Creado");
     }
 
+    private String restriccionEdad= "Si posee";
+    private String restriccionEdadNo = "No posee";
     private void buscarLibro() {
-  
+        Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
+        
+        //=======CAMBIOS EN TODAS LAS VARIABLES ===========
+        
+        buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+        buscarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+        buscarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+       
+        buscarLibroView.getTxtRestriccionEdadBuscada().setText(libro.isSirestriccionEdad()?restriccionEdad:restriccionEdadNo);
+        buscarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+        buscarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+        buscarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+
+        if(libro.estaDisponible()){
+            buscarLibroView.getPnlEstado().setBackground(new Color(0,255,0));
+        }else{
+            buscarLibroView.getPnlEstado().setBackground(new Color(255,51,51));
+        }
+        
+
     }
+
     private void listarLibro() {
-  
+
+    }
+
+    private void crearAutor() {
+        libroDAO.crearAutor(
+                new Autor(crearLibroView.getTxtNombreAutor().getText(),
+                        crearLibroView.getTxtApellido().getText()));
+        actualizarAutores();
     }
 
     private void cambioIdioma() {

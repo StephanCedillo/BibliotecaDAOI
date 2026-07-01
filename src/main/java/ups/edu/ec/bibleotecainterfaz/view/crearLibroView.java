@@ -61,7 +61,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         lblPreguntaExistenciaAutor = new javax.swing.JLabel();
         radioButtonRestriccion = new javax.swing.JRadioButton();
         comboBoxAutores = new javax.swing.JComboBox<>();
-        btnAceptar1 = new javax.swing.JButton();
+        btnCrearAutor = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
@@ -180,8 +180,8 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
 
         comboBoxAutores.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
-        btnAceptar1.setBackground(new java.awt.Color(51, 51, 51));
-        btnAceptar1.setText("Crear Autor");
+        btnCrearAutor.setBackground(new java.awt.Color(51, 51, 51));
+        btnCrearAutor.setText("Crear Autor");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -241,7 +241,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                                     .addComponent(txtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
-                                    .addComponent(btnAceptar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -290,7 +290,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                     .addComponent(txtNombreAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAceptar1)
+                .addComponent(btnCrearAutor)
                 .addContainerGap())
         );
 
@@ -365,6 +365,12 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         return lblTituloCreacionLibro;
     }
 
+    public JButton getBtnCrearAutor() {
+        return btnCrearAutor;
+    }
+    
+
+    
     
     public JButton getBtnAceptar() {
         return btnAceptar;
@@ -458,7 +464,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
-    private javax.swing.JButton btnAceptar1;
+    private javax.swing.JButton btnCrearAutor;
     private javax.swing.JComboBox<Autor> comboBoxAutores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

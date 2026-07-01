@@ -3,7 +3,7 @@ package ups.edu.ec.bibleotecainterfaz.models;
 public class Libro {
 
     private String ISBN;
-    private Autor autor = new Autor();
+    private Autor autor;
     private String nombre;
     private String genero;
     private boolean sirestriccionEdad;
@@ -12,21 +12,17 @@ public class Libro {
     private boolean siestadoDisponibilidad;
 
 
-    public Libro() {
-    }
-
-    public Libro(String ISBN, String nombre, String genero, boolean sirestriccionEdad, int numeroPaginas, String idioma, boolean siestadoDisponibilidad) {
+    public Libro(String ISBN, Autor autor, String nombre, String genero, boolean sirestriccionEdad, int numeroPaginas, String idioma, boolean siestadoDisponibilidad) {
         this.ISBN = ISBN;
+        this.autor = autor;
         this.nombre = nombre;
         this.genero = genero;
         this.sirestriccionEdad = sirestriccionEdad;
         this.numeroPaginas = numeroPaginas;
         this.idioma = idioma;
         this.siestadoDisponibilidad = siestadoDisponibilidad;
-        this.autor = null;
     }
 
-   
 
     public String getISBN() {
         return ISBN;

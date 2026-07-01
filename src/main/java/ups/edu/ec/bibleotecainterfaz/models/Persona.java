@@ -10,9 +10,14 @@ public class Persona {
     private boolean tieneDiscapacidad;
     private String genero;
 
-    public Persona() {
-    }
     
+
+    
+    public Persona(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+    }
+
     public Persona(String cedula, int edad, String nombre, 
             String apellido, String direccion, boolean estadoVivo,
             boolean tieneDiscapacidad, String genero) {
