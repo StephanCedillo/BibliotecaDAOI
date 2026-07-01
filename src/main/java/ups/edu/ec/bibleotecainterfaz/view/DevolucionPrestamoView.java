@@ -4,6 +4,12 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author stephancedillo
@@ -17,6 +23,67 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JButton getBtnCedula() {
+        return btnCedula;
+    }
+
+    public JButton getBtnDevolucion() {
+        return btnDevolucion;
+    }
+
+    public JButton getBtnID() {
+        return btnID;
+    }
+
+    public JButton getBtnISBN() {
+        return btnISBN;
+    }
+
+    public JLabel getLblEstado() {
+        return lblEstado;
+    }
+
+    public JPanel getPnlEstadoDevuelto() {
+        return pnlEstadoDevuelto;
+    }
+
+    public JTable getTblLibrosBuscados() {
+        return tblLibrosBuscados;
+    }
+
+    public JTextField getTxtCedulaBuscado() {
+        return txtCedulaBuscado;
+    }
+
+    public JTextField getTxtFechaDevueltoBuscado() {
+        return txtFechaDevueltoBuscado;
+    }
+
+    public JTextField getTxtFechaPedidoBuscado() {
+        return txtFechaPedidoBuscado;
+    }
+
+    public JTextField getTxtGmailBuscado() {
+        return txtGmailBuscado;
+    }
+
+    public JTextField getTxtICedula() {
+        return txtICedula;
+    }
+
+    public JTextField getTxtID() {
+        return txtID;
+    }
+
+    public JTextField getTxtISBN() {
+        return txtISBN;
+    }
+
+    public JTextField getTxtNombreBuscado() {
+        return txtNombreBuscado;
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

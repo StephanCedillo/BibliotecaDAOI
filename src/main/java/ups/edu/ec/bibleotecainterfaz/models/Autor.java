@@ -26,11 +26,10 @@ public class Autor extends Persona {
 
     @Override
     public String toString() {
-         String resultado = super.toString(); 
-         for (Libro libro : libros) {
-            resultado += "- " + libro.estaDisponible() +"\n"+ " (Nombre: " + libro.getNombre() + ")\n";
-        }
-        return resultado;
+
+        //ARREGLAR
+      return ""+super.getNombre() + super.getApellido();
+      
     }
 
     public void agregarLibro(Libro libro) {

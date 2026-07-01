@@ -76,6 +76,11 @@ public class LibroDAOMemoria implements LibroDAO {
 
     }
 
+    @Override
+    public List<Autor> listarAutores() {
+        return listaAutor;
+    }
+
    
 
 }

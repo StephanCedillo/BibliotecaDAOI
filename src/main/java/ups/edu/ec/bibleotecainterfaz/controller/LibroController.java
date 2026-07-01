@@ -6,6 +6,9 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import ups.edu.ec.bibleotecainterfaz.dao.LibroDAO;
+import ups.edu.ec.bibleotecainterfaz.models.Autor;
 import ups.edu.ec.bibleotecainterfaz.view.ActualizarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.BuscarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.EliminarLibroView;
@@ -24,13 +27,20 @@ public class LibroController {
     private CrearLibroView crearLibroView;
     private ListarLibroView listarLibroView;
 
+    // =========DAO =========
+    
+    private LibroDAO libroDAO;
+    
+    
     public LibroController(ActualizarLibroView actualizarLibroView, BuscarLibroView buscarLibroView,
-            EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView) {
+            EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView
+        ,LibroDAO libroDAO) {
         this.actualizarLibroView = actualizarLibroView;
         this.buscarLibroView = buscarLibroView;
         this.eliminarLibroView = eliminarLibroView;
         this.crearLibroView = crearLibroView;
         this.listarLibroView = listarLibroView;
+        this.libroDAO = libroDAO;
         configurarEventos();
         cambioIdioma();
     }
@@ -45,9 +55,7 @@ public class LibroController {
     }
 
     private void configurarEventosListarLibro() {
-
-        // DESARROLLAR ALFONSO
-        listarLibro();
+       // listarLibro();
     }
 
    
@@ -96,9 +104,12 @@ public class LibroController {
                         crearLibro();
                     }
                 });
+        actualizarAutores();
+       
 
     }
 
+   
     private void configurarEventosBuscarLibro() {
         buscarLibroView.getBtnBuscar().addActionListener(
                 new ActionListener() {
@@ -109,37 +120,41 @@ public class LibroController {
                 });
     }
 
+     private void actualizarAutores(){
+         if(libroDAO.listarAutores().size() == 0){
+             return;
+         }
+         for (Autor autor : libroDAO.listarAutores()) {
+            crearLibroView.getComboBoxAutores().addItem(autor);
+        }
+        crearLibroView.getComboBoxAutores().addItem(new Autor("-1", 0, "No Encontrado", null, null, false, false, null));   
+    }
+     
     private void buscarActLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+      
     }
 
     private void actualizarLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
     }
 
     private void buscarElimLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
     }
 
     private void eliminarLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+  
     }
 
     private void crearLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
     }
 
     private void buscarLibro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+  
     }
     private void listarLibro() {
-           // DESARROLLAR ALFONSO
+  
     }
 
     private void cambioIdioma() {
@@ -167,7 +182,7 @@ public class LibroController {
     }
 
     private void cambioIdiomaListarLibro() {
-             // DESARROLLAR ALFONSO
+
     }
 
 }

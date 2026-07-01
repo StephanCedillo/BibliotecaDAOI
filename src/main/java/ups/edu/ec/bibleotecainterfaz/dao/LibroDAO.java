@@ -19,6 +19,7 @@ public interface LibroDAO {
     boolean actualizar(Libro libro);
     boolean eliminar(String ISBN);
     List<Libro> listar();
+    List<Autor> listarAutores();
     void crearListadoTemporal(int cantidad);
     
 }

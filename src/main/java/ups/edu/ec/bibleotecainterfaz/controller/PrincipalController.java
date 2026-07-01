@@ -90,8 +90,8 @@ public class PrincipalController {
 
 
     private void inicializarControllers() {
-        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
-                listarLibroView);
+       libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
+                listarLibroView,libroDAO);
 
         userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
                 crearUsuarioView, listarUsuarioView);

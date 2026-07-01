@@ -325,6 +325,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtRestriccionEdadBuscada">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblRestriccionEdad">
               <Properties>
@@ -338,6 +341,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtAutorBuscado">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAutorBuscadoActionPerformed"/>
               </Events>
@@ -354,6 +360,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdiomaBuscado">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblISBN2">
               <Properties>
@@ -367,6 +376,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtGeneroBuscado">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblNumeroPaginas">
               <Properties>
@@ -380,6 +392,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNumeroPaginas">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEstado">
               <Properties>
