@@ -6,6 +6,8 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import ups.edu.ec.bibleotecainterfaz.dao.UsuarioDAO;
 import ups.edu.ec.bibleotecainterfaz.view.*;
 
 /**
@@ -20,17 +22,26 @@ public class UserController {
     private CrearUsuarioView crearUsuarioView;
     private ListarUsuarioView listarUsuarioView;
 
-    public UserController(ActualizarUsuarioView actualizarUsuarioView, BuscarUsuarioView buscarUsuarioView,
-            EliminarUsuarioView eliminarUsuarioView, CrearUsuarioView crearUsuarioView,
-            ListarUsuarioView listarUsuarioView) {
-        this.actualizarUsuarioView = actualizarUsuarioView;
-        this.buscarUsuarioView = buscarUsuarioView;
-        this.eliminarUsuarioView = eliminarUsuarioView;
-        this.crearUsuarioView = crearUsuarioView;
-        this.listarUsuarioView = listarUsuarioView;
-        configurarEventos();
-        cambioIdioma();
-    }
+    private UsuarioDAO usuarioDAO;
+
+   public UserController(
+        ActualizarUsuarioView actualizarUsuarioView,
+        BuscarUsuarioView buscarUsuarioView,
+        EliminarUsuarioView eliminarUsuarioView,
+        CrearUsuarioView crearUsuarioView,
+        ListarUsuarioView listarUsuarioView,
+        UsuarioDAO usuarioDAO) {
+
+    this.actualizarUsuarioView = actualizarUsuarioView;
+    this.buscarUsuarioView = buscarUsuarioView;
+    this.eliminarUsuarioView = eliminarUsuarioView;
+    this.crearUsuarioView = crearUsuarioView;
+    this.listarUsuarioView = listarUsuarioView;
+    this.usuarioDAO = usuarioDAO;
+
+    configurarEventos();
+    cambioIdioma();
+}
 
     private void configurarEventos() {
         configurarEventosActualizarUsuario();

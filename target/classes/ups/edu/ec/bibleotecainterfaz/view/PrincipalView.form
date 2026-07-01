@@ -27,7 +27,7 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="menuLibro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Libros"/>
           </Properties>

@@ -121,7 +121,7 @@ public class Libro {
     public boolean tieneRestriccionEdad() {
         return this.sirestriccionEdad;
     }
-    public void agregarAutor(Autor autor){
+    public void setAutor(Autor autor){
         this.autor = autor;
     }
 

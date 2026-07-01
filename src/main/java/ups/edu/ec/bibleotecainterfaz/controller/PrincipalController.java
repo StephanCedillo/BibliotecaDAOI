@@ -94,7 +94,7 @@ public class PrincipalController {
                 listarLibroView,libroDAO);
 
         userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
-                crearUsuarioView, listarUsuarioView);
+                crearUsuarioView, listarUsuarioView,usuarioDAO);
         prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, crearPrestamoView,
                 listarPrestamoView);
     }

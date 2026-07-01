@@ -108,7 +108,7 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane = new javax.swing.JDesktopPane();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        menuLibro = new javax.swing.JMenu();
         btnCrearLibro = new javax.swing.JMenuItem();
         btnActualizarLibro = new javax.swing.JMenuItem();
         btnEliminarLibro = new javax.swing.JMenuItem();
@@ -157,29 +157,29 @@ public class PrincipalView extends javax.swing.JFrame {
         desktopPane.add(jInternalFrame1);
         jInternalFrame1.setBounds(0, 0, 200, 30);
 
-        jMenu3.setText("Libros");
+        menuLibro.setText("Libros");
 
         btnCrearLibro.setText("Crear");
         btnCrearLibro.addActionListener(this::btnCrearLibroActionPerformed);
-        jMenu3.add(btnCrearLibro);
+        menuLibro.add(btnCrearLibro);
 
         btnActualizarLibro.setText("Actualizar");
         btnActualizarLibro.addActionListener(this::btnActualizarLibroActionPerformed);
-        jMenu3.add(btnActualizarLibro);
+        menuLibro.add(btnActualizarLibro);
 
         btnEliminarLibro.setText("Eliminar");
         btnEliminarLibro.addActionListener(this::btnEliminarLibroActionPerformed);
-        jMenu3.add(btnEliminarLibro);
+        menuLibro.add(btnEliminarLibro);
 
         btnListarLibro.setText("Listar");
         btnListarLibro.addActionListener(this::btnListarLibroActionPerformed);
-        jMenu3.add(btnListarLibro);
+        menuLibro.add(btnListarLibro);
 
         btnBuscarLibro.setText("Buscar");
         btnBuscarLibro.addActionListener(this::btnBuscarLibroActionPerformed);
-        jMenu3.add(btnBuscarLibro);
+        menuLibro.add(btnBuscarLibro);
 
-        jMenuBar2.add(jMenu3);
+        jMenuBar2.add(menuLibro);
 
         jMenu4.setText("Usuarios");
 
@@ -438,7 +438,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
@@ -448,6 +447,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenu menuLibro;
     // End of variables declaration//GEN-END:variables
 
 }

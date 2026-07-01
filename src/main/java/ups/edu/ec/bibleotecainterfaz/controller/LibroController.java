@@ -131,7 +131,7 @@ public class LibroController {
         }
         for (Autor autor : libroDAO.listarAutores()) {
             crearLibroView.getComboBoxAutores().addItem(autor);
-            actualizarLibroView.getComboBoxAutores().removeAllItems();
+            actualizarLibroView.getComboBoxAutores().addItem(autor);
         }
 
     }
@@ -140,8 +140,13 @@ public class LibroController {
 
         Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
+        if (libro == null) {
+            System.out.println("Libro no encontrado");
+            return;
+        }
         // =======CAMBIOS EN TODAS LAS VARIABLES ===========
 
+        
         actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
         actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
         actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
@@ -161,9 +166,14 @@ public class LibroController {
     private void actualizarLibro() {
         Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
+        if (libro == null) {
+            System.out.println("Libro no encontrado");
+            return;
+        }
+
         libro.setNombre(actualizarLibroView.getTxtTituloBuscado().getText());
         libro.setGenero(actualizarLibroView.getTxtGeneroBuscado().getText());
-        libro.agregarAutor((Autor) actualizarLibroView.getComboBoxAutores().getSelectedItem());
+        libro.setAutor((Autor) actualizarLibroView.getComboBoxAutores().getSelectedItem());
         libro.setSirestriccionEdad(actualizarLibroView.getRadioButtonRestriccion().isSelected());
         libro.setNumeroPaginas(Integer.parseInt(actualizarLibroView.getTxtNumeroPaginas().getText()));
         libro.setIdioma(actualizarLibroView.getTxtIdiomaBuscado().getText());
@@ -177,6 +187,11 @@ public class LibroController {
 
     private void buscarElimLibro() {
         Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
+
+        if (libro == null) {
+            System.out.println("Libro no encontrado");
+            return;
+        }
 
         // =======CAMBIOS EN TODAS LAS VARIABLES ===========
 
@@ -197,10 +212,18 @@ public class LibroController {
         }
     }
 
+
+    /// ================ HACER ALFONSO ================
     private void eliminarLibro() {
-         libroDAO.eliminar(eliminarLibroView.getTxtISBN().getText());
-         // IMPLEMENTAR ELIMINACION DE LIBRO EN LA VISTA
-         // PARA QUE EL USUARIO ESTE SEGURO SI QUIERE ELIMINAR EL LIBRO
+        Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
+
+        if (libro == null) {
+            System.out.println("Libro no encontrado");
+            return;
+        }
+        libroDAO.eliminar(libro.getISBN());
+        // IMPLEMENTAR ELIMINACION DE LIBRO EN LA VISTA
+        // PARA QUE EL USUARIO ESTE SEGURO SI QUIERE ELIMINAR EL LIBRO
     }
 
     private void crearLibro() {
@@ -222,6 +245,10 @@ public class LibroController {
     private void buscarLibro() {
         Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
 
+        if (libro == null) {
+            System.out.println("Libro no encontrado");
+            return;
+        }
         // =======CAMBIOS EN TODAS LAS VARIABLES ===========
 
         buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
