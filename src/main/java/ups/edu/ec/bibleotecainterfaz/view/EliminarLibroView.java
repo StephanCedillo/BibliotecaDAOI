@@ -6,6 +6,7 @@ package ups.edu.ec.bibleotecainterfaz.view;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -20,6 +21,11 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
     public EliminarLibroView() {
         initComponents();
     }
+
+    public JPanel getPnlEstado() {
+        return pnlEstado;
+    }
+    
 
     public JButton getBtnEliminar() {
         return btnEliminar;
@@ -130,7 +136,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
         lblNumeroPaginas = new javax.swing.JLabel();
         txtNumeroPaginas = new javax.swing.JTextField();
         lblEstado = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        pnlEstado = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
@@ -223,17 +229,17 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
         lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEstado.setText("Estado:");
 
-        jPanel4.setBackground(new java.awt.Color(0, 255, 0));
-        jPanel4.setForeground(new java.awt.Color(51, 255, 51));
+        pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
+        pnlEstado.setForeground(new java.awt.Color(51, 255, 51));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlEstadoLayout = new javax.swing.GroupLayout(pnlEstado);
+        pnlEstado.setLayout(pnlEstadoLayout);
+        pnlEstadoLayout.setHorizontalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 186, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlEstadoLayout.setVerticalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
@@ -279,7 +285,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
                         .addGap(30, 30, 30))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20))))
         );
@@ -305,7 +311,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
                     .addComponent(txtRestriccionEdadBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -394,7 +400,6 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblAutor;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblGenero;
@@ -405,6 +410,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRestriccionEdad;
     private javax.swing.JLabel lblTituloBuscado;
     private javax.swing.JLabel lblTituloBusquedaLibro;
+    private javax.swing.JPanel pnlEstado;
     private javax.swing.JTextField txtAutorBuscado;
     private javax.swing.JTextField txtGeneroBuscado;
     private javax.swing.JTextField txtISBN;

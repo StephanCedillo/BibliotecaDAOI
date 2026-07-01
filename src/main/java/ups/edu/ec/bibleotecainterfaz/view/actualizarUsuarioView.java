@@ -23,6 +23,11 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JPanel getPnlEstado() {
+        return pnlEstado;
+    }
+    
+
     public JButton getBtnBuscar() {
         return btnBuscar;
     }
@@ -91,7 +96,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     }
 
     public JPanel getPnlEstadoDiscapacidadBuscado() {
-        return pnlEstadoDiscapacidadBuscado;
+        return pnlEstado;
     }
 
     public JTextField getTxtCedula() {
@@ -154,7 +159,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         lblMembresia = new javax.swing.JLabel();
         txtMembresiaBuscado = new javax.swing.JTextField();
         lblDiscapacidad = new javax.swing.JLabel();
-        pnlEstadoDiscapacidadBuscado = new javax.swing.JPanel();
+        pnlEstado = new javax.swing.JPanel();
         txtFormatedFechaCaducidadBuscado = new javax.swing.JFormattedTextField();
         txtNombreBuscado = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
@@ -241,17 +246,17 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         lblDiscapacidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblDiscapacidad.setText("Discapacidad");
 
-        pnlEstadoDiscapacidadBuscado.setBackground(new java.awt.Color(0, 255, 0));
-        pnlEstadoDiscapacidadBuscado.setForeground(new java.awt.Color(51, 255, 51));
+        pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
+        pnlEstado.setForeground(new java.awt.Color(51, 255, 51));
 
-        javax.swing.GroupLayout pnlEstadoDiscapacidadBuscadoLayout = new javax.swing.GroupLayout(pnlEstadoDiscapacidadBuscado);
-        pnlEstadoDiscapacidadBuscado.setLayout(pnlEstadoDiscapacidadBuscadoLayout);
-        pnlEstadoDiscapacidadBuscadoLayout.setHorizontalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlEstadoLayout = new javax.swing.GroupLayout(pnlEstado);
+        pnlEstado.setLayout(pnlEstadoLayout);
+        pnlEstadoLayout.setHorizontalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 186, Short.MAX_VALUE)
         );
-        pnlEstadoDiscapacidadBuscadoLayout.setVerticalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlEstadoLayout.setVerticalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
@@ -303,18 +308,17 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                         .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtApellidoBuscado))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(lblMembresia)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtMembresiaBuscado))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(lblFechaCaducidad)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtFormatedFechaCaducidadBuscado))
-                        .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDiscapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(lblMembresia)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMembresiaBuscado))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lblFechaCaducidad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtFormatedFechaCaducidadBuscado))
+                    .addComponent(pnlEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -347,7 +351,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                     .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDiscapacidad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -448,7 +452,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
-    private javax.swing.JPanel pnlEstadoDiscapacidadBuscado;
+    private javax.swing.JPanel pnlEstado;
     private javax.swing.JFormattedTextField txtApellidoBuscado;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccionBuscado;

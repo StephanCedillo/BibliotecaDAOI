@@ -213,21 +213,19 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtApellidoBuscado" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                  <Component id="lblMembresia" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtMembresiaBuscado" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblFechaCaducidad" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtFormatedFechaCaducidadBuscado" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="pnlEstadoDiscapacidadBuscado" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDiscapacidad" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="lblMembresia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtMembresiaBuscado" max="32767" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblFechaCaducidad" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtFormatedFechaCaducidadBuscado" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="pnlEstado" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDiscapacidad" alignment="1" min="-2" pref="199" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
@@ -269,7 +267,7 @@
                           <Component id="lblDiscapacidad" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="pnlEstadoDiscapacidadBuscado" min="-2" max="-2" attributes="0"/>
+                      <Component id="pnlEstado" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -406,7 +404,7 @@
                 <Property name="text" type="java.lang.String" value="Discapacidad"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="pnlEstadoDiscapacidadBuscado">
+            <Container class="javax.swing.JPanel" name="pnlEstado">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="ff" red="0" type="rgb"/>

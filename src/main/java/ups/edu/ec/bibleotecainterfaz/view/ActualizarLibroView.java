@@ -5,8 +5,12 @@
 package ups.edu.ec.bibleotecainterfaz.view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import ups.edu.ec.bibleotecainterfaz.models.Autor;
 
 /**
  *
@@ -21,6 +25,11 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    public JPanel getPnlEstado() {
+        return pnlEstado;
+    }
+
+    
     public JButton getBtnActualizacion() {
         return btnActualizacion;
     }
@@ -79,9 +88,6 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         return lblTituloBusquedaLibro;
     }
 
-    public JTextField getTxtAutorBuscado() {
-        return txtAutorBuscado;
-    }
 
     public JTextField getTxtGeneroBuscado() {
         return txtGeneroBuscado;
@@ -103,9 +109,16 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         return txtNumeroPaginas;
     }
 
-    public JTextField getTxtRestriccionEdadBuscada() {
-        return txtRestriccionEdadBuscada;
+    public JRadioButton getRadioButtonRestriccion() {
+        return radioButtonRestriccion;
     }
+
+    public JComboBox<Autor> getComboBoxAutores() {
+        return comboBoxAutores;
+    }
+
+    
+   
 
     
     /**
@@ -129,9 +142,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         lblTitulo = new javax.swing.JLabel();
         lblAutor = new javax.swing.JLabel();
         lblGenero = new javax.swing.JLabel();
-        txtRestriccionEdadBuscada = new javax.swing.JTextField();
         lblRestriccionEdad = new javax.swing.JLabel();
-        txtAutorBuscado = new javax.swing.JTextField();
         lblIdioma = new javax.swing.JLabel();
         txtIdiomaBuscado = new javax.swing.JTextField();
         lblISBN2 = new javax.swing.JLabel();
@@ -139,8 +150,10 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         lblNumeroPaginas = new javax.swing.JLabel();
         txtNumeroPaginas = new javax.swing.JTextField();
         lblEstado = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        pnlEstado = new javax.swing.JPanel();
         txtTituloBuscado = new javax.swing.JTextField();
+        radioButtonRestriccion = new javax.swing.JRadioButton();
+        comboBoxAutores = new javax.swing.JComboBox<>();
         btnActualizacion = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
@@ -205,8 +218,6 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         lblRestriccionEdad.setForeground(new java.awt.Color(51, 51, 51));
         lblRestriccionEdad.setText("Restriccion de edad: ");
 
-        txtAutorBuscado.addActionListener(this::txtAutorBuscadoActionPerformed);
-
         lblIdioma.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblIdioma.setForeground(new java.awt.Color(51, 51, 51));
         lblIdioma.setText("Idioma:");
@@ -224,21 +235,27 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblEstado.setText("Estado:");
 
-        jPanel4.setBackground(new java.awt.Color(0, 255, 0));
-        jPanel4.setForeground(new java.awt.Color(51, 255, 51));
+        pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
+        pnlEstado.setForeground(new java.awt.Color(51, 255, 51));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlEstadoLayout = new javax.swing.GroupLayout(pnlEstado);
+        pnlEstado.setLayout(pnlEstadoLayout);
+        pnlEstadoLayout.setHorizontalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 186, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnlEstadoLayout.setVerticalGroup(
+            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
         txtTituloBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
+
+        radioButtonRestriccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        radioButtonRestriccion.setForeground(new java.awt.Color(0, 0, 0));
+        radioButtonRestriccion.addActionListener(this::radioButtonRestriccionActionPerformed);
+
+        comboBoxAutores.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -255,20 +272,20 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
                                 .addComponent(lblIdioma)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtIdiomaBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblRestriccionEdad)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(radioButtonRestriccion))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(lblISBN2)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txtISBNBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(lblAutor)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtAutorBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel3Layout.createSequentialGroup()
-                                    .addComponent(lblRestriccionEdad)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtRestriccionEdadBuscada))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(comboBoxAutores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +300,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
                                 .addGap(30, 30, 30))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(20, 20, 20))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -309,22 +326,21 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAutor)
                     .addComponent(lblNumeroPaginas)
-                    .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRestriccionEdad)
-                    .addComponent(txtRestriccionEdadBuscada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblEstado))
+                    .addComponent(lblEstado)
+                    .addComponent(radioButtonRestriccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(txtAutorBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblIdioma)
                             .addComponent(txtIdiomaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -372,7 +388,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnActualizacion)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -391,19 +407,19 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAutorBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAutorBuscadoActionPerformed
+    private void radioButtonRestriccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonRestriccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtAutorBuscadoActionPerformed
+    }//GEN-LAST:event_radioButtonRestriccionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizacion;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<Autor> comboBoxAutores;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblAutor;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblGenero;
@@ -414,13 +430,13 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblRestriccionEdad;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloBusquedaLibro;
-    private javax.swing.JTextField txtAutorBuscado;
+    private javax.swing.JPanel pnlEstado;
+    private javax.swing.JRadioButton radioButtonRestriccion;
     private javax.swing.JTextField txtGeneroBuscado;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtISBNBuscado;
     private javax.swing.JTextField txtIdiomaBuscado;
     private javax.swing.JTextField txtNumeroPaginas;
-    private javax.swing.JTextField txtRestriccionEdadBuscada;
     private javax.swing.JTextField txtTituloBuscado;
     // End of variables declaration//GEN-END:variables
 }
