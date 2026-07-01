@@ -93,20 +93,20 @@ private DefaultTableModel modelo;
         tblListarUsuario.setModel(modelo);
     }
     
-    public void cargarDatos(List<Usuario> usuarios){
-        modelo.setRowCount(0);
-        for (Usuario usuario : usuarios) {
-            Object[] fila = {
-                usuario.getNombre(),
-                usuario.getEmail(),
-                usuario.getEdad(),
-                usuario.getDireccion(),
-                usuario.getMembresia(),
-                usuario.getMembresia().getFechaVencimiento(),
-                usuario.isTieneDiscapacidad()};
-            modelo.addRow(fila);
-        }
-        
-    }
+//    public void cargarDatos(List<Usuario> usuarios){
+//        modelo.setRowCount(0);
+//        for (Usuario usuario : usuarios) {
+//            Object[] fila = {
+//                usuario.getNombre(),
+//                usuario.getEmail(),
+//                usuario.getEdad(),
+//                usuario.getDireccion(),
+//                usuario.getMembresia(),
+//                usuario.getMembresia().getFechaVencimiento(),
+//                usuario.isTieneDiscapacidad()};
+//            modelo.addRow(fila);
+//        }
+//        
+//    }
 
 }

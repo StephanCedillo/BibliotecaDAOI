@@ -22,6 +22,7 @@ public class Autor extends Persona {
         super(cedula, edad, nombre, apellido, direccion, estadoVivo, tieneDiscapacidad, genero);
         libros = new ArrayList<>();
     }
+    
 
     @Override
     public String toString() {
