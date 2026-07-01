@@ -88,7 +88,34 @@ public class PrincipalView extends javax.swing.JFrame {
                 crearUsuarioView, listarUsuarioView, devolucionPrestamoView, buscarPrestamoView, crearPrestamoView,
                 listarPrestamoView, libroController, prestamoController, userController, libroDAO, usuarioDAO,
                 prestamoDAO);
+       // saberTextos();
 
+    }
+    
+    public void saberTextos(){
+    System.out.println("btnActualizarLibro: " + btnActualizarLibro.getText());
+System.out.println("btnActualizarUsuario: " + btnActualizarUsuario.getText());
+System.out.println("btnBuscarLibro: " + btnBuscarLibro.getText());
+System.out.println("btnBuscarPrestamo: " + btnBuscarPrestamo.getText());
+System.out.println("btnBuscarUsuario: " + btnBuscarUsuario.getText());
+System.out.println("btnCrearLibro: " + btnCrearLibro.getText());
+System.out.println("btnCrearPrestamo: " + btnCrearPrestamo.getText());
+System.out.println("btnCrearUsuario: " + btnCrearUsuario.getText());
+System.out.println("btnDevolucion: " + btnDevolucion.getText());
+System.out.println("btnEliminarLibro: " + btnEliminarLibro.getText());
+System.out.println("btnEliminarUsuario: " + btnEliminarUsuario.getText());
+System.out.println("btnListarLibro: " + btnListarLibro.getText());
+System.out.println("btnListarPrestamo: " + btnListarPrestamo.getText());
+System.out.println("btnListarUsuario: " + btnListarUsuario.getText());
+
+System.out.println("menuConfiguracion: " + menuConfiguracion.getText());
+System.out.println("menuItemAleman: " + menuItemAleman.getText());
+System.out.println("menuItemEspanol: " + menuItemEspanol.getText());
+System.out.println("menuItemIngles: " + menuItemIngles.getText());
+System.out.println("menuItemRuso: " + menuItemRuso.getText());
+System.out.println("menuLibro: " + menuLibro.getText());
+System.out.println("menuRegistro: " + menuRegistro.getText());
+System.out.println("menuUsuarios: " + menuUsuarios.getText());
     }
 
     /**
@@ -114,22 +141,22 @@ public class PrincipalView extends javax.swing.JFrame {
         btnEliminarLibro = new javax.swing.JMenuItem();
         btnListarLibro = new javax.swing.JMenuItem();
         btnBuscarLibro = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        menuUsuarios = new javax.swing.JMenu();
         btnCrearUsuario = new javax.swing.JMenuItem();
         btnActualizarUsuario = new javax.swing.JMenuItem();
         btnEliminarUsuario = new javax.swing.JMenuItem();
         btnListarUsuario = new javax.swing.JMenuItem();
         btnBuscarUsuario = new javax.swing.JMenuItem();
-        btnRegistro = new javax.swing.JMenu();
+        menuRegistro = new javax.swing.JMenu();
         btnCrearPrestamo = new javax.swing.JMenuItem();
         btnDevolucion = new javax.swing.JMenuItem();
         btnListarPrestamo = new javax.swing.JMenuItem();
         btnBuscarPrestamo = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem17 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
-        jMenuItem15 = new javax.swing.JMenuItem();
+        menuConfiguracion = new javax.swing.JMenu();
+        menuItemEspanol = new javax.swing.JMenuItem();
+        menuItemRuso = new javax.swing.JMenuItem();
+        menuItemAleman = new javax.swing.JMenuItem();
+        menuItemIngles = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -181,67 +208,70 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(menuLibro);
 
-        jMenu4.setText("Usuarios");
+        menuUsuarios.setText("Usuarios");
 
         btnCrearUsuario.setText("Crear");
         btnCrearUsuario.addActionListener(this::btnCrearUsuarioActionPerformed);
-        jMenu4.add(btnCrearUsuario);
+        menuUsuarios.add(btnCrearUsuario);
 
         btnActualizarUsuario.setText("Actualizar");
         btnActualizarUsuario.addActionListener(this::btnActualizarUsuarioActionPerformed);
-        jMenu4.add(btnActualizarUsuario);
+        menuUsuarios.add(btnActualizarUsuario);
 
         btnEliminarUsuario.setText("Eliminar");
         btnEliminarUsuario.addActionListener(this::btnEliminarUsuarioActionPerformed);
-        jMenu4.add(btnEliminarUsuario);
+        menuUsuarios.add(btnEliminarUsuario);
 
         btnListarUsuario.setText("Listar");
         btnListarUsuario.addActionListener(this::btnListarUsuarioActionPerformed);
-        jMenu4.add(btnListarUsuario);
+        menuUsuarios.add(btnListarUsuario);
 
         btnBuscarUsuario.setText("Buscar");
         btnBuscarUsuario.addActionListener(this::btnBuscarUsuarioActionPerformed);
-        jMenu4.add(btnBuscarUsuario);
+        menuUsuarios.add(btnBuscarUsuario);
 
-        jMenuBar2.add(jMenu4);
+        jMenuBar2.add(menuUsuarios);
 
-        btnRegistro.setText("Registros");
+        menuRegistro.setText("Registros");
 
         btnCrearPrestamo.setText("Registro");
         btnCrearPrestamo.addActionListener(this::btnCrearPrestamoActionPerformed);
-        btnRegistro.add(btnCrearPrestamo);
+        menuRegistro.add(btnCrearPrestamo);
 
         btnDevolucion.setText("Devolucion");
         btnDevolucion.setToolTipText("");
         btnDevolucion.addActionListener(this::btnDevolucionActionPerformed);
-        btnRegistro.add(btnDevolucion);
+        menuRegistro.add(btnDevolucion);
 
         btnListarPrestamo.setText("Listar");
         btnListarPrestamo.addActionListener(this::btnListarPrestamoActionPerformed);
-        btnRegistro.add(btnListarPrestamo);
+        menuRegistro.add(btnListarPrestamo);
 
         btnBuscarPrestamo.setText("Buscar");
         btnBuscarPrestamo.addActionListener(this::btnBuscarPrestamoActionPerformed);
-        btnRegistro.add(btnBuscarPrestamo);
+        menuRegistro.add(btnBuscarPrestamo);
 
-        jMenuBar2.add(btnRegistro);
+        jMenuBar2.add(menuRegistro);
 
-        jMenu6.setText("Configuracion");
+        menuConfiguracion.setText("Configuracion");
 
-        jMenuItem17.setText("Español");
-        jMenu6.add(jMenuItem17);
+        menuItemEspanol.setText("Español");
+        menuItemEspanol.addActionListener(this::menuItemEspanolActionPerformed);
+        menuConfiguracion.add(menuItemEspanol);
 
-        jMenuItem16.setText("Ingles");
-        jMenuItem16.addActionListener(this::jMenuItem16ActionPerformed);
-        jMenu6.add(jMenuItem16);
+        menuItemRuso.setText("Ruso");
+        menuItemRuso.addActionListener(this::menuItemRusoActionPerformed);
+        menuConfiguracion.add(menuItemRuso);
 
-        jMenuItem14.setText("jMenuItem14");
-        jMenu6.add(jMenuItem14);
+        menuItemAleman.setText("Aleman");
+        menuItemAleman.addActionListener(this::menuItemAlemanActionPerformed);
+        menuConfiguracion.add(menuItemAleman);
 
-        jMenuItem15.setText("jMenuItem15");
-        jMenu6.add(jMenuItem15);
+        menuItemIngles.setText("Ingles");
+        menuItemIngles.addActionListener(this::menuItemInglesActionPerformed);
+        menuConfiguracion.add(menuItemIngles);
 
-        jMenuBar2.add(jMenu6);
+        jMenuBar2.add(menuConfiguracion);
 
         setJMenuBar(jMenuBar2);
 
@@ -258,6 +288,22 @@ public class PrincipalView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuItemRusoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRusoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemRusoActionPerformed
+
+    private void menuItemAlemanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAlemanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemAlemanActionPerformed
+
+    private void menuItemEspanolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspanolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemEspanolActionPerformed
+
+    private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuItemInglesActionPerformed
 
     private void btnListarLibroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarLibroActionPerformed
         if (!listarLibroView.isVisible()) {
@@ -433,21 +479,21 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnListarLibro;
     private javax.swing.JMenuItem btnListarPrestamo;
     private javax.swing.JMenuItem btnListarUsuario;
-    private javax.swing.JMenu btnRegistro;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem17;
+    private javax.swing.JMenu menuConfiguracion;
+    private javax.swing.JMenuItem menuItemAleman;
+    private javax.swing.JMenuItem menuItemEspanol;
+    private javax.swing.JMenuItem menuItemIngles;
+    private javax.swing.JMenuItem menuItemRuso;
     private javax.swing.JMenu menuLibro;
+    private javax.swing.JMenu menuRegistro;
+    private javax.swing.JMenu menuUsuarios;
     // End of variables declaration//GEN-END:variables
 
 }

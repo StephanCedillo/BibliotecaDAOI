@@ -26,7 +26,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     public JPanel getPnlEstado() {
         return pnlEstado;
     }
-
     
     public JButton getBtnBuscar() {
         return btnBuscar;
