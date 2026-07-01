@@ -36,7 +36,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblEstado() {
-        return lblEstado;
+        return lblEstado2;
     }
 
     public JPanel getPnlEstadoDevuelto() {
@@ -91,27 +91,27 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblTituloBusquedaPrestamo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblISBN3 = new javax.swing.JLabel();
         txtISBN = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        lblCedula2 = new javax.swing.JLabel();
         txtICedula = new javax.swing.JTextField();
         btnID = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtCedulaBuscado = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblEmail2 = new javax.swing.JLabel();
+        lblFechaPedido = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtGmailBuscado = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        lblEstado = new javax.swing.JLabel();
+        lblCedula3 = new javax.swing.JLabel();
+        lblFechaDevuelto = new javax.swing.JLabel();
+        lblEstado2 = new javax.swing.JLabel();
         pnlEstadoDevuelto = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        lblID2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLibrosBuscados = new javax.swing.JTable();
@@ -120,27 +120,27 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         txtNombreBuscado = new javax.swing.JTextField();
         btnISBN = new javax.swing.JButton();
         btnCedula = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        lblBuscarPor = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
-        jLabel3.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("BUSQUEDA PRESTAMO");
+        lblTituloBusquedaPrestamo.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        lblTituloBusquedaPrestamo.setForeground(new java.awt.Color(0, 0, 0));
+        lblTituloBusquedaPrestamo.setText("BUSQUEDA PRESTAMO");
 
         jPanel2.setBackground(new java.awt.Color(249, 245, 245));
 
-        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("ISBN:");
+        lblISBN3.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblISBN3.setForeground(new java.awt.Color(0, 0, 0));
+        lblISBN3.setText("ISBN:");
 
-        jLabel12.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Id:");
+        lblID.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblID.setForeground(new java.awt.Color(0, 0, 0));
+        lblID.setText("Id:");
 
-        jLabel13.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Cedula:");
+        lblCedula2.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblCedula2.setForeground(new java.awt.Color(0, 0, 0));
+        lblCedula2.setText("Cedula:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -151,14 +151,14 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblISBN3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtICedula, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(10, Short.MAX_VALUE))
@@ -168,15 +168,15 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblISBN3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCedula2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtICedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
@@ -195,33 +195,33 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("001");
 
-        jLabel5.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Gmail:");
+        lblEmail2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblEmail2.setForeground(new java.awt.Color(51, 51, 51));
+        lblEmail2.setText("Email:");
 
-        jLabel6.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Fecha Pedido:");
+        lblFechaPedido.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblFechaPedido.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaPedido.setText("Fecha Pedido:");
 
-        jLabel7.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Nombre:");
+        lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setText("Nombre:");
 
         txtGmailBuscado.setEditable(false);
         txtGmailBuscado.addActionListener(this::txtGmailBuscadoActionPerformed);
 
-        jLabel9.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Cedula:");
+        lblCedula3.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblCedula3.setForeground(new java.awt.Color(51, 51, 51));
+        lblCedula3.setText("Cedula:");
 
-        jLabel10.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Fecha Devuelto");
+        lblFechaDevuelto.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblFechaDevuelto.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechaDevuelto.setText("Fecha Devuelto");
 
-        lblEstado.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblEstado.setForeground(new java.awt.Color(51, 51, 51));
-        lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEstado.setText("Estado:");
+        lblEstado2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblEstado2.setForeground(new java.awt.Color(51, 51, 51));
+        lblEstado2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEstado2.setText("Estado:");
 
         pnlEstadoDevuelto.setBackground(new java.awt.Color(0, 255, 0));
         pnlEstadoDevuelto.setForeground(new java.awt.Color(51, 255, 51));
@@ -237,9 +237,9 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        jLabel15.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel15.setText("ID:");
+        lblID2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblID2.setForeground(new java.awt.Color(51, 51, 51));
+        lblID2.setText("ID:");
 
         tblLibrosBuscados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -286,7 +286,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel15)
+                .addComponent(lblID2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -296,16 +296,16 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(lblCedula3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(lblNombre)
                                 .addGap(2, 2, 2)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCedulaBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                             .addComponent(txtNombreBuscado))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
+                        .addComponent(lblEmail2))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel3Layout.createSequentialGroup()
@@ -313,12 +313,12 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                             .addComponent(txtGmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEstado2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlEstadoDevuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel10))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFechaDevuelto)
+                            .addComponent(lblFechaPedido))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtFechaPedidoBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
@@ -331,18 +331,18 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel15))
+                    .addComponent(lblID2))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedulaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel5)
+                    .addComponent(lblCedula3)
+                    .addComponent(lblEmail2)
                     .addComponent(txtGmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
+                    .addComponent(lblFechaPedido)
                     .addComponent(txtFechaPedidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel7)
+                    .addComponent(lblFechaDevuelto)
+                    .addComponent(lblNombre)
                     .addComponent(txtFechaDevueltoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -351,7 +351,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(lblEstado)
+                        .addComponent(lblEstado2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnlEstadoDevuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -363,9 +363,9 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         btnCedula.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         btnCedula.setText("CEDULA");
 
-        jLabel14.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("BUSCAR POR :");
+        lblBuscarPor.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        lblBuscarPor.setForeground(new java.awt.Color(51, 51, 51));
+        lblBuscarPor.setText("BUSCAR POR :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -373,7 +373,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTituloBusquedaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,18 +390,18 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel14)))
+                        .addComponent(lblBuscarPor)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTituloBusquedaPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14)
+                .addComponent(lblBuscarPor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnID)
@@ -453,24 +453,24 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCedula;
     private javax.swing.JButton btnID;
     private javax.swing.JButton btnISBN;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblBuscarPor;
+    private javax.swing.JLabel lblCedula2;
+    private javax.swing.JLabel lblCedula3;
+    private javax.swing.JLabel lblEmail2;
+    private javax.swing.JLabel lblEstado2;
+    private javax.swing.JLabel lblFechaDevuelto;
+    private javax.swing.JLabel lblFechaPedido;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblID2;
+    private javax.swing.JLabel lblISBN3;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblTituloBusquedaPrestamo;
     private javax.swing.JPanel pnlEstadoDevuelto;
     private javax.swing.JTable tblLibrosBuscados;
     private javax.swing.JTextField txtCedulaBuscado;
