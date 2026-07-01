@@ -21,7 +21,13 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
      */
     public ActualizarUsuarioView() {
         initComponents();
+      
+       
     }
+
+    
+    
+       
 
     public JPanel getPnlEstado() {
         return pnlEstado;

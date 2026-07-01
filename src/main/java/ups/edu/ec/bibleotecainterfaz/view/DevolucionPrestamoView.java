@@ -22,6 +22,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     public DevolucionPrestamoView() {
         initComponents();
     }
+    
 
     public JButton getBtnCedula() {
         return btnCedula;

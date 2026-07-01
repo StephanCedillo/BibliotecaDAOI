@@ -21,8 +21,10 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
      */
     public BuscarUsuarioView() {
         initComponents();
+  
     }
 
+  
     public JPanel getPnlEstado() {
         return pnlEstado;
     }

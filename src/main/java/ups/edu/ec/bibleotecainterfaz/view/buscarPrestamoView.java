@@ -15,7 +15,39 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
    
     public BuscarPrestamoView() {
         initComponents();
+        imprimir();
     }
+
+   public void imprimir() {
+    System.out.println("========BUSCAR PRESTAMO======");
+
+    System.out.println("btnCedula: " + btnCedula.getText());
+    System.out.println("btnID: " + btnID.getText());
+    System.out.println("btnISBN: " + btnISBN.getText());
+
+    System.out.println("lblBuscarPor: " + lblBuscarPor.getText());
+    System.out.println("lblCedula2: " + lblCedula2.getText());
+    System.out.println("lblCedula3: " + lblCedula3.getText());
+    System.out.println("lblEmail2: " + lblEmail2.getText());
+    System.out.println("lblEstado2: " + lblEstado2.getText());
+    System.out.println("lblFechaDevuelto: " + lblFechaDevuelto.getText());
+    System.out.println("lblFechaPedido: " + lblFechaPedido.getText());
+    System.out.println("lblID: " + lblID.getText());
+    System.out.println("lblID2: " + lblID2.getText());
+    System.out.println("lblISBN3: " + lblISBN3.getText());
+    System.out.println("lblNombre: " + lblNombre.getText());
+    System.out.println("lblTituloBusquedaPrestamo: " + lblTituloBusquedaPrestamo.getText());
+
+    System.out.println("txtCedulaBuscado: " + txtCedulaBuscado.getText());
+    System.out.println("txtFechaDevueltoBuscado: " + txtFechaDevueltoBuscado.getText());
+    System.out.println("txtFechaPedidoBuscado: " + txtFechaPedidoBuscado.getText());
+    System.out.println("txtGmailBuscado: " + txtGmailBuscado.getText());
+    System.out.println("txtICedula: " + txtICedula.getText());
+    System.out.println("txtID: " + txtID.getText());
+    System.out.println("txtISBN: " + txtISBN.getText());
+    System.out.println("txtNombreBuscado: " + txtNombreBuscado.getText());
+}
+     
 
     public JButton getBtnCedula() {
         return btnCedula;

@@ -22,8 +22,10 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
      */
     public CrearUsuarioView() {
         initComponents();
+
     }
 
+    
     public JButton getBtnAceptar() {
         return btnAceptar;
     }
@@ -467,4 +469,6 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtFormattedDate;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
+
+   
 }
