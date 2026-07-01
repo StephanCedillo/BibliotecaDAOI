@@ -179,7 +179,7 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         pnlEstado.setBackground(new java.awt.Color(249, 245, 245));
         pnlEstado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/LibroBuscar.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LibroBuscar.png"))); // NOI18N
 
         txtEmailBuscado.setEditable(false);
         txtEmailBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N

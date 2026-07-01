@@ -88,36 +88,10 @@ public class PrincipalView extends javax.swing.JFrame {
                 crearUsuarioView, listarUsuarioView, devolucionPrestamoView, buscarPrestamoView, crearPrestamoView,
                 listarPrestamoView, libroController, prestamoController, userController, libroDAO, usuarioDAO,
                 prestamoDAO);
-       // saberTextos();
+   
 
     }
-    
-    public void saberTextos(){
-    System.out.println("btnActualizarLibro: " + btnActualizarLibro.getText());
-System.out.println("btnActualizarUsuario: " + btnActualizarUsuario.getText());
-System.out.println("btnBuscarLibro: " + btnBuscarLibro.getText());
-System.out.println("btnBuscarPrestamo: " + btnBuscarPrestamo.getText());
-System.out.println("btnBuscarUsuario: " + btnBuscarUsuario.getText());
-System.out.println("btnCrearLibro: " + btnCrearLibro.getText());
-System.out.println("btnCrearPrestamo: " + btnCrearPrestamo.getText());
-System.out.println("btnCrearUsuario: " + btnCrearUsuario.getText());
-System.out.println("btnDevolucion: " + btnDevolucion.getText());
-System.out.println("btnEliminarLibro: " + btnEliminarLibro.getText());
-System.out.println("btnEliminarUsuario: " + btnEliminarUsuario.getText());
-System.out.println("btnListarLibro: " + btnListarLibro.getText());
-System.out.println("btnListarPrestamo: " + btnListarPrestamo.getText());
-System.out.println("btnListarUsuario: " + btnListarUsuario.getText());
-
-System.out.println("menuConfiguracion: " + menuConfiguracion.getText());
-System.out.println("menuItemAleman: " + menuItemAleman.getText());
-System.out.println("menuItemEspanol: " + menuItemEspanol.getText());
-System.out.println("menuItemIngles: " + menuItemIngles.getText());
-System.out.println("menuItemRuso: " + menuItemRuso.getText());
-System.out.println("menuLibro: " + menuLibro.getText());
-System.out.println("menuRegistro: " + menuRegistro.getText());
-System.out.println("menuUsuarios: " + menuUsuarios.getText());
-    }
-
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
