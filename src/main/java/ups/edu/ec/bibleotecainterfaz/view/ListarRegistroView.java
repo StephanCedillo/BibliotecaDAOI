@@ -4,17 +4,22 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
+
 /**
  *
  * @author ASUS
  */
 public class ListarRegistroView extends javax.swing.JInternalFrame {
-
+private DefaultTableModel modelo;
     /**
      * Creates new form ListarRegistroView
      */
     public ListarRegistroView() {
         initComponents();
+        configurarTabla();
     }
 
     /**
@@ -26,15 +31,49 @@ public class ListarRegistroView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblListarRegistro = new javax.swing.JTable();
+        btnListarRegistro = new javax.swing.JButton();
+
+        tblListarRegistro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblListarRegistro);
+
+        btnListarRegistro.setText("Listar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(btnListarRegistro)
+                .addContainerGap(177, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(24, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 308, Short.MAX_VALUE)
+                .addComponent(btnListarRegistro))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(13, 13, 13)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(37, Short.MAX_VALUE)))
         );
 
         pack();
@@ -42,5 +81,34 @@ public class ListarRegistroView extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnListarRegistro;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblListarRegistro;
     // End of variables declaration//GEN-END:variables
+private void configurarTabla() {
+       String[] columnas = {"ID","Cedula", "Gmail", "Fecha Pedido","Fecha Devuelto","ISBN","Libros","Estado"};
+        modelo = new DefaultTableModel(columnas, 0);
+        
+        tblListarRegistro.setModel(modelo);
+    }
+    
+//    public void cargarDatos(List<Prestamo> registros){
+//        modelo.setRowCount(0);
+//        for (Prestamo prestamo : registros) {
+//            Object[] fila = {
+//                prestamo.getId(),
+//                prestamo.getUsuario().getCedula(),
+//                prestamo.getUsuario().getEmail(),
+//                prestamo.getFechaPedido(),
+//                prestamo.getFechaDevolucion(),
+//                
+//
+//                prestamo.getLibro(),
+//                prestamo.estaAtrasado()};
+//            modelo.addRow(fila);
+//        }
+//        
+//    }
+
+
 }
