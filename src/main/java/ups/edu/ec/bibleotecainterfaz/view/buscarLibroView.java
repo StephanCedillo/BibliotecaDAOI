@@ -20,12 +20,10 @@ public class BuscarLibroView extends javax.swing.JInternalFrame {
      */
     public BuscarLibroView() {
         initComponents();
+       
     }
 
-      public void imprimir(){
-           System.out.println("========BUSCAR LIBRO========");
-      }
-
+      
     public JPanel getPnlEstado() {
         return pnlEstado;
     }

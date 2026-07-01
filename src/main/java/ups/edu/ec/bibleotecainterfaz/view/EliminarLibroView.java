@@ -20,12 +20,15 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
      */
     public EliminarLibroView() {
         initComponents();
+ 
     }
 
-    public JPanel getPnlEstado() {
+    
+    
+
+     public JPanel getPnlEstado() {
         return pnlEstado;
     }
-    
 
     public JButton getBtnEliminar() {
         return btnEliminar;

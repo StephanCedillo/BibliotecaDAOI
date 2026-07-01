@@ -23,8 +23,11 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
      */
     public ActualizarLibroView() {
         initComponents();
+       
     }
-
+    
+     
+    
     public JPanel getPnlEstado() {
         return pnlEstado;
     }

@@ -22,34 +22,9 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
      */
     public CrearLibroView() {
         initComponents();
-        imprimir();
+    
     }
-    public void imprimir(){
-        System.out.println("========CREAR LIBRO========");
-    System.out.println("btnAceptar: " + btnAceptar.getText());
-System.out.println("btnCrearAutor: " + btnCrearAutor.getText());
-
-System.out.println("lblApellido: " + lblApellido.getText());
-System.out.println("lblAutor: " + lblAutor.getText());
-System.out.println("lblGenero: " + lblGenero.getText());
-System.out.println("lblISBN: " + lblISBN.getText());
-System.out.println("lblIdioma: " + lblIdioma.getText());
-System.out.println("lblNombre: " + lblNombre.getText());
-System.out.println("lblNombre2: " + lblNombre2.getText());
-System.out.println("lblNumeroPagina: " + lblNumeroPagina.getText());
-System.out.println("lblPreguntaExistenciaAutor: " + lblPreguntaExistenciaAutor.getText());
-System.out.println("lblTituloCreacionLibro: " + lblTituloCreacionLibro.getText());
-
-System.out.println("radioButtonRestriccion: " + radioButtonRestriccion.getText());
-
-System.out.println("txtApellido: " + txtApellido.getText());
-System.out.println("txtGenero: " + txtGenero.getText());
-System.out.println("txtISBN: " + txtISBN.getText());
-System.out.println("txtIdioma: " + txtIdioma.getText());
-System.out.println("txtNombre: " + txtNombre.getText());
-System.out.println("txtNombreAutor: " + txtNombreAutor.getText());
-System.out.println("txtNumeroPaginas: " + txtNumeroPaginas.getText());
-    }
+   
 
   
     @SuppressWarnings("unchecked")
