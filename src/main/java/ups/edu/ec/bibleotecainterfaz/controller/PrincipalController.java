@@ -34,7 +34,7 @@ public class PrincipalController {
     // ======= PRESTAMO =========
     private DevolucionPrestamoView devolucionPrestamoView;
     private BuscarPrestamoView buscarPrestamoiew;
-    private EliminarUsuarioView eliminarPrestamoiew;
+    private CrearPrestamoView crearPrestamoView;
     private ListarPrestamoView listarPrestamoView;
 
     // ======= CONTROLLERS LOGICA SEPARADA =========
@@ -55,7 +55,7 @@ public class PrincipalController {
             BuscarUsuarioView buscarUsuarioView, EliminarUsuarioView eliminarUsuarioView,
             CrearUsuarioView crearUsuarioView, ListarUsuarioView listarUsuarioView,
             DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
-            EliminarUsuarioView eliminarPrestamoiew, ListarPrestamoView listarPrestamoView,
+            CrearPrestamoView crearPrestamoView, ListarPrestamoView listarPrestamoView,
             LibroController libroController, PrestamoController prestamoController, UserController userController,
             LibroDAO libroDAO, UsuarioDAO usuarioDAO, PrestamoDAO prestamoDAO) {
         this.principalView = principalView;
@@ -71,7 +71,7 @@ public class PrincipalController {
         this.listarUsuarioView = listarUsuarioView;
         this.devolucionPrestamoView = devolucionPrestamoView;
         this.buscarPrestamoiew = buscarPrestamoiew;
-        this.eliminarPrestamoiew = eliminarPrestamoiew;
+        this.crearPrestamoView = crearPrestamoView;
         this.listarPrestamoView = listarPrestamoView;
         this.libroController = libroController;
         this.prestamoController = prestamoController;
@@ -95,9 +95,9 @@ public class PrincipalController {
 
         userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
                 crearUsuarioView, listarUsuarioView);
-        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, eliminarPrestamoiew,
+        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, crearPrestamoView,
                 listarPrestamoView);
     }
 
-    
+
 }

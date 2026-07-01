@@ -4,7 +4,11 @@
  */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
-import ups.edu.ec.bibleotecainterfaz.view.*;;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import ups.edu.ec.bibleotecainterfaz.view.*;
+
+;
 
 /**
  *
@@ -36,7 +40,37 @@ public class PrestamoController {
     }
 
     private void configurarEventosDevolucionPrestamo() {
-
+         devolucionPrestamoView.getBtnCedula().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarCedulaPrestamo();
+            }
+        });
+        devolucionPrestamoView.getBtnID().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarIDPrestamo();
+            }
+        });
+        devolucionPrestamoView.getBtnISBN().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarISBNPrestamo();
+            }
+        });
+        
+        devolucionPrestamoView.getBtnDevolucion().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 devolucion();
+            }
+        });
+       
+               
     }
 
     private void configurarEventosListarPrestamo() {
@@ -44,37 +78,75 @@ public class PrestamoController {
     }
 
     private void configurarEventosCrearPrestamo() {
+        crearPrestamoView.getBtnAceptar().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               crearPrestamo();
+            }
+        });
+        crearPrestamoView.getBtnIngresarOtroLibro().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ingresarOtroLibro();
+            }
+        });
+        
 
     }
 
     private void configurarEventosBuscarPrestamo() {
-
+        buscarPrestamoView.getBtnCedula().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarCedulaPrestamo();
+            }
+        });
+        buscarPrestamoView.getBtnID().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarIDPrestamo();
+            }
+        });
+        buscarPrestamoView.getBtnISBN().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarISBNPrestamo();
+            }
+        });
+        
 
     }
 
-    private void buscarAcrPrestamo() {
-
+ 
+    private void buscarCedulaPrestamo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void DevolucionPrestamo() {
-
+    private void buscarIDPrestamo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void buscarElirPrestamo() {
-
+    private void buscarISBNPrestamo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void ListarPrestamo() {
+    private void ingresarOtroLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
+    private void devolucion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     private void crearPrestamo() {
 
     }
 
-    private void buscarPrestamo() {
-
-    }
 
     private void cambioIdioma() {
         cambioIdiomaDevolucionPrestamo();
@@ -98,5 +170,6 @@ public class PrestamoController {
     private void cambioIdiomaDevolucionPrestamo() {
 
     }
+
 
 }
