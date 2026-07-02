@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.table.DefaultTableModel;
+
 import ups.edu.ec.bibleotecainterfaz.dao.LibroDAO;
 import ups.edu.ec.bibleotecainterfaz.models.Autor;
 import ups.edu.ec.bibleotecainterfaz.models.Libro;
@@ -32,8 +34,6 @@ public class LibroController {
     // =========DAO =========
     private LibroDAO libroDAO;
 
-    
-
     public LibroController(ActualizarLibroView actualizarLibroView, BuscarLibroView buscarLibroView,
             EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView,
             LibroDAO libroDAO) {
@@ -45,6 +45,10 @@ public class LibroController {
         this.libroDAO = libroDAO;
         configurarEventos();
         cambioIdioma();
+
+        libroDAO.crearListadoTemporal(10);
+        System.out.println(libroDAO.listar());
+        listarLibro();
     }
 
     private void configurarEventos() {
@@ -57,7 +61,16 @@ public class LibroController {
     }
 
     private void configurarEventosListarLibro() {
-        // listarLibro();
+
+        listarLibroView.getBtnListarLibro().addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        listarLibro();
+                    }
+                });
+
+        listarLibro();
     }
 
     private void configurarEventosActualizarLibro() {
@@ -148,7 +161,6 @@ public class LibroController {
         }
         // =======CAMBIOS EN TODAS LAS VARIABLES ===========
 
-        
         actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
         actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
         actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
@@ -214,7 +226,6 @@ public class LibroController {
         }
     }
 
-
     /// ================ HACER ALFONSO ================
     private void eliminarLibro() {
         Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
@@ -273,6 +284,22 @@ public class LibroController {
 
     private void listarLibro() {
 
+        DefaultTableModel modelo = (DefaultTableModel) listarLibroView.getTblListarLibro().getModel();
+        modelo.setRowCount(0); // Limpia la tabla
+
+        for (Libro libro : libroDAO.listar()) {
+
+            modelo.addRow(new Object[] {
+                    libro.getISBN(),
+                    libro.getNombre(),
+                    libro.getAutor(),
+                    libro.getGenero(),
+                    libro.getNumeroPaginas(),
+                    libro.getIdioma(),
+                    libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo,
+                    libro.estaDisponible() ? "Disponible" : "Prestado"
+            });
+        }
     }
 
     private void crearAutor() {

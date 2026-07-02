@@ -4,9 +4,11 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRootPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -15,40 +17,159 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
    
     public BuscarPrestamoView() {
         initComponents();
-        imprimir();
+   
     }
 
-   public void imprimir() {
-    System.out.println("========BUSCAR PRESTAMO======");
+    public JLabel getLblBuscarPor() {
+        return lblBuscarPor;
+    }
 
-    System.out.println("btnCedula: " + btnCedula.getText());
-    System.out.println("btnID: " + btnID.getText());
-    System.out.println("btnISBN: " + btnISBN.getText());
+    public JRootPane getRootPane() {
+        return rootPane;
+    }
 
-    System.out.println("lblBuscarPor: " + lblBuscarPor.getText());
-    System.out.println("lblCedula2: " + lblCedula2.getText());
-    System.out.println("lblCedula3: " + lblCedula3.getText());
-    System.out.println("lblEmail2: " + lblEmail2.getText());
-    System.out.println("lblEstado2: " + lblEstado2.getText());
-    System.out.println("lblFechaDevuelto: " + lblFechaDevuelto.getText());
-    System.out.println("lblFechaPedido: " + lblFechaPedido.getText());
-    System.out.println("lblID: " + lblID.getText());
-    System.out.println("lblID2: " + lblID2.getText());
-    System.out.println("lblISBN3: " + lblISBN3.getText());
-    System.out.println("lblNombre: " + lblNombre.getText());
-    System.out.println("lblTituloBusquedaPrestamo: " + lblTituloBusquedaPrestamo.getText());
+    public boolean isRootPaneCheckingEnabled() {
+        return rootPaneCheckingEnabled;
+    }
 
-    System.out.println("txtCedulaBuscado: " + txtCedulaBuscado.getText());
-    System.out.println("txtFechaDevueltoBuscado: " + txtFechaDevueltoBuscado.getText());
-    System.out.println("txtFechaPedidoBuscado: " + txtFechaPedidoBuscado.getText());
-    System.out.println("txtGmailBuscado: " + txtGmailBuscado.getText());
-    System.out.println("txtICedula: " + txtICedula.getText());
-    System.out.println("txtID: " + txtID.getText());
-    System.out.println("txtISBN: " + txtISBN.getText());
-    System.out.println("txtNombreBuscado: " + txtNombreBuscado.getText());
-}
+    public boolean isClosable() {
+        return closable;
+    }
+
+    public boolean isIsClosed() {
+        return isClosed;
+    }
+
+    public boolean isMaximizable() {
+        return maximizable;
+    }
+
+    public boolean isIsMaximum() {
+        return isMaximum;
+    }
+
+    public boolean isIconable() {
+        return iconable;
+    }
+
+    public boolean isIsIcon() {
+        return isIcon;
+    }
+
+    public boolean isResizable() {
+        return resizable;
+    }
+
+    public boolean isIsSelected() {
+        return isSelected;
+    }
+
+    public Icon getFrameIcon() {
+        return frameIcon;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public JDesktopIcon getDesktopIcon() {
+        return desktopIcon;
+    }
+
+    public static String getCONTENT_PANE_PROPERTY() {
+        return CONTENT_PANE_PROPERTY;
+    }
+
+    public static String getMENU_BAR_PROPERTY() {
+        return MENU_BAR_PROPERTY;
+    }
+
+    public static String getTITLE_PROPERTY() {
+        return TITLE_PROPERTY;
+    }
+
+    public static String getLAYERED_PANE_PROPERTY() {
+        return LAYERED_PANE_PROPERTY;
+    }
+
+    public static String getROOT_PANE_PROPERTY() {
+        return ROOT_PANE_PROPERTY;
+    }
+
+    public static String getGLASS_PANE_PROPERTY() {
+        return GLASS_PANE_PROPERTY;
+    }
+
+    public static String getFRAME_ICON_PROPERTY() {
+        return FRAME_ICON_PROPERTY;
+    }
+
+    public static String getIS_SELECTED_PROPERTY() {
+        return IS_SELECTED_PROPERTY;
+    }
+
+    public static String getIS_CLOSED_PROPERTY() {
+        return IS_CLOSED_PROPERTY;
+    }
+
+    public static String getIS_MAXIMUM_PROPERTY() {
+        return IS_MAXIMUM_PROPERTY;
+    }
+
+    public static String getIS_ICON_PROPERTY() {
+        return IS_ICON_PROPERTY;
+    }
+
+    
+    public JLabel getLblCedula2() {
+        return lblCedula2;
+    }
+
+    public JLabel getLblCedula3() {
+        return lblCedula3;
+    }
+
+    public JLabel getLblEmail2() {
+        return lblEmail2;
+    }
+
+    public JLabel getLblEstado2() {
+        return lblEstado2;
+    }
+
+    public JLabel getLblFechaDevuelto() {
+        return lblFechaDevuelto;
+    }
+
+    public JLabel getLblFechaPedido() {
+        return lblFechaPedido;
+    }
+
+    public JLabel getLblID() {
+        return lblID;
+    }
+
+    public JLabel getLblID2() {
+        return lblID2;
+    }
+
+    public JLabel getLblIDBuscado() {
+        return lblIDBuscado;
+    }
+
+    public JLabel getLblISBN3() {
+        return lblISBN3;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public JLabel getLblTituloBusquedaPrestamo() {
+        return lblTituloBusquedaPrestamo;
+    }
+
      
-
     public JButton getBtnCedula() {
         return btnCedula;
     }
@@ -124,7 +245,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         btnID = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtCedulaBuscado = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblIDBuscado = new javax.swing.JLabel();
         lblEmail2 = new javax.swing.JLabel();
         lblFechaPedido = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
@@ -212,9 +333,9 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         txtCedulaBuscado.setEditable(false);
         txtCedulaBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("001");
+        lblIDBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
+        lblIDBuscado.setForeground(new java.awt.Color(51, 51, 51));
+        lblIDBuscado.setText("001");
 
         lblEmail2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEmail2.setForeground(new java.awt.Color(51, 51, 51));
@@ -236,7 +357,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
 
         lblFechaDevuelto.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblFechaDevuelto.setForeground(new java.awt.Color(51, 51, 51));
-        lblFechaDevuelto.setText("Fecha Devuelto");
+        lblFechaDevuelto.setText("Fecha Devolucion");
 
         lblEstado2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado2.setForeground(new java.awt.Color(51, 51, 51));
@@ -305,7 +426,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addComponent(lblID2)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblIDBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
@@ -347,7 +468,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblIDBuscado)
                     .addComponent(lblID2))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedulaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -450,7 +571,6 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCedula;
     private javax.swing.JButton btnID;
     private javax.swing.JButton btnISBN;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -465,6 +585,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblFechaPedido;
     private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblID2;
+    private javax.swing.JLabel lblIDBuscado;
     private javax.swing.JLabel lblISBN3;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTituloBusquedaPrestamo;

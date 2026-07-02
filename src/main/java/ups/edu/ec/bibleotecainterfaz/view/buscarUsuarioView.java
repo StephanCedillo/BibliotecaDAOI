@@ -57,9 +57,7 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         return lblFechaCaducidad;
     }
 
-    public JLabel getLblIdioma() {
-        return lblIdioma;
-    }
+
 
     public JLabel getLblMembresia() {
         return lblMembresia;
@@ -96,10 +94,7 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     public JFormattedTextField getTxtFormatedFechaCaducidadBuscado() {
         return txtFormatedFechaCaducidadBuscado;
     }
-
-    public JTextField getTxtIdiomaBuscado() {
-        return txtIdiomaBuscado;
-    }
+ 
 
     public JTextField getTxtMembresiaBuscado() {
         return txtMembresiaBuscado;
@@ -131,8 +126,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         txtDireccionBuscado = new javax.swing.JTextField();
         lblDireccion = new javax.swing.JLabel();
         txtEdadBuscado = new javax.swing.JTextField();
-        lblIdioma = new javax.swing.JLabel();
-        txtIdiomaBuscado = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         lblMembresia = new javax.swing.JLabel();
         txtMembresiaBuscado = new javax.swing.JTextField();
@@ -207,12 +200,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         txtEdadBuscado.setEditable(false);
         txtEdadBuscado.addActionListener(this::txtEdadBuscadoActionPerformed);
 
-        lblIdioma.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblIdioma.setForeground(new java.awt.Color(51, 51, 51));
-        lblIdioma.setText("Idioma:");
-
-        txtIdiomaBuscado.setEditable(false);
-
         lblEmail.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(51, 51, 51));
         lblEmail.setText("Email:");
@@ -243,6 +230,7 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         );
 
         txtFormatedFechaCaducidadBuscado.setEditable(false);
+        txtFormatedFechaCaducidadBuscado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         txtFormatedFechaCaducidadBuscado.addActionListener(this::txtFormatedFechaCaducidadBuscadoActionPerformed);
 
         javax.swing.GroupLayout pnlEstadoLayout = new javax.swing.GroupLayout(pnlEstado);
@@ -253,25 +241,20 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(36, 36, 36)
-                .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTituloBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlEstadoLayout.createSequentialGroup()
-                        .addComponent(lblIdioma)
+                        .addComponent(lblEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdiomaBuscado))
-                    .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblTituloBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlEstadoLayout.createSequentialGroup()
-                            .addComponent(lblEmail)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtEmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnlEstadoLayout.createSequentialGroup()
-                            .addComponent(lblEdad)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtEdadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(pnlEstadoLayout.createSequentialGroup()
-                            .addComponent(lblDireccion)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtDireccionBuscado))))
+                        .addComponent(txtEmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEstadoLayout.createSequentialGroup()
+                        .addComponent(lblEdad)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEdadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlEstadoLayout.createSequentialGroup()
+                        .addComponent(lblDireccion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDireccionBuscado)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlEstadoLayout.createSequentialGroup()
@@ -314,15 +297,8 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
                 .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEstadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEstadoLayout.createSequentialGroup()
-                        .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdioma)
-                            .addComponent(txtIdiomaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEstadoLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(32, 32, 32))))
+                .addComponent(jLabel2)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -395,7 +371,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaCaducidad;
-    private javax.swing.JLabel lblIdioma;
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblTituloBuscado;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
@@ -406,7 +381,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEdadBuscado;
     private javax.swing.JTextField txtEmailBuscado;
     private javax.swing.JFormattedTextField txtFormatedFechaCaducidadBuscado;
-    private javax.swing.JTextField txtIdiomaBuscado;
     private javax.swing.JTextField txtMembresiaBuscado;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,8 +6,12 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import ups.edu.ec.bibleotecainterfaz.dao.UsuarioDAO;
+import ups.edu.ec.bibleotecainterfaz.models.Membresia;
+import ups.edu.ec.bibleotecainterfaz.models.Usuario;
 import ups.edu.ec.bibleotecainterfaz.view.*;
 
 /**
@@ -22,26 +26,30 @@ public class UserController {
     private CrearUsuarioView crearUsuarioView;
     private ListarUsuarioView listarUsuarioView;
 
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("d/M/yy");
     private UsuarioDAO usuarioDAO;
 
-   public UserController(
-        ActualizarUsuarioView actualizarUsuarioView,
-        BuscarUsuarioView buscarUsuarioView,
-        EliminarUsuarioView eliminarUsuarioView,
-        CrearUsuarioView crearUsuarioView,
-        ListarUsuarioView listarUsuarioView,
-        UsuarioDAO usuarioDAO) {
+    public UserController(
+            ActualizarUsuarioView actualizarUsuarioView,
+            BuscarUsuarioView buscarUsuarioView,
+            EliminarUsuarioView eliminarUsuarioView,
+            CrearUsuarioView crearUsuarioView,
+            ListarUsuarioView listarUsuarioView,
+            UsuarioDAO usuarioDAO) {
 
-    this.actualizarUsuarioView = actualizarUsuarioView;
-    this.buscarUsuarioView = buscarUsuarioView;
-    this.eliminarUsuarioView = eliminarUsuarioView;
-    this.crearUsuarioView = crearUsuarioView;
-    this.listarUsuarioView = listarUsuarioView;
-    this.usuarioDAO = usuarioDAO;
+        this.actualizarUsuarioView = actualizarUsuarioView;
+        this.buscarUsuarioView = buscarUsuarioView;
+        this.eliminarUsuarioView = eliminarUsuarioView;
+        this.crearUsuarioView = crearUsuarioView;
+        this.listarUsuarioView = listarUsuarioView;
+        this.usuarioDAO = usuarioDAO;
 
-    configurarEventos();
-    cambioIdioma();
-}
+        configurarEventos();
+        cambioIdioma();
+        usuarioDAO.crearListadoTemporal(20);
+        System.out.println(usuarioDAO.listar());
+        listarUsuario();
+    }
 
     private void configurarEventos() {
         configurarEventosActualizarUsuario();
@@ -54,96 +62,198 @@ public class UserController {
     private void configurarEventosActualizarUsuario() {
         actualizarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarAcrUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarActUsuario();
+            }
+        });
         actualizarUsuarioView.getBtnActualizacion().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        actualizarUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarUsuario();
+            }
+        });
     }
 
     private void configurarEventosEliminarUsuario() {
 
         eliminarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarElirUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarEliminarUsuario();
+            }
+        });
         eliminarUsuarioView.getBtnEliminar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        eliminarUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                eliminarUsuario();
+            }
+        });
 
     }
 
     private void configurarEventosCrearUsuario() {
         crearUsuarioView.getBtnAceptar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        crearUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crearUsuario();
+            }
+        });
 
     }
 
     private void configurarEventosBuscarUsuario() {
         buscarUsuarioView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarUsuario();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarUsuario();
+            }
+        });
     }
 
     private void configurarEventosListarUsuario() {
+        listarUsuarioView.getBtnListarUsuario().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listarUsuario();
+            }
+        });
         listarUsuario();
     }
 
-    private void buscarAcrUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void buscarActUsuario() {
+
+        Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+
+        actualizarUsuarioView.getTxtNombreBuscado().setText(usuario.getNombre());
+        actualizarUsuarioView.getTxtApellidoBuscado().setText(usuario.getApellido());
+        actualizarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
+        actualizarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
+        actualizarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
+
+        actualizarUsuarioView.getComboBoxStringsMembresia().setSelectedItem(usuario.getMembresia().getTipoMembresia());
+
+        if (usuario.isTieneDiscapacidad()) {
+            actualizarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
+        } else {
+            actualizarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
+        }
+
     }
 
     private void actualizarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+        Usuario nuevoUsuario = new Usuario(actualizarUsuarioView.getTxtEmailBuscado().getText(),
+                actualizarUsuarioView.getTxtContrasenaBuscado().getText(),
+                usuario.getCedula(),
+                LocalDate.parse(
+                        crearUsuarioView.getTxtFormattedDate().getText(),
+                        formato),
+                actualizarUsuarioView.getTxtNombreBuscado().getText(),
+                actualizarUsuarioView.getTxtApellidoBuscado().getText(),
+                actualizarUsuarioView.getTxtDireccionBuscado().getText(), usuario.isTieneDiscapacidad());
+        nuevoUsuario.agregarMembresia(actualizarUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
+        usuarioDAO.actualizar(nuevoUsuario);
+
     }
 
-    private void buscarElirUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    private void buscarEliminarUsuario() {
+        Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+
+        eliminarUsuarioView.getLblNombreBuscado().setText(usuario.getNombre() + " " + usuario.getApellido());
+        eliminarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
+        eliminarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
+        eliminarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
+        eliminarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
+                .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
+        eliminarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
+
+        if (usuario.isTieneDiscapacidad()) {
+            eliminarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
+        } else {
+            eliminarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
+        }
+
     }
 
     private void eliminarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+        usuarioDAO.eliminar(usuario.getCedula());
     }
 
     private void crearUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        Usuario u = new Usuario(
+                crearUsuarioView.getTxtEmail().getText(),
+                crearUsuarioView.getTxtContraseña().getText(),
+                crearUsuarioView.getTxtCedula().getText(),
+                LocalDate.parse(
+                        crearUsuarioView.getTxtFormattedDate().getText(),
+                        formato
+                ),
+                crearUsuarioView.getTxtNombre().getText(),
+                crearUsuarioView.getTxtApellido().getText(),
+                crearUsuarioView.getTxtDireccion().getText(),
+                crearUsuarioView.getRadioButtonDiscapacidad().isSelected()
+        );
+        u.agregarMembresia(crearUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
+        usuarioDAO.crear(u);
+
+        System.out.println("Creado");
     }
 
     private void buscarUsuario() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from
-                                                                       // nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Usuario usuario = usuarioDAO.buscar(buscarUsuarioView.getTxtCedula().getText());
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+
+        buscarUsuarioView.getLblTituloBuscado().setText(usuario.getNombre());
+        buscarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
+        buscarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
+        buscarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
+        buscarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
+                .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
+        buscarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
+
+        if (usuario.isTieneDiscapacidad()) {
+            buscarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
+        } else {
+            buscarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
+        }
+
     }
 
     private void listarUsuario() {
-
+        listarUsuarioView.cargarDatos(usuarioDAO.listar());
     }
 
     private void cambioIdioma() {

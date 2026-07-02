@@ -61,26 +61,45 @@ public class LibroDAOMemoria implements LibroDAO {
         return false;
 
     }
+
     @Override
     public List<Libro> listar() {
         return listaLibro;
     }
+
     @Override
     public void crearAutor(Autor autor) {
         listaAutor.add(autor);
     }
 
-    // SECCION DE PRUEBAS
     @Override
     public void crearListadoTemporal(int cantidad) {
 
+        listaLibro.clear();
+
+        for (int i = 1; i <= cantidad; i++) {
+
+            Autor autor = new Autor(
+                    "Autor" + i,
+                    "Apellido" + i);
+
+            Libro libro = new Libro(
+                     String.valueOf(i),
+                    autor,
+                    "Libro " + i,
+                    i % 2 == 0 ? "Novela" : "Ciencia",
+                    i % 3 == 0,
+                    100 + i * 20,
+                    i % 2 == 0 ? "Español" : "Inglés",
+                    true);
+
+            listaLibro.add(libro);
+        }
     }
 
     @Override
     public List<Autor> listarAutores() {
         return listaAutor;
     }
-
-   
 
 }

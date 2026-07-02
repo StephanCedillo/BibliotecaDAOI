@@ -1,0 +1,53 @@
+Date : 2026-07-01 17:54:07
+Directory : /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz
+Total : 17 files,  -183 codes, -122 comments, -33 blanks, all -338 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         13 |         85 |        -10 |         51 |        126 |
+| Java Properties |          4 |       -268 |       -112 |        -84 |       -464 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                        |         17 |       -183 |       -122 |        -33 |       -338 |
+| ..                                                                                                                                       |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../..                                                                                                                                    |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../../..                                                                                                                                 |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../../../..                                                                                                                              |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../../../../..                                                                                                                           |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../../../../../resources                                                                                                                 |          4 |       -268 |       -112 |        -84 |       -464 |
+| ../../../../../resources/i18n                                                                                                            |          4 |       -268 |       -112 |        -84 |       -464 |
+| controller                                                                                                                               |          3 |        140 |         -6 |         39 |        173 |
+| dao                                                                                                                                      |          2 |         32 |         -2 |          8 |         38 |
+| models                                                                                                                                   |          2 |        -45 |         -1 |         -5 |        -51 |
+| view                                                                                                                                     |          6 |        -42 |         -1 |          9 |        -34 |
++------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                                                                 | language        | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java    | Java            |          2 |          0 |          1 |          3 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrestamoController.java | Java            |         49 |          0 |         19 |         68 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/UserController.java     | Java            |         89 |         -6 |         19 |        102 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAOMemoria.java           | Java            |         16 |         -1 |          4 |         19 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAOMemoria.java         | Java            |         16 |         -1 |          4 |         19 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Persona.java                | Java            |        -14 |          0 |          4 |        -10 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Usuario.java                | Java            |        -31 |         -1 |         -9 |        -41 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarUsuarioView.java    | Java            |          8 |         -1 |          5 |         12 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarPrestamoView.java       | Java            |         12 |          0 |         10 |         22 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarUsuarioView.java        | Java            |        -25 |          0 |         -1 |        -26 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearPrestamoView.java        | Java            |        -11 |          0 |         -4 |        -15 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearUsuarioView.java         | Java            |          1 |          0 |          0 |          1 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarUsuarioView.java      | Java            |        -27 |          0 |         -1 |        -28 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_de_DE.properties                              | Java Properties |        -67 |        -28 |        -21 |       -116 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_en_US.properties                              | Java Properties |        -67 |        -28 |        -21 |       -116 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_es_EC.properties                              | Java Properties |        -67 |        -28 |        -21 |       -116 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_ru_RU.properties                              | Java Properties |        -67 |        -28 |        -21 |       -116 |
+| Total                                                                                                                                    |                 |       -183 |       -122 |        -33 |       -338 |
++------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+

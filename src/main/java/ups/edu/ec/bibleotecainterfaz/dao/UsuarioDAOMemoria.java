@@ -1,6 +1,7 @@
 
 package ups.edu.ec.bibleotecainterfaz.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,10 +58,28 @@ public class UsuarioDAOMemoria implements UsuarioDAO{
         return listaUsuarios;
     }
 
-    //IMPLEMENTACION DE PRUEBAS 
     @Override
-    public void crearListadoTemporal(int cantidad) {
-       
+public void crearListadoTemporal(int cantidad) {
+
+    listaUsuarios.clear();
+
+    for (int i = 1; i <= cantidad; i++) {
+
+        Usuario usuario = new Usuario(
+                "usuario" + i + "@correo.com",
+                "1234",
+                String.valueOf(i),
+                LocalDate.now().minusYears(18 + i),
+                "Nombre" + i,
+                "Apellido" + i,
+                "Direccion " + i,
+                i % 2 == 0
+        );
+
+        usuario.agregarMembresia(i % 2 == 0 ? "Premium" : "Basica");
+
+        listaUsuarios.add(usuario);
     }
+}
     
 }

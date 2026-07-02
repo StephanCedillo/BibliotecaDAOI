@@ -19,25 +19,10 @@ public class CrearPrestamoView extends javax.swing.JInternalFrame {
      */
     public CrearPrestamoView() {
         initComponents();
-        imprimir();
+
     }
 
-    public void imprimir() {
-    System.out.println("========CREAR PRESTAMO======");
-
-    System.out.println("btnAceptar: " + btnAceptar.getText());
-    System.out.println("btnIngresarOtroLibro: " + btnIngresarOtroLibro.getText());
-
-    System.out.println("lblCedula: " + lblCedula.getText());
-    System.out.println("lblISBN: " + lblISBN.getText());
-    System.out.println("lblTituloCreacionPrestamo: " + lblTituloCreacionPrestamo.getText());
-
-    System.out.println("txtCedula: " + txtCedula.getText());
-    System.out.println("txtISBN: " + txtISBN.getText());
-}
-
-    
-    
+      
     public JButton getBtnAceptar() {
         return btnAceptar;
     }

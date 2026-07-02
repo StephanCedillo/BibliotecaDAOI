@@ -22,6 +22,11 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     public DevolucionPrestamoView() {
         initComponents();
     }
+
+    public JLabel getLblIDBuscado() {
+        return lblIDBuscado;
+    }
+    
     
 
     public JButton getBtnCedula() {
@@ -106,7 +111,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         btnID = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtCedulaBuscado = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lblIDBuscado = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -196,9 +201,9 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         txtCedulaBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
         txtCedulaBuscado.addActionListener(this::txtCedulaBuscadoActionPerformed);
 
-        jLabel4.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("001");
+        lblIDBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
+        lblIDBuscado.setForeground(new java.awt.Color(51, 51, 51));
+        lblIDBuscado.setText("001");
 
         jLabel5.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -293,7 +298,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblIDBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
@@ -316,7 +321,6 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(228, 228, 228)
                             .addComponent(txtGmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -339,7 +343,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblIDBuscado)
                     .addComponent(jLabel15))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -478,7 +482,6 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -489,6 +492,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblIDBuscado;
     private javax.swing.JPanel pnlEstadoDevuelto;
     private javax.swing.JTable tblLibrosBuscados;
     private javax.swing.JTextField txtCedulaBuscado;

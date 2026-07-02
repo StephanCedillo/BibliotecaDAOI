@@ -1,15 +1,17 @@
 package ups.edu.ec.bibleotecainterfaz.models;
 
+import java.time.LocalDate;
+
 public class Persona {
     private String cedula;
-    private int edad;
+    private LocalDate edad;
     private String nombre;
     private String apellido;
     private String direccion;
-    private boolean estadoVivo;
     private boolean tieneDiscapacidad;
-    private String genero;
+   
 
+    
     
 
     
@@ -18,17 +20,17 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public Persona(String cedula, int edad, String nombre, 
-            String apellido, String direccion, boolean estadoVivo,
-            boolean tieneDiscapacidad, String genero) {
+    public Persona(String cedula, LocalDate edad, String nombre, 
+            String apellido, String direccion,
+            boolean tieneDiscapacidad) {
         this.cedula = cedula;
         this.edad = edad;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
-        this.estadoVivo = estadoVivo;
+   
         this.tieneDiscapacidad = tieneDiscapacidad;
-        this.genero = genero;
+
     }
 
     public String getCedula() {
@@ -39,11 +41,11 @@ public class Persona {
         this.cedula = cedula;
     }
 
-    public int getEdad() {
+    public LocalDate getFechaEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setFechaEdad(LocalDate edad) {
         this.edad = edad;
     }
 
@@ -71,13 +73,7 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public boolean isEstadoVivo() {
-        return estadoVivo;
-    }
-
-    public void setEstadoVivo(boolean estadoVivo) {
-        this.estadoVivo = estadoVivo;
-    }
+  
 
     public boolean isTieneDiscapacidad() {
         return tieneDiscapacidad;
@@ -87,13 +83,7 @@ public class Persona {
         this.tieneDiscapacidad = tieneDiscapacidad;
     }
 
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+ 
 
    @Override
     public String toString() {
@@ -103,15 +93,15 @@ public class Persona {
                 ", nombre=" + nombre +"\n" +
                 ", apellido=" + apellido + "\n" +
                 ", direccion=" + direccion + "\n" +
-                ", estadoVivo=" + estadoVivo + "\n" +
-                ", tieneDiscapacidad=" + tieneDiscapacidad +"\n" +
-                ", genero=" + genero + "\n" ;
+                ", tieneDiscapacidad=" + tieneDiscapacidad +"\n" ;
     }
     
     public boolean  esMayorEdad(){
-        return edad>=18;
+        return getEdad()>=18;
     }
-    
+    public int getEdad(){
+        return LocalDate.now().getYear() - edad.getYear();
+    }
     public String obtenerNombreCompleto(){
         return nombre + " " + apellido;
     }

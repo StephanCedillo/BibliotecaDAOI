@@ -5,6 +5,8 @@
 package ups.edu.ec.bibleotecainterfaz.view;
 
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
 
@@ -13,15 +15,28 @@ import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
  * @author ASUS
  */
 public class ListarPrestamoView extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo;
+
+    
     /**
      * Creates new form ListarRegistroView
      */
     public ListarPrestamoView() {
         initComponents();
-        configurarTabla();
+        
     }
 
+   
+
+    public JButton getBtnListarRegistro() {
+        return btnListarRegistro;
+    }
+
+    public JScrollPane getScrollPanePrestamos() {
+        return scrollPanePrestamos;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,22 +46,8 @@ private DefaultTableModel modelo;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblListarRegistro = new javax.swing.JTable();
         btnListarRegistro = new javax.swing.JButton();
-
-        tblListarRegistro.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblListarRegistro);
+        scrollPanePrestamos = new javax.swing.JScrollPane();
 
         btnListarRegistro.setText("Listar");
 
@@ -55,25 +56,20 @@ private DefaultTableModel modelo;
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(btnListarRegistro)
-                .addContainerGap(177, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(24, 24, 24)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(24, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrollPanePrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 308, Short.MAX_VALUE)
-                .addComponent(btnListarRegistro))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(13, 13, 13)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPanePrestamos, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnListarRegistro)
+                .addContainerGap())
         );
 
         pack();
@@ -82,33 +78,8 @@ private DefaultTableModel modelo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListarRegistro;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblListarRegistro;
+    private javax.swing.JScrollPane scrollPanePrestamos;
     // End of variables declaration//GEN-END:variables
-private void configurarTabla() {
-       String[] columnas = {"ID","Cedula", "Gmail", "Fecha Pedido","Fecha Devuelto","ISBN","Libros","Estado"};
-        modelo = new DefaultTableModel(columnas, 0);
-        
-        tblListarRegistro.setModel(modelo);
-    }
-    
-//    public void cargarDatos(List<Prestamo> registros){
-//        modelo.setRowCount(0);
-//        for (Prestamo prestamo : registros) {
-//            Object[] fila = {
-//                prestamo.getId(),
-//                prestamo.getUsuario().getCedula(),
-//                prestamo.getUsuario().getEmail(),
-//                prestamo.getFechaPedido(),
-//                prestamo.getFechaDevolucion(),
-//                
-//
-//                prestamo.getLibro(),
-//                prestamo.estaAtrasado()};
-//            modelo.addRow(fila);
-//        }
-//        
-//    }
 
 
 }

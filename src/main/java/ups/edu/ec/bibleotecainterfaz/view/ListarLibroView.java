@@ -5,6 +5,8 @@
 package ups.edu.ec.bibleotecainterfaz.view;
 
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import ups.edu.ec.bibleotecainterfaz.models.Libro;
 
@@ -13,7 +15,9 @@ import ups.edu.ec.bibleotecainterfaz.models.Libro;
  * @author ASUS
  */
 public class ListarLibroView extends javax.swing.JInternalFrame {
- private DefaultTableModel modelo;
+
+    private DefaultTableModel modelo;
+
     /**
      * Creates new form ListarLibroView
      */
@@ -55,26 +59,33 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(btnListarLibro)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnListarLibro)
+                .addGap(201, 201, 201))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListarLibro)
                 .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JButton getBtnListarLibro() {
+        return btnListarLibro;
+    }
+
+    public JTable getTblListarLibro() {
+        return tblListarLibro;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -83,25 +94,25 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblListarLibro;
     // End of variables declaration//GEN-END:variables
 private void configurarTabla() {
-       String[] columnas = {"Nombre","ISBN", "Autor", "+18","Genero","Idioma"};
+        String[] columnas = {"Nombre", "ISBN", "Autor", "+18", "Genero", "Idioma"};
         modelo = new DefaultTableModel(columnas, 0);
-        
+
         tblListarLibro.setModel(modelo);
     }
-    
-//    public void cargarDatos(List<Libro> libros){
-//        modelo.setRowCount(0);
-//        for (Libro libro : libros) {
-//            Object[] fila = {
-//                libro.getNombre(),
-//                libro.getISBN(),
-//                libro.getAutor(),
-//                libro.isSirestriccionEdad(),
-//                libro.getGenero(),
-//                libro.getIdioma()};
-//            modelo.addRow(fila);
-//        }
-//        
-//    }
 
+    public void cargarDatos(List<Libro> libros) {
+        modelo.setRowCount(0);
+
+        for (Libro libro : libros) {
+            Object[] fila = {
+                libro.getNombre(),
+                libro.getISBN(),
+                libro.getAutor(),
+                libro.isSirestriccionEdad(),
+                libro.getGenero(),
+                libro.getIdioma()
+            };
+            modelo.addRow(fila);
+        }
+    }
 }

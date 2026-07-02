@@ -5,9 +5,11 @@
 package ups.edu.ec.bibleotecainterfaz.view;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -23,6 +25,14 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         initComponents();
       
        
+    }
+
+    public JLabel getLblContrasena() {
+        return lblContrasena;
+    }
+
+    public JTextField getTxtContrasenaBuscado() {
+        return txtContrasenaBuscado;
     }
 
     
@@ -82,11 +92,11 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblFechaCaducidad() {
-        return lblFechaCaducidad;
+        return lblRenovar;
     }
 
     public JLabel getLblIdioma() {
-        return lblIdioma;
+        return lblContrasena;
     }
 
     public JLabel getLblMembresia() {
@@ -121,18 +131,25 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         return txtEmailBuscado;
     }
 
-    public JFormattedTextField getTxtFormatedFechaCaducidadBuscado() {
-        return txtFormatedFechaCaducidadBuscado;
-    }
+   
 
     public JTextField getTxtIdiomaBuscado() {
-        return txtIdiomaBuscado;
+        return txtContrasenaBuscado;
     }
 
-    public JTextField getTxtMembresiaBuscado() {
-        return txtMembresiaBuscado;
+    public JComboBox<String> getComboBoxStringsMembresia() {
+        return comboBoxStringsMembresia;
     }
 
+    public JLabel getLblRenovar() {
+        return lblRenovar;
+    }
+
+    public JRadioButton getRadioButtonRenovar() {
+        return radioButtonRenovar;
+    }
+
+    
      
     
     /**
@@ -155,21 +172,21 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         txtEmailBuscado = new javax.swing.JTextField();
         lblApellido = new javax.swing.JLabel();
         lblEdad = new javax.swing.JLabel();
-        lblFechaCaducidad = new javax.swing.JLabel();
+        lblRenovar = new javax.swing.JLabel();
         txtDireccionBuscado = new javax.swing.JTextField();
         lblDireccion = new javax.swing.JLabel();
         txtEdadBuscado = new javax.swing.JTextField();
-        lblIdioma = new javax.swing.JLabel();
-        txtIdiomaBuscado = new javax.swing.JTextField();
+        lblContrasena = new javax.swing.JLabel();
+        txtContrasenaBuscado = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         lblMembresia = new javax.swing.JLabel();
-        txtMembresiaBuscado = new javax.swing.JTextField();
         lblDiscapacidad = new javax.swing.JLabel();
         pnlEstado = new javax.swing.JPanel();
-        txtFormatedFechaCaducidadBuscado = new javax.swing.JFormattedTextField();
         txtNombreBuscado = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         txtApellidoBuscado = new javax.swing.JFormattedTextField();
+        radioButtonRenovar = new javax.swing.JRadioButton();
+        comboBoxStringsMembresia = new javax.swing.JComboBox<>();
         btnActualizacion = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
@@ -225,9 +242,9 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         lblEdad.setForeground(new java.awt.Color(51, 51, 51));
         lblEdad.setText("Edad:");
 
-        lblFechaCaducidad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblFechaCaducidad.setForeground(new java.awt.Color(51, 51, 51));
-        lblFechaCaducidad.setText("Caduca en:");
+        lblRenovar.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblRenovar.setForeground(new java.awt.Color(51, 51, 51));
+        lblRenovar.setText("Renovar:");
 
         lblDireccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblDireccion.setForeground(new java.awt.Color(51, 51, 51));
@@ -235,9 +252,9 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
 
         txtEdadBuscado.addActionListener(this::txtEdadBuscadoActionPerformed);
 
-        lblIdioma.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblIdioma.setForeground(new java.awt.Color(51, 51, 51));
-        lblIdioma.setText("Idioma:");
+        lblContrasena.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblContrasena.setForeground(new java.awt.Color(51, 51, 51));
+        lblContrasena.setText("Contraseña:");
 
         lblEmail.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(51, 51, 51));
@@ -266,8 +283,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        txtFormatedFechaCaducidadBuscado.addActionListener(this::txtFormatedFechaCaducidadBuscadoActionPerformed);
-
         txtNombreBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
         lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
@@ -275,6 +290,8 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         lblNombre.setText("Nombre:");
 
         txtApellidoBuscado.addActionListener(this::txtApellidoBuscadoActionPerformed);
+
+        comboBoxStringsMembresia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Corporativa", "Academica", "Estudiantil", "Especial" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -285,9 +302,9 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblIdioma)
+                        .addComponent(lblContrasena)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtIdiomaBuscado))
+                        .addComponent(txtContrasenaBuscado))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addComponent(lblEdad)
@@ -311,20 +328,19 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtApellidoBuscado))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(lblMembresia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMembresiaBuscado))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblFechaCaducidad)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFormatedFechaCaducidadBuscado))
+                        .addComponent(lblRenovar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(radioButtonRenovar))
                     .addComponent(pnlEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblMembresia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxStringsMembresia, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtApellidoBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -342,16 +358,16 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechaCaducidad)
                     .addComponent(lblEmail)
-                    .addComponent(txtFormatedFechaCaducidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMembresia)
+                    .addComponent(comboBoxStringsMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEdad)
                     .addComponent(txtEdadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMembresia)
-                    .addComponent(txtMembresiaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRenovar)
+                    .addComponent(radioButtonRenovar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion)
                     .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,8 +380,8 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblIdioma)
-                            .addComponent(txtIdiomaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblContrasena)
+                            .addComponent(txtContrasenaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -408,7 +424,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnActualizacion)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -431,10 +447,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEdadBuscadoActionPerformed
 
-    private void txtFormatedFechaCaducidadBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFormatedFechaCaducidadBuscadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFormatedFechaCaducidadBuscadoActionPerformed
-
     private void txtApellidoBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoBuscadoActionPerformed
@@ -443,30 +455,30 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizacion;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> comboBoxStringsMembresia;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblDiscapacidad;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblFechaCaducidad;
-    private javax.swing.JLabel lblIdioma;
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRenovar;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
     private javax.swing.JPanel pnlEstado;
+    private javax.swing.JRadioButton radioButtonRenovar;
     private javax.swing.JFormattedTextField txtApellidoBuscado;
     private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtContrasenaBuscado;
     private javax.swing.JTextField txtDireccionBuscado;
     private javax.swing.JTextField txtEdadBuscado;
     private javax.swing.JTextField txtEmailBuscado;
-    private javax.swing.JFormattedTextField txtFormatedFechaCaducidadBuscado;
-    private javax.swing.JTextField txtIdiomaBuscado;
-    private javax.swing.JTextField txtMembresiaBuscado;
     private javax.swing.JTextField txtNombreBuscado;
     // End of variables declaration//GEN-END:variables
 }

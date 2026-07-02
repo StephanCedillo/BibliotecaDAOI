@@ -5,6 +5,8 @@
 package ups.edu.ec.bibleotecainterfaz.view;
 
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import ups.edu.ec.bibleotecainterfaz.models.Usuario;
 
@@ -13,13 +15,24 @@ import ups.edu.ec.bibleotecainterfaz.models.Usuario;
  * @author ASUS
  */
 public class ListarUsuarioView extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo;
+
+    private DefaultTableModel modelo;
+
     /**
      * Creates new form ListarUsuarioView
      */
     public ListarUsuarioView() {
         initComponents();
         configurarTabla();
+       
+    }
+
+    public JButton getBtnListarUsuario() {
+        return btnListarUsuario;
+    }
+
+    public JTable getTblListarUsuario() {
+        return tblListarUsuario;
     }
 
     /**
@@ -87,26 +100,26 @@ private DefaultTableModel modelo;
     private javax.swing.JTable tblListarUsuario;
     // End of variables declaration//GEN-END:variables
   private void configurarTabla() {
-       String[] columnas = {"Nombre","Gmail", "Edad", "Direccion","Membresia","Caduca en","Discapacidad"};
+        String[] columnas = {"Nombre", "Gmail", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
         modelo = new DefaultTableModel(columnas, 0);
-        
+
         tblListarUsuario.setModel(modelo);
     }
-    
-//    public void cargarDatos(List<Usuario> usuarios){
-//        modelo.setRowCount(0);
-//        for (Usuario usuario : usuarios) {
-//            Object[] fila = {
-//                usuario.getNombre(),
-//                usuario.getEmail(),
-//                usuario.getEdad(),
-//                usuario.getDireccion(),
-//                usuario.getMembresia(),
-//                usuario.getMembresia().getFechaVencimiento(),
-//                usuario.isTieneDiscapacidad()};
-//            modelo.addRow(fila);
-//        }
-//        
-//    }
 
+    public void cargarDatos(List<Usuario> usuarios) {
+        modelo.setRowCount(0);
+
+        for (Usuario usuario : usuarios) {
+            Object[] fila = {
+                usuario.getNombre(),
+                usuario.getEmail(),
+                usuario.getEdad(),
+                usuario.getDireccion(),
+                usuario.getMembresia().getTipoMembresia(),
+                usuario.getMembresia().getFechaVencimiento(),
+                usuario.isTieneDiscapacidad() ? "Sí" : "No"
+            };
+            modelo.addRow(fila);
+        }
+    }
 }

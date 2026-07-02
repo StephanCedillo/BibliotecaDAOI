@@ -226,6 +226,7 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
         lblCedula.setForeground(new java.awt.Color(51, 51, 51));
         lblCedula.setText("Cedula:");
 
+        txtFormattedDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         txtFormattedDate.addActionListener(this::txtFormattedDateActionPerformed);
 
         lblFechaNacimiento.setBackground(new java.awt.Color(51, 51, 51));

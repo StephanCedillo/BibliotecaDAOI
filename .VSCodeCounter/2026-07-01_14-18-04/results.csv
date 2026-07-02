@@ -1,0 +1,37 @@
+"filename", "language", "Java Properties", "Java", "comment", "blank", "total"
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java", "Java", 0, 233, 16, 65, 314
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrestamoController.java", "Java", 0, 128, 8, 40, 176
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrincipalController.java", "Java", 0, 70, 15, 19, 104
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/UserController.java", "Java", 0, 126, 14, 39, 179
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAO.java", "Java", 0, 14, 8, 4, 26
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAOMemoria.java", "Java", 0, 64, 1, 22, 87
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/PrestamoDAO.java", "Java", 0, 12, 8, 6, 26
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/PrestamoDAOMemoria.java", "Java", 0, 60, 1, 22, 83
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAO.java", "Java", 0, 11, 8, 5, 24
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAOMemoria.java", "Java", 0, 49, 1, 17, 67
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Autor.java", "Java", 0, 31, 4, 18, 53
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Libro.java", "Java", 0, 99, 0, 30, 129
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Membresia.java", "Java", 0, 66, 0, 20, 86
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Persona.java", "Java", 0, 93, 0, 26, 119
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Prestamo.java", "Java", 0, 104, 4, 36, 144
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Usuario.java", "Java", 0, 82, 1, 26, 109
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarLibroView.java", "Java", 0, 357, 20, 69, 446
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarUsuarioView.java", "Java", 0, 374, 22, 77, 473
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarLibroView.java", "Java", 0, 329, 20, 60, 409
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarPrestamoView.java", "Java", 0, 412, 7, 64, 483
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarUsuarioView.java", "Java", 0, 330, 21, 62, 413
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearLibroView.java", "Java", 0, 407, 17, 69, 493
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearPrestamoView.java", "Java", 0, 229, 19, 41, 289
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearUsuarioView.java", "Java", 0, 389, 21, 65, 475
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/DevolucionPrestamoView.java", "Java", 0, 416, 24, 64, 504
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarLibroView.java", "Java", 0, 341, 20, 64, 425
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarUsuarioView.java", "Java", 0, 336, 21, 66, 423
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarLibroView.java", "Java", 0, 61, 33, 14, 108
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarPrestamoView.java", "Java", 0, 64, 36, 15, 115
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarUsuarioView.java", "Java", 0, 65, 34, 14, 113
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/PrincipalView.java", "Java", 0, 345, 50, 79, 474
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_de_DE.properties", "Java Properties", 67, 0, 28, 21, 116
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_en_US.properties", "Java Properties", 67, 0, 28, 21, 116
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_es_EC.properties", "Java Properties", 67, 0, 28, 21, 116
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_ru_RU.properties", "Java Properties", 67, 0, 28, 21, 116
+"Total", "-", 268, 5697, 566, 1302, 7833

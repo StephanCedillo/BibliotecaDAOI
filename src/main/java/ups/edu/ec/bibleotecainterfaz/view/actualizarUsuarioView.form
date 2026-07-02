@@ -77,7 +77,7 @@
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnActualizacion" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -173,9 +173,9 @@
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="lblIdioma" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblContrasena" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtIdiomaBuscado" max="32767" attributes="0"/>
+                              <Component id="txtContrasenaBuscado" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -209,23 +209,23 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblApellido" min="-2" pref="68" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtApellidoBuscado" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="lblMembresia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtMembresiaBuscado" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblFechaCaducidad" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtFormatedFechaCaducidadBuscado" max="32767" attributes="0"/>
+                              <Component id="lblRenovar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="radioButtonRenovar" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="pnlEstado" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="lblDiscapacidad" alignment="1" min="-2" pref="199" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblApellido" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Component id="lblMembresia" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="comboBoxStringsMembresia" max="32767" attributes="0"/>
+                                  <Component id="txtApellidoBuscado" pref="134" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
@@ -249,18 +249,18 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtEmailBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblFechaCaducidad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtFormatedFechaCaducidadBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMembresia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxStringsMembresia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEdadBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblMembresia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtMembresiaBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRenovar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="radioButtonRenovar" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDireccionBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -275,8 +275,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblIdioma" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtIdiomaBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblContrasena" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtContrasenaBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
@@ -326,7 +326,7 @@
                 <Property name="text" type="java.lang.String" value="Edad:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblFechaCaducidad">
+            <Component class="javax.swing.JLabel" name="lblRenovar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="ITF Devanagari" size="14" style="0"/>
@@ -334,7 +334,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Caduca en:"/>
+                <Property name="text" type="java.lang.String" value="Renovar:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDireccionBuscado">
@@ -355,7 +355,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEdadBuscadoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblIdioma">
+            <Component class="javax.swing.JLabel" name="lblContrasena">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="ITF Devanagari" size="14" style="0"/>
@@ -363,10 +363,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Idioma:"/>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtIdiomaBuscado">
+            <Component class="javax.swing.JTextField" name="txtContrasenaBuscado">
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmail">
               <Properties>
@@ -389,8 +389,6 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Membresia:"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtMembresiaBuscado">
             </Component>
             <Component class="javax.swing.JLabel" name="lblDiscapacidad">
               <Properties>
@@ -427,11 +425,6 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JFormattedTextField" name="txtFormatedFechaCaducidadBuscado">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFormatedFechaCaducidadBuscadoActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtNombreBuscado">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -454,6 +447,24 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtApellidoBuscadoActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="radioButtonRenovar">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboBoxStringsMembresia">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="Normal"/>
+                    <StringItem index="1" value="Corporativa"/>
+                    <StringItem index="2" value="Academica"/>
+                    <StringItem index="3" value="Estudiantil"/>
+                    <StringItem index="4" value="Especial"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
