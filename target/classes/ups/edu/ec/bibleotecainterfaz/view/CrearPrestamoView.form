@@ -166,8 +166,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="jPanel6" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -179,7 +180,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="62" max="32767" attributes="0"/>
                           <Component id="lblTituloCreacionPrestamo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
@@ -215,27 +216,19 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblISBN" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="115" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtISBN" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtISBN" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCedula" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnIngresarOtroLibro" min="-2" pref="157" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="btnAceptar" min="-2" pref="162" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblCedula" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblISBN" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnIngresarOtroLibro" alignment="0" min="-2" pref="317" max="-2" attributes="0"/>
+                                      <Component id="btnAceptar" alignment="0" min="-2" pref="317" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -251,11 +244,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtISBN" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnIngresarOtroLibro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <Component id="btnIngresarOtroLibro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
+                          <Component id="btnAceptar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -303,7 +294,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnIngresarOtroLibro">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ingresar otro libro"/>
+                    <Property name="text" type="java.lang.String" value="Agregar otro libro"/>
                   </Properties>
                 </Component>
               </SubComponents>

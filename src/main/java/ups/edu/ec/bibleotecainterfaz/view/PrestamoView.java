@@ -147,7 +147,7 @@ public class PrestamoView extends javax.swing.JPanel {
         lblEstado2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado2.setForeground(new java.awt.Color(51, 51, 51));
         lblEstado2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEstado2.setText("Estado:");
+        lblEstado2.setText("Prestamo Estado:");
 
         pnlEstadoDevuelto.setBackground(new java.awt.Color(0, 255, 0));
         pnlEstadoDevuelto.setForeground(new java.awt.Color(51, 255, 51));

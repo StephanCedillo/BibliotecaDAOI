@@ -42,7 +42,6 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         txtISBN = new javax.swing.JTextField();
         lblGenero = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        txtGenero = new javax.swing.JTextField();
         lblNumeroPagina = new javax.swing.JLabel();
         txtIdioma = new javax.swing.JTextField();
         txtNumeroPaginas = new javax.swing.JTextField();
@@ -57,6 +56,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         radioButtonRestriccion = new javax.swing.JRadioButton();
         comboBoxAutores = new javax.swing.JComboBox<>();
         btnCrearAutor = new javax.swing.JButton();
+        txtComboGenero = new javax.swing.JComboBox<>();
 
         setClosable(true);
 
@@ -108,7 +108,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addComponent(lblTituloCreacionLibro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,8 +131,6 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         lblGenero.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblGenero.setForeground(new java.awt.Color(51, 51, 51));
         lblGenero.setText("Genero:");
-
-        txtGenero.addActionListener(this::txtGeneroActionPerformed);
 
         lblNumeroPagina.setBackground(new java.awt.Color(51, 51, 51));
         lblNumeroPagina.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
@@ -169,11 +167,12 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         lblPreguntaExistenciaAutor.setBackground(new java.awt.Color(51, 51, 51));
         lblPreguntaExistenciaAutor.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblPreguntaExistenciaAutor.setForeground(new java.awt.Color(51, 51, 51));
-        lblPreguntaExistenciaAutor.setText("Si no existe dentro del sistema:");
+        lblPreguntaExistenciaAutor.setText("Si el autor no está en el sistema, créalo aquí:");
 
         radioButtonRestriccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         radioButtonRestriccion.setForeground(new java.awt.Color(0, 0, 0));
-        radioButtonRestriccion.setText("¿Restriccion de edad?");
+        radioButtonRestriccion.setText("Marca si es solo para mayores");
+        radioButtonRestriccion.addActionListener(this::radioButtonRestriccionActionPerformed);
 
         comboBoxAutores.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
@@ -189,8 +188,8 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(txtComboGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -205,11 +204,6 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                         .addComponent(lblGenero)
                         .addGap(120, 120, 120))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(lblIdioma)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblNumeroPagina)
-                        .addGap(46, 46, 46))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addGap(0, 1, Short.MAX_VALUE)
@@ -219,11 +213,6 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(lblAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(182, 182, 182)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,9 +228,22 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel6Layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
                                     .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radioButtonRestriccion))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radioButtonRestriccion, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdioma)
+                            .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(lblNumeroPagina)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,10 +256,10 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(lblGenero))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtComboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIdioma)
@@ -266,7 +268,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumeroPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(radioButtonRestriccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAutor)
@@ -274,12 +276,12 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addComponent(comboBoxAutores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAceptar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(lblPreguntaExistenciaAutor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApellido)
-                    .addComponent(lblNombre2))
+                    .addComponent(lblNombre2)
+                    .addComponent(lblApellido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombreAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,9 +307,9 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -419,9 +421,11 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         return txtApellido;
     }
 
-    public JTextField getTxtGenero() {
-        return txtGenero;
+    public JComboBox<String> getTxtComboGenero() {
+        return txtComboGenero;
     }
+
+   
 
     public JTextField getTxtISBN() {
         return txtISBN;
@@ -448,13 +452,13 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGeneroActionPerformed
-
     private void txtNombreAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreAutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreAutorActionPerformed
+
+    private void radioButtonRestriccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioButtonRestriccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioButtonRestriccionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -481,7 +485,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTituloCreacionLibro;
     private javax.swing.JRadioButton radioButtonRestriccion;
     private javax.swing.JFormattedTextField txtApellido;
-    private javax.swing.JTextField txtGenero;
+    private javax.swing.JComboBox<String> txtComboGenero;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtIdioma;
     private javax.swing.JTextField txtNombre;

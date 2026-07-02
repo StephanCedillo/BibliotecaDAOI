@@ -157,11 +157,7 @@ public class UserController {
 
         actualizarUsuarioView.getComboBoxStringsMembresia().setSelectedItem(usuario.getMembresia().getTipoMembresia());
 
-        if (usuario.isTieneDiscapacidad()) {
-            actualizarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
-        } else {
-            actualizarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
-        }
+       
 
     }
 
@@ -203,12 +199,7 @@ public class UserController {
                 .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
         eliminarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
 
-        if (usuario.isTieneDiscapacidad()) {
-            eliminarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
-        } else {
-            eliminarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
-        }
-
+      
     }
 
     private void eliminarUsuario() {
@@ -240,7 +231,7 @@ public class UserController {
                 crearUsuarioView.getTxtNombre().getText(),
                 crearUsuarioView.getTxtApellido().getText(),
                 crearUsuarioView.getTxtDireccion().getText(),
-                crearUsuarioView.getRadioButtonDiscapacidad().isSelected()
+                false
         );
         u.agregarMembresia(crearUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
         usuarioDAO.crear(u);
@@ -264,12 +255,7 @@ public class UserController {
                 .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
         buscarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
 
-        if (usuario.isTieneDiscapacidad()) {
-            buscarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(true);
-        } else {
-            buscarUsuarioView.getPnlEstadoDiscapacidadBuscado().setVisible(false);
-        }
-
+      
     }
 
     private void listarUsuario() {
@@ -308,8 +294,8 @@ public class UserController {
         crearUsuarioView.getLblNombre().setText(bundle.getString("lblNombre"));
         crearUsuarioView.getLblTituloCreacionUsuario().setText(bundle.getString("lblTituloCrearUsuario"));
 
-// ===== RADIO BUTTON =====
-        crearUsuarioView.getRadioButtonDiscapacidad().setText(bundle.getString("radioButtonDiscapacidad"));
+
+       
     }
 
     private void cambioIdiomaEliminarUsuario(ResourceBundle bundle) {
@@ -320,7 +306,7 @@ public class UserController {
 // ===== LABELS =====
         eliminarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
         eliminarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
-        eliminarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+       
         eliminarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
         eliminarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
         eliminarUsuarioView.getLblFechaCaducidad().setText(bundle.getString("lblFechaCaducidad"));
@@ -336,7 +322,7 @@ public class UserController {
 // ===== LABELS =====
         buscarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
         buscarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
-        buscarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+       
         buscarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
         buscarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
         buscarUsuarioView.getLblFechaCaducidad().setText(bundle.getString("lblFechaCaducidad"));
@@ -353,7 +339,7 @@ public class UserController {
         actualizarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
         actualizarUsuarioView.getLblContrasena().setText(bundle.getString("lblContraseña"));
         actualizarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
-        actualizarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+       
         actualizarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
         actualizarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
         actualizarUsuarioView.getLblMembresia().setText(bundle.getString("lblMembresia"));

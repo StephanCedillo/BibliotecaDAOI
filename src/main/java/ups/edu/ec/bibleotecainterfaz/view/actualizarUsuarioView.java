@@ -35,13 +35,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     }
 
     
-    
-       
-
-    public JPanel getPnlEstado() {
-        return pnlEstado;
-    }
-    
 
     public JButton getBtnBuscar() {
         return btnBuscar;
@@ -78,10 +71,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         return lblDireccion;
     }
 
-    public JLabel getLblDiscapacidad() {
-        return lblDiscapacidad;
-    }
-
     public JLabel getLblEdad() {
         return lblEdad;
     }
@@ -110,9 +99,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         return lblTituloBusquedaUsuario;
     }
 
-    public JPanel getPnlEstadoDiscapacidadBuscado() {
-        return pnlEstado;
-    }
 
     public JTextField getTxtCedula() {
         return txtCedula;
@@ -179,8 +165,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         txtContrasenaBuscado = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         lblMembresia = new javax.swing.JLabel();
-        lblDiscapacidad = new javax.swing.JLabel();
-        pnlEstado = new javax.swing.JPanel();
         txtNombreBuscado = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         txtApellidoBuscado = new javax.swing.JFormattedTextField();
@@ -245,7 +229,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
 
         lblRenovar.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblRenovar.setForeground(new java.awt.Color(51, 51, 51));
-        lblRenovar.setText("Renovar:");
+        lblRenovar.setText("Marca si quieres renovar");
 
         lblDireccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblDireccion.setForeground(new java.awt.Color(51, 51, 51));
@@ -264,25 +248,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         lblMembresia.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblMembresia.setForeground(new java.awt.Color(51, 51, 51));
         lblMembresia.setText("Membresia:");
-
-        lblDiscapacidad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblDiscapacidad.setForeground(new java.awt.Color(51, 51, 51));
-        lblDiscapacidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDiscapacidad.setText("Discapacidad");
-
-        pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
-        pnlEstado.setForeground(new java.awt.Color(51, 255, 51));
-
-        javax.swing.GroupLayout pnlEstadoLayout = new javax.swing.GroupLayout(pnlEstado);
-        pnlEstado.setLayout(pnlEstadoLayout);
-        pnlEstadoLayout.setHorizontalGroup(
-            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-        pnlEstadoLayout.setVerticalGroup(
-            pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
 
         txtNombreBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
@@ -333,8 +298,6 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                         .addComponent(lblRenovar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(radioButtonRenovar))
-                    .addComponent(pnlEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,18 +310,9 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(165, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContrasena)
-                    .addComponent(txtContrasenaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -381,14 +335,18 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                                 .addComponent(lblEdad)
                                 .addComponent(txtEdadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblRenovar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDireccion)
-                            .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDiscapacidad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnlEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))))
+                            .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtContrasenaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblContrasena))
+                        .addContainerGap(16, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         btnActualizacion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
@@ -427,7 +385,7 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnActualizacion)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -467,14 +425,12 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblDiscapacidad;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRenovar;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
-    private javax.swing.JPanel pnlEstado;
     private javax.swing.JRadioButton radioButtonRenovar;
     private javax.swing.JFormattedTextField txtApellidoBuscado;
     private javax.swing.JTextField txtCedula;

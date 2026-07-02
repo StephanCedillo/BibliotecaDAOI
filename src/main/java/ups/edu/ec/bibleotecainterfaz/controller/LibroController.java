@@ -128,9 +128,28 @@ public class LibroController {
                 crearAutor();
             }
         });
+        crearLibroView.getTxtComboGenero().removeAllItems();
+        for (int i = 0; i < generos.length; i++) {
+            crearLibroView.getTxtComboGenero().addItem(generos[i]);
+        }
         actualizarAutores();
 
     }
+
+    String[] generos = {
+        "Aventuras",
+        "Ciencia ficción",
+        "Fantasía",
+        "Terror",
+        "Romance",
+        "Misterio",
+        "Histórica",
+        "Policiaca",
+        "Distopía",
+        "Humor",
+        "Drama",
+        "Poesía"
+    };
 
     private void configurarEventosBuscarLibro() {
         buscarLibroView.getBtnBuscar().addActionListener(
@@ -154,14 +173,12 @@ public class LibroController {
         }
 
     }
-    
-    
-    private String[] mensajes = {"No se encontro el libro"
-            ,"No se pudo actualizar el libro",
-            "¿Está seguro de eliminar este libro?",
-            "Libro creado correctamente",
-    };
-    
+
+    private String[] mensajes = {"No se encontro el libro",
+         "No se pudo actualizar el libro",
+        "¿Está seguro de eliminar este libro?",
+        "Libro creado correctamente",};
+
     private void buscarActLibro() {
 
         Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
@@ -253,7 +270,7 @@ public class LibroController {
         libroDAO.crear(new Libro(crearLibroView.getTxtISBN().getText(),
                 (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
                 crearLibroView.getTxtNombre().getText(),
-                crearLibroView.getTxtGenero().getText(),
+                crearLibroView.getTxtComboGenero().getSelectedItem().toString(),
                 crearLibroView.getRadioButtonRestriccion().isSelected(),
                 Integer.parseInt(crearLibroView.getTxtNumeroPaginas().getText()),
                 crearLibroView.getTxtIdioma().getText(),
@@ -298,14 +315,15 @@ public class LibroController {
         for (Libro libro : libroDAO.listar()) {
 
             modelo.addRow(new Object[]{
-                libro.getISBN(),
+               
                 libro.getNombre(),
+                 libro.getISBN(),
                 libro.getAutor(),
-                libro.getGenero(),
-                libro.getNumeroPaginas(),
-                libro.getIdioma(),
                 libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo,
-                libro.estaDisponible() ? "Disponible" : "Prestado"
+                libro.getGenero(),
+                
+                libro.getIdioma(),
+         
             });
         }
     }
@@ -324,6 +342,8 @@ public class LibroController {
         cambioIdiomaCrearLibro(bundle);
         cambioIdiomaListarLibro(bundle);
         mensajes = bundle.getString("mensajesLibro").split(",");
+        
+       
     }
 
     private void cambioIdiomaCrearLibro(ResourceBundle bundle) {
@@ -345,6 +365,12 @@ public class LibroController {
 
 // ===== RADIO BUTTON =====
         crearLibroView.getRadioButtonRestriccion().setText(bundle.getString("radioButtonRestriccion"));
+        
+        String[] generosCambio = bundle.getString("comboBoxGenero").split(",");
+        crearLibroView.getTxtComboGenero().removeAllItems();
+        for (int i = 0; i < generosCambio.length; i++) {
+            crearLibroView.getTxtComboGenero().addItem(generosCambio[i]);
+        }
     }
 
     private void cambioIdiomaEliminarLibro(ResourceBundle bundle) {

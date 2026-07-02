@@ -229,7 +229,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
         lblEstado.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(51, 51, 51));
         lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEstado.setText("Estado:");
+        lblEstado.setText("Libro Disponible:");
 
         pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
         pnlEstado.setForeground(new java.awt.Color(51, 255, 51));

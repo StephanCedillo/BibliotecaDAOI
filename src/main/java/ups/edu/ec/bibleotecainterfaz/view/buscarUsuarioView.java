@@ -41,9 +41,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         return lblDireccion;
     }
 
-    public JLabel getLblDiscapacidad() {
-        return lblDiscapacidad;
-    }
 
     public JLabel getLblEdad() {
         return lblEdad;
@@ -71,9 +68,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         return lblTituloBusquedaUsuario;
     }
 
-    public JPanel getPnlEstadoDiscapacidadBuscado() {
-        return pnlEstadoDiscapacidadBuscado;
-    }
 
     public JTextField getTxtCedula() {
         return txtCedula;
@@ -129,8 +123,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         lblEmail = new javax.swing.JLabel();
         lblMembresia = new javax.swing.JLabel();
         txtMembresiaBuscado = new javax.swing.JTextField();
-        lblDiscapacidad = new javax.swing.JLabel();
-        pnlEstadoDiscapacidadBuscado = new javax.swing.JPanel();
         txtFormatedFechaCaducidadBuscado = new javax.swing.JFormattedTextField();
 
         setClosable(true);
@@ -212,25 +204,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
 
         txtMembresiaBuscado.setEditable(false);
 
-        lblDiscapacidad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblDiscapacidad.setForeground(new java.awt.Color(51, 51, 51));
-        lblDiscapacidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDiscapacidad.setText("Discapacidad");
-
-        pnlEstadoDiscapacidadBuscado.setBackground(new java.awt.Color(0, 255, 0));
-        pnlEstadoDiscapacidadBuscado.setForeground(new java.awt.Color(51, 255, 51));
-
-        javax.swing.GroupLayout pnlEstadoDiscapacidadBuscadoLayout = new javax.swing.GroupLayout(pnlEstadoDiscapacidadBuscado);
-        pnlEstadoDiscapacidadBuscado.setLayout(pnlEstadoDiscapacidadBuscadoLayout);
-        pnlEstadoDiscapacidadBuscadoLayout.setHorizontalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-        pnlEstadoDiscapacidadBuscadoLayout.setVerticalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
-
         txtFormatedFechaCaducidadBuscado.setEditable(false);
         txtFormatedFechaCaducidadBuscado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         txtFormatedFechaCaducidadBuscado.addActionListener(this::txtFormatedFechaCaducidadBuscadoActionPerformed);
@@ -263,13 +236,11 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
                         .addGap(1, 1, 1)
                         .addComponent(lblMembresia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMembresiaBuscado))
+                        .addComponent(txtMembresiaBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
                     .addGroup(pnlEstadoLayout.createSequentialGroup()
                         .addComponent(lblFechaCaducidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFormatedFechaCaducidadBuscado))
-                    .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFormatedFechaCaducidadBuscado)))
                 .addGap(20, 20, 20))
         );
         pnlEstadoLayout.setVerticalGroup(
@@ -292,11 +263,8 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlEstadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion)
-                    .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                    .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEstadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
@@ -369,7 +337,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblDiscapacidad;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaCaducidad;
@@ -377,7 +344,6 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTituloBuscado;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
     private javax.swing.JPanel pnlEstado;
-    private javax.swing.JPanel pnlEstadoDiscapacidadBuscado;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccionBuscado;
     private javax.swing.JTextField txtEdadBuscado;

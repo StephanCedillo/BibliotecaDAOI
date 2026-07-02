@@ -165,7 +165,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
 
         lblTituloBusquedaLibro.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
         lblTituloBusquedaLibro.setForeground(new java.awt.Color(0, 0, 0));
-        lblTituloBusquedaLibro.setText("BUSQUEDA LIBRO");
+        lblTituloBusquedaLibro.setText("ACTUALIZAR LIBRO");
 
         jPanel2.setBackground(new java.awt.Color(249, 245, 245));
 
@@ -238,7 +238,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
         lblEstado.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(51, 51, 51));
         lblEstado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblEstado.setText("Estado:");
+        lblEstado.setText(" Libro Disponible:");
 
         pnlEstado.setBackground(new java.awt.Color(0, 255, 0));
         pnlEstado.setForeground(new java.awt.Color(51, 255, 51));
@@ -362,20 +362,18 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(lblTituloBusquedaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnActualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnActualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(237, 237, 237)
-                            .addComponent(lblTituloBusquedaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(

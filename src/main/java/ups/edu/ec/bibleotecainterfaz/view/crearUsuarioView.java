@@ -62,9 +62,6 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
         return lblTituloCreacionUsuario;
     }
 
-    public JRadioButton getRadioButtonDiscapacidad() {
-        return radioButtonDiscapacidad;
-    }
 
     public JComboBox<String> getComboBoxStringsMembresia() {
         return comboBoxStringsMembresia;
@@ -138,7 +135,6 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
         lblDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
-        radioButtonDiscapacidad = new javax.swing.JRadioButton();
         lblMembresia = new javax.swing.JLabel();
         comboBoxStringsMembresia = new javax.swing.JComboBox<>();
 
@@ -228,13 +224,17 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
         lblCedula.setForeground(new java.awt.Color(51, 51, 51));
         lblCedula.setText("Cedula:");
 
-        txtFormattedDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        try {
+            txtFormattedDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
         txtFormattedDate.addActionListener(this::txtFormattedDateActionPerformed);
 
         lblFechaNacimiento.setBackground(new java.awt.Color(51, 51, 51));
         lblFechaNacimiento.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblFechaNacimiento.setForeground(new java.awt.Color(51, 51, 51));
-        lblFechaNacimiento.setText("Fecha Nacimiento:");
+        lblFechaNacimiento.setText("Fecha Nacimiento (d/M/yy):");
 
         lblDireccion.setBackground(new java.awt.Color(51, 51, 51));
         lblDireccion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
@@ -245,10 +245,6 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
 
         btnAceptar.setBackground(new java.awt.Color(51, 51, 51));
         btnAceptar.setText("Aceptar");
-
-        radioButtonDiscapacidad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        radioButtonDiscapacidad.setForeground(new java.awt.Color(102, 102, 102));
-        radioButtonDiscapacidad.setText("¿Tiene Discapacidad?");
 
         lblMembresia.setBackground(new java.awt.Color(51, 51, 51));
         lblMembresia.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
@@ -291,24 +287,17 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
                                 .addComponent(lblEmail)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(radioButtonDiscapacidad)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(txtFormattedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(txtFormattedDate, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(comboBoxStringsMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(lblFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(47, 47, 47)))
+                                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblFechaNacimiento))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -346,14 +335,12 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
                     .addComponent(txtFormattedDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxStringsMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radioButtonDiscapacidad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDireccion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAceptar)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -463,7 +450,6 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTituloCreacionUsuario;
-    private javax.swing.JRadioButton radioButtonDiscapacidad;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtContraseña;

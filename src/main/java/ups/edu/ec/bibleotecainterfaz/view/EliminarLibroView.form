@@ -415,7 +415,7 @@
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="4"/>
-                <Property name="text" type="java.lang.String" value="Estado:"/>
+                <Property name="text" type="java.lang.String" value="Libro Disponible:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JPanel" name="pnlEstado">

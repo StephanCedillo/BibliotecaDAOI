@@ -36,9 +36,7 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
         return lblDireccion;
     }
 
-    public JLabel getLblDiscapacidad() {
-        return lblDiscapacidad;
-    }
+
 
     public JLabel getLblEdad() {
         return lblEdad;
@@ -71,9 +69,7 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
         return lblTituloBusquedaUsuario;
     }
 
-    public JPanel getPnlEstadoDiscapacidadBuscado() {
-        return pnlEstadoDiscapacidadBuscado;
-    }
+ 
 
     public JTextField getTxtCedula() {
         return txtCedula;
@@ -129,8 +125,6 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
         lblEmail = new javax.swing.JLabel();
         lblMembresia = new javax.swing.JLabel();
         txtMembresiaBuscado = new javax.swing.JTextField();
-        lblDiscapacidad = new javax.swing.JLabel();
-        pnlEstadoDiscapacidadBuscado = new javax.swing.JPanel();
         txtFormatedFechaCaducidadBuscado = new javax.swing.JFormattedTextField();
         lblNombreBuscado = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
@@ -210,25 +204,6 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
 
         txtMembresiaBuscado.setEditable(false);
 
-        lblDiscapacidad.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblDiscapacidad.setForeground(new java.awt.Color(51, 51, 51));
-        lblDiscapacidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDiscapacidad.setText("Discapacidad");
-
-        pnlEstadoDiscapacidadBuscado.setBackground(new java.awt.Color(0, 255, 0));
-        pnlEstadoDiscapacidadBuscado.setForeground(new java.awt.Color(51, 255, 51));
-
-        javax.swing.GroupLayout pnlEstadoDiscapacidadBuscadoLayout = new javax.swing.GroupLayout(pnlEstadoDiscapacidadBuscado);
-        pnlEstadoDiscapacidadBuscado.setLayout(pnlEstadoDiscapacidadBuscadoLayout);
-        pnlEstadoDiscapacidadBuscadoLayout.setHorizontalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 186, Short.MAX_VALUE)
-        );
-        pnlEstadoDiscapacidadBuscadoLayout.setVerticalGroup(
-            pnlEstadoDiscapacidadBuscadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
-        );
-
         txtFormatedFechaCaducidadBuscado.setEditable(false);
         txtFormatedFechaCaducidadBuscado.addActionListener(this::txtFormatedFechaCaducidadBuscadoActionPerformed);
 
@@ -264,13 +239,11 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
                         .addGap(1, 1, 1)
                         .addComponent(lblMembresia)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMembresiaBuscado))
+                        .addComponent(txtMembresiaBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblFechaCaducidad)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFormatedFechaCaducidadBuscado))
-                    .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFormatedFechaCaducidadBuscado)))
                 .addGap(20, 20, 20))
         );
         jPanel3Layout.setVerticalGroup(
@@ -297,11 +270,8 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion)
-                    .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDiscapacidad))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlEstadoDiscapacidadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                    .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
 
         btnEliminar.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
@@ -315,16 +285,20 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(lblTituloBusquedaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(12, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,14 +350,12 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblDireccion;
-    private javax.swing.JLabel lblDiscapacidad;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaCaducidad;
     private javax.swing.JLabel lblMembresia;
     private javax.swing.JLabel lblNombreBuscado;
     private javax.swing.JLabel lblTituloBusquedaUsuario;
-    private javax.swing.JPanel pnlEstadoDiscapacidadBuscado;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtDireccionBuscado;
     private javax.swing.JTextField txtEdadBuscado;
