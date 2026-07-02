@@ -20,10 +20,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
      */
     public EliminarLibroView() {
         initComponents();
- 
     }
-
-    
     
 
      public JPanel getPnlEstado() {

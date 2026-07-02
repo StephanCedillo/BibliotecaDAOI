@@ -22,10 +22,9 @@ public class ListarPrestamoView extends javax.swing.JInternalFrame {
      */
     public ListarPrestamoView() {
         initComponents();
+
         
     }
-
-   
 
     public JButton getBtnListarRegistro() {
         return btnListarRegistro;

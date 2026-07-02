@@ -20,10 +20,7 @@ public class BuscarLibroView extends javax.swing.JInternalFrame {
      */
     public BuscarLibroView() {
         initComponents();
-       
     }
-
-      
     public JPanel getPnlEstado() {
         return pnlEstado;
     }

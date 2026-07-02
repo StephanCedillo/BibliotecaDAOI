@@ -18,13 +18,23 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo;
 
+    
+    public DefaultTableModel getModelo() {
+        return modelo;
+       
+    }
+
     /**
+     * 
      * Creates new form ListarUsuarioView
      */
+    public void setModelo(DefaultTableModel modelo) {    
+        this.modelo = modelo;
+    }
+
     public ListarUsuarioView() {
         initComponents();
         configurarTabla();
-       
     }
 
     public JButton getBtnListarUsuario() {
@@ -100,7 +110,7 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblListarUsuario;
     // End of variables declaration//GEN-END:variables
   private void configurarTabla() {
-        String[] columnas = {"Nombre", "Gmail", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
+        String[] columnas = {"Nombre", "Email", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
         modelo = new DefaultTableModel(columnas, 0);
 
         tblListarUsuario.setModel(modelo);

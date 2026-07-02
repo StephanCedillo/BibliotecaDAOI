@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -17,6 +18,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
    
     public BuscarPrestamoView() {
         initComponents();
+      
    
     }
 

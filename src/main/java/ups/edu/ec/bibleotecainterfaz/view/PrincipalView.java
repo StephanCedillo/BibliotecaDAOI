@@ -4,6 +4,12 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JDesktopPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import ups.edu.ec.bibleotecainterfaz.dao.*;
 import ups.edu.ec.bibleotecainterfaz.controller.LibroController;
 import ups.edu.ec.bibleotecainterfaz.controller.PrestamoController;
@@ -90,7 +96,206 @@ public class PrincipalView extends javax.swing.JFrame {
                 prestamoDAO);
    
 
+   
     }
+
+    public CrearLibroView getCrearLibroView() {
+        return crearLibroView;
+    }
+
+    public ActualizarLibroView getActualizarLibroView() {
+        return actualizarLibroView;
+    }
+
+    public EliminarLibroView getEliminarLibroView() {
+        return eliminarLibroView;
+    }
+
+    public BuscarLibroView getBuscarLibroView() {
+        return buscarLibroView;
+    }
+
+    public ListarLibroView getListarLibroView() {
+        return listarLibroView;
+    }
+
+    public CrearUsuarioView getCrearUsuarioView() {
+        return crearUsuarioView;
+    }
+
+    public ActualizarUsuarioView getActualizarUsuarioView() {
+        return actualizarUsuarioView;
+    }
+
+    public EliminarUsuarioView getEliminarUsuarioView() {
+        return eliminarUsuarioView;
+    }
+
+    public BuscarUsuarioView getBuscarUsuarioView() {
+        return buscarUsuarioView;
+    }
+
+    public ListarUsuarioView getListarUsuarioView() {
+        return listarUsuarioView;
+    }
+
+    public CrearPrestamoView getCrearPrestamoView() {
+        return crearPrestamoView;
+    }
+
+    public BuscarPrestamoView getBuscarPrestamoView() {
+        return buscarPrestamoView;
+    }
+
+    public ListarPrestamoView getListarPrestamoView() {
+        return listarPrestamoView;
+    }
+
+    public DevolucionPrestamoView getDevolucionPrestamoView() {
+        return devolucionPrestamoView;
+    }
+
+    public LibroDAO getLibroDAO() {
+        return libroDAO;
+    }
+
+    public UsuarioDAO getUsuarioDAO() {
+        return usuarioDAO;
+    }
+
+    public PrestamoDAO getPrestamoDAO() {
+        return prestamoDAO;
+    }
+
+    public PrincipalController getPrincipalController() {
+        return principalController;
+    }
+
+    public LibroController getLibroController() {
+        return libroController;
+    }
+
+    public PrestamoController getPrestamoController() {
+        return prestamoController;
+    }
+
+    public UserController getUserController() {
+        return userController;
+    }
+
+    public JMenuItem getBtnActualizarLibro() {
+        return btnActualizarLibro;
+    }
+
+    public JMenuItem getBtnActualizarUsuario() {
+        return btnActualizarUsuario;
+    }
+
+    public JMenuItem getBtnBuscarLibro() {
+        return btnBuscarLibro;
+    }
+
+    public JMenuItem getBtnBuscarPrestamo() {
+        return btnBuscarPrestamo;
+    }
+
+    public JMenuItem getBtnBuscarUsuario() {
+        return btnBuscarUsuario;
+    }
+
+    public JMenuItem getBtnCrearLibro() {
+        return btnCrearLibro;
+    }
+
+    public JMenuItem getBtnCrearPrestamo() {
+        return btnCrearPrestamo;
+    }
+
+    public JMenuItem getBtnCrearUsuario() {
+        return btnCrearUsuario;
+    }
+
+    public JMenuItem getBtnDevolucion() {
+        return btnDevolucion;
+    }
+
+    public JMenuItem getBtnEliminarLibro() {
+        return btnEliminarLibro;
+    }
+
+    public JMenuItem getBtnEliminarUsuario() {
+        return btnEliminarUsuario;
+    }
+
+    public JMenuItem getBtnListarLibro() {
+        return btnListarLibro;
+    }
+
+    public JMenuItem getBtnListarPrestamo() {
+        return btnListarPrestamo;
+    }
+
+    public JMenuItem getBtnListarUsuario() {
+        return btnListarUsuario;
+    }
+
+    public JDesktopPane getDesktopPane() {
+        return desktopPane;
+    }
+
+    public JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    public JMenu getjMenu2() {
+        return jMenu2;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public JMenuBar getjMenuBar2() {
+        return jMenuBar2;
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public JMenu getMenuConfiguracion() {
+        return menuConfiguracion;
+    }
+
+    public JMenu getMenuLibro() {
+        return menuLibro;
+    }
+
+    public JMenu getMenuRegistro() {
+        return menuRegistro;
+    }
+
+    public JMenu getMenuUsuarios() {
+        return menuUsuarios;
+    }
+    
+
+    public JMenuItem getMenuItemAleman() {
+        return menuItemAleman;
+    }
+
+    public JMenuItem getMenuItemEspanol() {
+        return menuItemEspanol;
+    }
+
+    public JMenuItem getMenuItemIngles() {
+        return menuItemIngles;
+    }
+
+    public JMenuItem getMenuItemRuso() {
+        return menuItemRuso;
+    }
+
  
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,7 +312,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
         jMenuBar2 = new javax.swing.JMenuBar();
         menuLibro = new javax.swing.JMenu();
         btnCrearLibro = new javax.swing.JMenuItem();
@@ -141,22 +345,6 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 188, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        desktopPane.add(jInternalFrame1);
-        jInternalFrame1.setBounds(0, 0, 200, 30);
 
         menuLibro.setText("Libros");
 
@@ -454,7 +642,6 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnListarPrestamo;
     private javax.swing.JMenuItem btnListarUsuario;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;

@@ -7,6 +7,10 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -44,10 +48,8 @@ public class LibroController {
         this.listarLibroView = listarLibroView;
         this.libroDAO = libroDAO;
         configurarEventos();
-        cambioIdioma();
 
         libroDAO.crearListadoTemporal(10);
-        System.out.println(libroDAO.listar());
         listarLibro();
     }
 
@@ -64,11 +66,11 @@ public class LibroController {
 
         listarLibroView.getBtnListarLibro().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        listarLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listarLibro();
+            }
+        });
 
         listarLibro();
     }
@@ -76,54 +78,54 @@ public class LibroController {
     private void configurarEventosActualizarLibro() {
         actualizarLibroView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarActLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarActLibro();
+            }
+        });
         actualizarLibroView.getBtnActualizacion().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        actualizarLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizarLibro();
+            }
+        });
     }
 
     private void configurarEventosEliminarLibro() {
 
         eliminarLibroView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarElimLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarElimLibro();
+            }
+        });
         eliminarLibroView.getBtnEliminar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        eliminarLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                eliminarLibro();
+            }
+        });
 
     }
 
     private void configurarEventosCrearLibro() {
         crearLibroView.getBtnAceptar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        crearLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crearLibro();
+            }
+        });
         crearLibroView.getBtnCrearAutor().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        crearAutor();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crearAutor();
+            }
+        });
         actualizarAutores();
 
     }
@@ -131,11 +133,11 @@ public class LibroController {
     private void configurarEventosBuscarLibro() {
         buscarLibroView.getBtnBuscar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarLibro();
+            }
+        });
     }
 
     private void actualizarAutores() {
@@ -153,134 +155,132 @@ public class LibroController {
 
     private void buscarActLibro() {
 
-        Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
+    Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            System.out.println("Libro no encontrado");
-            return;
-        }
-        // =======CAMBIOS EN TODAS LAS VARIABLES ===========
-
-        actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
-        actualizarLibroView.getRadioButtonRestriccion().setSelected(libro.isSirestriccionEdad());
-        actualizarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        actualizarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        actualizarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
-
-        if (libro.estaDisponible()) {
-            actualizarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            actualizarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
-        }
-
+    if (libro == null) {
+        mostrarInformacion("Libro no encontrado", actualizarLibroView);
+        return;
     }
+
+    actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+    actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+    actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
+    actualizarLibroView.getRadioButtonRestriccion().setSelected(libro.isSirestriccionEdad());
+    actualizarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+    actualizarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+    actualizarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+
+    if (libro.estaDisponible()) {
+        actualizarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+    } else {
+        actualizarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+    }
+}
 
     private void actualizarLibro() {
-        Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
+    Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            System.out.println("Libro no encontrado");
-            return;
-        }
-
-        libro.setNombre(actualizarLibroView.getTxtTituloBuscado().getText());
-        libro.setGenero(actualizarLibroView.getTxtGeneroBuscado().getText());
-        libro.setAutor((Autor) actualizarLibroView.getComboBoxAutores().getSelectedItem());
-        libro.setSirestriccionEdad(actualizarLibroView.getRadioButtonRestriccion().isSelected());
-        libro.setNumeroPaginas(Integer.parseInt(actualizarLibroView.getTxtNumeroPaginas().getText()));
-        libro.setIdioma(actualizarLibroView.getTxtIdiomaBuscado().getText());
-
-        if (libroDAO.actualizar(libro)) {
-            System.out.println("Actualizado");
-        } else {
-            System.out.println("No se pudo actualizar");
-        }
+    if (libro == null) {
+        mostrarInformacion("Libro no encontrado", actualizarLibroView);
+        return;
     }
+
+    libro.setNombre(actualizarLibroView.getTxtTituloBuscado().getText());
+    libro.setGenero(actualizarLibroView.getTxtGeneroBuscado().getText());
+    libro.setAutor((Autor) actualizarLibroView.getComboBoxAutores().getSelectedItem());
+    libro.setSirestriccionEdad(actualizarLibroView.getRadioButtonRestriccion().isSelected());
+    libro.setNumeroPaginas(Integer.parseInt(actualizarLibroView.getTxtNumeroPaginas().getText()));
+    libro.setIdioma(actualizarLibroView.getTxtIdiomaBuscado().getText());
+
+    if (libroDAO.actualizar(libro)) {
+        mostrarInformacion("Libro actualizado correctamente", actualizarLibroView);
+    } else {
+        mostrarInformacion("No se pudo actualizar el libro", actualizarLibroView);
+    }
+}
 
     private void buscarElimLibro() {
-        Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
+    Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            System.out.println("Libro no encontrado");
-            return;
-        }
-
-        // =======CAMBIOS EN TODAS LAS VARIABLES ===========
-
-        eliminarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        eliminarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        eliminarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
-
-        eliminarLibroView.getTxtRestriccionEdadBuscada()
-                .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
-        eliminarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        eliminarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        eliminarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
-
-        if (libro.estaDisponible()) {
-            eliminarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            eliminarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
-        }
+    if (libro == null) {
+        mostrarInformacion("Libro no encontrado", eliminarLibroView);
+        return;
     }
 
-    /// ================ HACER ALFONSO ================
+    eliminarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+    eliminarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+    eliminarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+
+    eliminarLibroView.getTxtRestriccionEdadBuscada()
+            .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
+    eliminarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+    eliminarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+    eliminarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+
+    if (libro.estaDisponible()) {
+        eliminarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+    } else {
+        eliminarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+    }
+}
+
+
     private void eliminarLibro() {
-        Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
+    Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            System.out.println("Libro no encontrado");
-            return;
-        }
-        libroDAO.eliminar(libro.getISBN());
-        // IMPLEMENTAR ELIMINACION DE LIBRO EN LA VISTA
-        // PARA QUE EL USUARIO ESTE SEGURO SI QUIERE ELIMINAR EL LIBRO
+    if (libro == null) {
+        mostrarInformacion("Libro no encontrado", eliminarLibroView);
+        return;
     }
 
-    private void crearLibro() {
-        libroDAO.crear(new Libro(crearLibroView.getTxtISBN().getText(),
-                (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
-                crearLibroView.getTxtNombre().getText(),
-                crearLibroView.getTxtGenero().getText(),
-                crearLibroView.getRadioButtonRestriccion().isSelected(),
-                Integer.parseInt(crearLibroView.getTxtNumeroPaginas().getText()),
-                crearLibroView.getTxtIdioma().getText(),
-                false));
-
-        System.out.println("Creado");
+    if (!confirmarAccion("¿Está seguro de eliminar este libro?", eliminarLibroView)) {
+        return;
     }
+
+    libroDAO.eliminar(libro.getISBN());
+    mostrarInformacion("Libro eliminado correctamente", eliminarLibroView);
+}
+
+   private void crearLibro() {
+    libroDAO.crear(new Libro(crearLibroView.getTxtISBN().getText(),
+            (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
+            crearLibroView.getTxtNombre().getText(),
+            crearLibroView.getTxtGenero().getText(),
+            crearLibroView.getRadioButtonRestriccion().isSelected(),
+            Integer.parseInt(crearLibroView.getTxtNumeroPaginas().getText()),
+            crearLibroView.getTxtIdioma().getText(),
+            false));
+
+    mostrarInformacion("Libro creado correctamente", crearLibroView);
+}
 
     private String restriccionEdad = "Si posee";
     private String restriccionEdadNo = "No posee";
 
     private void buscarLibro() {
-        Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
+    Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            System.out.println("Libro no encontrado");
-            return;
-        }
-        // =======CAMBIOS EN TODAS LAS VARIABLES ===========
-
-        buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        buscarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        buscarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
-
-        buscarLibroView.getTxtRestriccionEdadBuscada()
-                .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
-        buscarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        buscarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        buscarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
-
-        if (libro.estaDisponible()) {
-            buscarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            buscarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
-        }
-
+    if (libro == null) {
+        mostrarInformacion("Libro no encontrado", buscarLibroView);
+        return;
     }
+
+    buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+    buscarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+    buscarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+
+    buscarLibroView.getTxtRestriccionEdadBuscada()
+            .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
+    buscarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+    buscarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+    buscarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+
+    if (libro.estaDisponible()) {
+        buscarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+    } else {
+        buscarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+    }
+}
 
     private void listarLibro() {
 
@@ -289,15 +289,15 @@ public class LibroController {
 
         for (Libro libro : libroDAO.listar()) {
 
-            modelo.addRow(new Object[] {
-                    libro.getISBN(),
-                    libro.getNombre(),
-                    libro.getAutor(),
-                    libro.getGenero(),
-                    libro.getNumeroPaginas(),
-                    libro.getIdioma(),
-                    libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo,
-                    libro.estaDisponible() ? "Disponible" : "Prestado"
+            modelo.addRow(new Object[]{
+                libro.getISBN(),
+                libro.getNombre(),
+                libro.getAutor(),
+                libro.getGenero(),
+                libro.getNumeroPaginas(),
+                libro.getIdioma(),
+                libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo,
+                libro.estaDisponible() ? "Disponible" : "Prestado"
             });
         }
     }
@@ -309,32 +309,112 @@ public class LibroController {
         actualizarAutores();
     }
 
-    private void cambioIdioma() {
-        cambioIdiomaActualizarLibro();
-        cambioIdiomaBuscarLibro();
-        cambioIdiomaEliminarLibro();
-        cambioIdiomaCrearLibro();
-        cambioIdiomaListarLibro();
+    public void cambioIdioma(ResourceBundle bundle) {
+        cambioIdiomaActualizarLibro(bundle);
+        cambioIdiomaBuscarLibro(bundle);
+        cambioIdiomaEliminarLibro(bundle);
+        cambioIdiomaCrearLibro(bundle);
+        cambioIdiomaListarLibro(bundle);
     }
 
-    private void cambioIdiomaCrearLibro() {
+    private void cambioIdiomaCrearLibro(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        crearLibroView.getBtnAceptar().setText(bundle.getString("btnAceptar"));
+        crearLibroView.getBtnCrearAutor().setText(bundle.getString("btnCrearAutor"));
+
+// ===== LABELS =====
+        crearLibroView.getLblApellido().setText(bundle.getString("lblApellido"));
+        crearLibroView.getLblAutor().setText(bundle.getString("lblAutor"));
+        crearLibroView.getLblGenero().setText(bundle.getString("lblGenero"));
+        crearLibroView.getLblISBN().setText(bundle.getString("lblISBN"));
+        crearLibroView.getLblIdioma().setText(bundle.getString("lblIdioma"));
+        crearLibroView.getLblNombre().setText(bundle.getString("lblNombre"));
+        crearLibroView.getLblNombre2().setText(bundle.getString("lblNombre"));
+        crearLibroView.getLblNumeroPagina().setText(bundle.getString("lblNumeroPaginas"));
+        crearLibroView.getLblPreguntaExistenciaAutor().setText(bundle.getString("lblPreguntaExistenciaAutor"));
+        crearLibroView.getLblTituloCreacionLibro().setText(bundle.getString("lblTituloCrearLibro"));
+
+// ===== RADIO BUTTON =====
+        crearLibroView.getRadioButtonRestriccion().setText(bundle.getString("radioButtonRestriccion"));
+    }
+
+    private void cambioIdiomaEliminarLibro(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        eliminarLibroView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+        eliminarLibroView.getBtnEliminar().setText(bundle.getString("btnEliminar"));
+
+// ===== LABELS =====
+        eliminarLibroView.getLblAutor().setText(bundle.getString("lblAutor"));
+        eliminarLibroView.getLblEstado().setText(bundle.getString("lblEstado"));
+        eliminarLibroView.getLblGenero().setText(bundle.getString("lblGenero"));
+        eliminarLibroView.getLblISBN().setText(bundle.getString("lblISBN"));
+        eliminarLibroView.getLblISBN2().setText(bundle.getString("lblISBN"));
+        eliminarLibroView.getLblIdioma().setText(bundle.getString("lblIdioma"));
+        eliminarLibroView.getLblNumeroPaginas().setText(bundle.getString("lblNumeroPaginas"));
+        eliminarLibroView.getLblRestriccionEdad().setText(bundle.getString("lblRestriccionEdad"));
+        eliminarLibroView.getLblTituloBuscado().setText(bundle.getString("lblTitulo"));
+        eliminarLibroView.getLblTituloBusquedaLibro().setText(bundle.getString("lblTituloBuscarLibro"));
+    }
+
+    private void cambioIdiomaBuscarLibro(ResourceBundle bundle) {
+// ===== BOTONES =====
+        buscarLibroView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+
+// ===== LABELS =====
+        buscarLibroView.getLblAutor().setText(bundle.getString("lblAutor"));
+        buscarLibroView.getLblEstado().setText(bundle.getString("lblEstado"));
+        buscarLibroView.getLblGenero().setText(bundle.getString("lblGenero"));
+        buscarLibroView.getLblISBN().setText(bundle.getString("lblISBN"));
+        buscarLibroView.getLblISBN2().setText(bundle.getString("lblISBN"));
+        buscarLibroView.getLblIdioma().setText(bundle.getString("lblIdioma"));
+        buscarLibroView.getLblNumeroPaginas().setText(bundle.getString("lblNumeroPaginas"));
+        buscarLibroView.getLblRestriccionEdad().setText(bundle.getString("lblRestriccionEdad"));
+        buscarLibroView.getLblTituloBuscado().setText(bundle.getString("lblTitulo"));
+        buscarLibroView.getLblTituloBusquedaLibro().setText(bundle.getString("lblTituloBuscarLibro"));
+    }
+
+    private void cambioIdiomaActualizarLibro(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        actualizarLibroView.getBtnActualizacion().setText(bundle.getString("btnActualizacion"));
+        actualizarLibroView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+
+// ===== LABELS =====
+        actualizarLibroView.getLblAutor().setText(bundle.getString("lblAutor"));
+        actualizarLibroView.getLblEstado().setText(bundle.getString("lblEstado"));
+        actualizarLibroView.getLblGenero().setText(bundle.getString("lblGenero"));
+        actualizarLibroView.getLblISBN().setText(bundle.getString("lblISBN"));
+        actualizarLibroView.getLblISBN2().setText(bundle.getString("lblISBN"));
+        actualizarLibroView.getLblIdioma().setText(bundle.getString("lblIdioma"));
+        actualizarLibroView.getLblNumeroPaginas().setText(bundle.getString("lblNumeroPaginas"));
+        actualizarLibroView.getLblRestriccionEdad().setText(bundle.getString("lblRestriccionEdad"));
+        actualizarLibroView.getLblTitulo().setText(bundle.getString("lblTitulo"));
+        actualizarLibroView.getLblTituloBusquedaLibro().setText(bundle.getString("lblTituloBusquedaLibro"));
 
     }
 
-    private void cambioIdiomaEliminarLibro() {
-
+    private void cambioIdiomaListarLibro(ResourceBundle bundle) {
+        listarLibroView.getBtnListarLibro().setText(bundle.getString("btnListarLibro"));
+        configurarTabla(bundle);
     }
 
-    private void cambioIdiomaBuscarLibro() {
-
+     private void configurarTabla(ResourceBundle bundle) {
+        String[] columnas = bundle.getString("columnasLibro").split(",");
+        listarLibroView.setModelo(new DefaultTableModel(columnas, 0));
+        listarLibroView.getTblListarLibro().setModel(listarLibroView.getModelo());
     }
-
-    private void cambioIdiomaActualizarLibro() {
-
+     
+     public void mostrarInformacion(String mensaje, JInternalFrame frame) {
+        JOptionPane.showMessageDialog(frame, mensaje);
     }
+     //IMPLEMENTACION EN ELIMINAR
+     public boolean confirmarAccion(String mensaje, JInternalFrame frame) {
+    int opcion = JOptionPane.showConfirmDialog(
+            frame,
+            mensaje,
+            "Confirmación",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
 
-    private void cambioIdiomaListarLibro() {
-
-    }
-
+    return opcion == JOptionPane.YES_OPTION;
+}
 }

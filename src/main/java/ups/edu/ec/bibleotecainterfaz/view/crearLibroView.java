@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import ups.edu.ec.bibleotecainterfaz.models.Autor;
@@ -22,11 +23,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
      */
     public CrearLibroView() {
         initComponents();
-    
     }
-   
-
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

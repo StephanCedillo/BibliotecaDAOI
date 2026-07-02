@@ -21,10 +21,8 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
      */
     public EliminarUsuarioView() {
         initComponents();
-        
+ 
     }
-
-    
 
     public JButton getBtnBuscar() {
         return btnBuscar;

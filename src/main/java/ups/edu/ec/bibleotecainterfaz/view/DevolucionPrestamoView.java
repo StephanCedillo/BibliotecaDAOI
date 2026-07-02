@@ -7,6 +7,7 @@ package ups.edu.ec.bibleotecainterfaz.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -21,7 +22,55 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
      */
     public DevolucionPrestamoView() {
         initComponents();
+
+        
     }
+
+    public JLabel getLblCedula() {
+        return lblCedula;
+    }
+
+    public JLabel getLblCedula2() {
+        return lblCedula2;
+    }
+
+    public JLabel getLblDevuelto() {
+        return lblDevuelto;
+    }
+
+    public JLabel getLblGmail() {
+        return lblGmail;
+    }
+
+    public JLabel getLblID() {
+        return lblID;
+    }
+
+    public JLabel getLblID2() {
+        return lblID2;
+    }
+
+    public JLabel getLblISBN() {
+        return lblISBN;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public JLabel getLblPedido() {
+        return lblPedido;
+    }
+
+    public JLabel getLblTItuloDevolucionPrestamo() {
+        return lblTItuloDevolucionPrestamo;
+    }
+
+    public JLabel getLblTextoPorBuscar() {
+        return lblTextoPorBuscar;
+    }
+    
+    
 
     public JLabel getLblIDBuscado() {
         return lblIDBuscado;
@@ -100,27 +149,27 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblTItuloDevolucionPrestamo = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblISBN = new javax.swing.JLabel();
         txtISBN = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblID = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
         txtICedula = new javax.swing.JTextField();
         btnID = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         txtCedulaBuscado = new javax.swing.JTextField();
         lblIDBuscado = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblGmail = new javax.swing.JLabel();
+        lblPedido = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         txtGmailBuscado = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblCedula2 = new javax.swing.JLabel();
+        lblDevuelto = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         pnlEstadoDevuelto = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        lblID2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLibrosBuscados = new javax.swing.JTable();
@@ -129,28 +178,28 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         txtNombreBuscado = new javax.swing.JTextField();
         btnISBN = new javax.swing.JButton();
         btnDevolucion = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
+        lblTextoPorBuscar = new javax.swing.JLabel();
         btnCedula = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
-        jLabel3.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("DEVOLUCION DE PRESTAMO");
+        lblTItuloDevolucionPrestamo.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        lblTItuloDevolucionPrestamo.setForeground(new java.awt.Color(0, 0, 0));
+        lblTItuloDevolucionPrestamo.setText("DEVOLUCION DE PRESTAMO");
 
         jPanel2.setBackground(new java.awt.Color(249, 245, 245));
 
-        jLabel1.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("ISBN:");
+        lblISBN.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblISBN.setForeground(new java.awt.Color(0, 0, 0));
+        lblISBN.setText("ISBN:");
 
-        jLabel12.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Id:");
+        lblID.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblID.setForeground(new java.awt.Color(0, 0, 0));
+        lblID.setText("Id:");
 
-        jLabel13.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Cedula:");
+        lblCedula.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(0, 0, 0));
+        lblCedula.setText("Cedula:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,14 +210,14 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtICedula, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(10, Short.MAX_VALUE))
@@ -178,15 +227,15 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtICedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
@@ -205,28 +254,28 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         lblIDBuscado.setForeground(new java.awt.Color(51, 51, 51));
         lblIDBuscado.setText("001");
 
-        jLabel5.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Gmail:");
+        lblGmail.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblGmail.setForeground(new java.awt.Color(51, 51, 51));
+        lblGmail.setText("Gmail:");
 
-        jLabel6.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Fecha Pedido:");
+        lblPedido.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblPedido.setForeground(new java.awt.Color(51, 51, 51));
+        lblPedido.setText("Fecha Pedido:");
 
-        jLabel7.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Nombre:");
+        lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setText("Nombre:");
 
         txtGmailBuscado.setEditable(false);
         txtGmailBuscado.addActionListener(this::txtGmailBuscadoActionPerformed);
 
-        jLabel9.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Cedula:");
+        lblCedula2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblCedula2.setForeground(new java.awt.Color(51, 51, 51));
+        lblCedula2.setText("Cedula:");
 
-        jLabel10.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Fecha Devuelto");
+        lblDevuelto.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblDevuelto.setForeground(new java.awt.Color(51, 51, 51));
+        lblDevuelto.setText("Fecha Devuelto");
 
         lblEstado.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         lblEstado.setForeground(new java.awt.Color(51, 51, 51));
@@ -247,9 +296,9 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
             .addGap(0, 12, Short.MAX_VALUE)
         );
 
-        jLabel15.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel15.setText("ID:");
+        lblID2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblID2.setForeground(new java.awt.Color(51, 51, 51));
+        lblID2.setText("ID:");
 
         tblLibrosBuscados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -296,7 +345,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel15)
+                .addComponent(lblID2)
                 .addGap(18, 18, 18)
                 .addComponent(lblIDBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -306,16 +355,16 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
+                                .addComponent(lblCedula2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
+                                .addComponent(lblNombre)
                                 .addGap(2, 2, 2)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCedulaBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                             .addComponent(txtNombreBuscado))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5))
+                        .addComponent(lblGmail))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel3Layout.createSequentialGroup()
@@ -324,13 +373,13 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel10))
+                            .addComponent(lblPedido)
+                            .addComponent(lblDevuelto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtFechaPedidoBuscado, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                             .addComponent(txtFechaDevueltoBuscado))
-                        .addContainerGap(36, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -344,21 +393,21 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIDBuscado)
-                    .addComponent(jLabel15))
+                    .addComponent(lblID2))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(jLabel5)
+                        .addComponent(lblCedula2)
+                        .addComponent(lblGmail)
                         .addComponent(txtGmailBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6)
+                        .addComponent(lblPedido)
                         .addComponent(txtFechaPedidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCedulaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel7)
+                    .addComponent(lblDevuelto)
+                    .addComponent(lblNombre)
                     .addComponent(txtFechaDevueltoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,9 +428,9 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
         btnDevolucion.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         btnDevolucion.setText("DEVOLUCIÓN");
 
-        jLabel14.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("BUSCAR POR :");
+        lblTextoPorBuscar.setFont(new java.awt.Font("ITF Devanagari", 1, 14)); // NOI18N
+        lblTextoPorBuscar.setForeground(new java.awt.Color(51, 51, 51));
+        lblTextoPorBuscar.setText("BUSCAR POR :");
 
         btnCedula.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
         btnCedula.setText("CEDULA");
@@ -392,35 +441,35 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addComponent(lblTItuloDevolucionPrestamo)
                 .addGap(164, 164, 164))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel14))
+                        .addComponent(lblTextoPorBuscar))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(btnID, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                             .addComponent(btnISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(btnCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(btnDevolucion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTItuloDevolucionPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
+                .addComponent(lblTextoPorBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnID)
@@ -475,24 +524,24 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnDevolucion;
     private javax.swing.JButton btnID;
     private javax.swing.JButton btnISBN;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCedula2;
+    private javax.swing.JLabel lblDevuelto;
     private javax.swing.JLabel lblEstado;
+    private javax.swing.JLabel lblGmail;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblID2;
     private javax.swing.JLabel lblIDBuscado;
+    private javax.swing.JLabel lblISBN;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPedido;
+    private javax.swing.JLabel lblTItuloDevolucionPrestamo;
+    private javax.swing.JLabel lblTextoPorBuscar;
     private javax.swing.JPanel pnlEstadoDevuelto;
     private javax.swing.JTable tblLibrosBuscados;
     private javax.swing.JTextField txtCedulaBuscado;

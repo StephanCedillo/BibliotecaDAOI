@@ -8,6 +8,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import ups.edu.ec.bibleotecainterfaz.dao.UsuarioDAO;
 import ups.edu.ec.bibleotecainterfaz.models.Membresia;
@@ -45,9 +50,9 @@ public class UserController {
         this.usuarioDAO = usuarioDAO;
 
         configurarEventos();
-        cambioIdioma();
+
         usuarioDAO.crearListadoTemporal(20);
-        System.out.println(usuarioDAO.listar());
+
         listarUsuario();
     }
 
@@ -132,7 +137,7 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            System.out.println("Usuario no encontrado");
+            mostrarInformacion("Usuario no encontrado", actualizarUsuarioView);
             return;
         }
 
@@ -156,7 +161,7 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            System.out.println("Usuario no encontrado");
+            mostrarInformacion("Usuario no encontrado", actualizarUsuarioView);
             return;
         }
         Usuario nuevoUsuario = new Usuario(actualizarUsuarioView.getTxtEmailBuscado().getText(),
@@ -170,6 +175,7 @@ public class UserController {
                 actualizarUsuarioView.getTxtDireccionBuscado().getText(), usuario.isTieneDiscapacidad());
         nuevoUsuario.agregarMembresia(actualizarUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
         usuarioDAO.actualizar(nuevoUsuario);
+        mostrarInformacion("Usuario actualizado correctamente", actualizarUsuarioView);
 
     }
 
@@ -177,7 +183,7 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            System.out.println("Usuario no encontrado");
+            mostrarInformacion("Usuario no encontrado", eliminarUsuarioView);
             return;
         }
 
@@ -201,10 +207,16 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            System.out.println("Usuario no encontrado");
+            mostrarInformacion("Usuario no encontrado", eliminarUsuarioView);
             return;
         }
+
+        if (!confirmarAccion("¿Está seguro de eliminar este usuario?", eliminarUsuarioView)) {
+            return;
+        }
+
         usuarioDAO.eliminar(usuario.getCedula());
+        mostrarInformacion("Usuario eliminado correctamente", eliminarUsuarioView);
     }
 
     private void crearUsuario() {
@@ -225,14 +237,14 @@ public class UserController {
         u.agregarMembresia(crearUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
         usuarioDAO.crear(u);
 
-        System.out.println("Creado");
+        mostrarInformacion("Usuario creado correctamente", crearUsuarioView);
     }
 
     private void buscarUsuario() {
         Usuario usuario = usuarioDAO.buscar(buscarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            System.out.println("Usuario no encontrado");
+            mostrarInformacion("Usuario no encontrado", buscarUsuarioView);
             return;
         }
 
@@ -256,33 +268,123 @@ public class UserController {
         listarUsuarioView.cargarDatos(usuarioDAO.listar());
     }
 
-    private void cambioIdioma() {
-        cambioIdiomaActualizarUsuario();
-        cambioIdiomaBuscarUsuario();
-        cambioIdiomaEliminarUsuario();
-        cambioIdiomaCrearUsuario();
-        cambioIdiomaListarUsuario();
+    public void cambioIdioma(ResourceBundle bundle) {
+        cambioIdiomaActualizarUsuario(bundle);
+        cambioIdiomaBuscarUsuario(bundle);
+        cambioIdiomaEliminarUsuario(bundle);
+        cambioIdiomaCrearUsuario(bundle);
+        cambioIdiomaListarUsuario(bundle);
 
     }
 
-    private void cambioIdiomaCrearUsuario() {
+    private void cambioIdiomaCrearUsuario(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        crearUsuarioView.getBtnAceptar().setText(bundle.getString("btnAceptar"));
+
+// ===== COMBO BOX =====
+        crearUsuarioView.getComboBoxStringsMembresia().removeAllItems();
+        for (String membresia : bundle.getString("comboBoxMembresia").split(",")) {
+            crearUsuarioView.getComboBoxStringsMembresia().addItem(membresia.trim());
+        }
+
+// ===== LABELS =====
+        crearUsuarioView.getLblApellido().setText(bundle.getString("lblApellido"));
+        crearUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
+        crearUsuarioView.getLblContraseña().setText(bundle.getString("lblContraseña"));
+        crearUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
+        crearUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
+        crearUsuarioView.getLblFechaNacimiento().setText(bundle.getString("lblFechaNacimiento"));
+        crearUsuarioView.getLblMembresia().setText(bundle.getString("lblMembresia"));
+        crearUsuarioView.getLblNombre().setText(bundle.getString("lblNombre"));
+        crearUsuarioView.getLblTituloCreacionUsuario().setText(bundle.getString("lblTituloCrearUsuario"));
+
+// ===== RADIO BUTTON =====
+        crearUsuarioView.getRadioButtonDiscapacidad().setText(bundle.getString("radioButtonDiscapacidad"));
+    }
+
+    private void cambioIdiomaEliminarUsuario(ResourceBundle bundle) {
+// ===== BOTONES =====
+        eliminarUsuarioView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+        eliminarUsuarioView.getBtnEliminar().setText(bundle.getString("btnEliminar"));
+
+// ===== LABELS =====
+        eliminarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
+        eliminarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
+        eliminarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+        eliminarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
+        eliminarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
+        eliminarUsuarioView.getLblFechaCaducidad().setText(bundle.getString("lblFechaCaducidad"));
+        eliminarUsuarioView.getLblMembresia().setText(bundle.getString("lblMembresia"));
+        eliminarUsuarioView.getLblNombreBuscado().setText(bundle.getString("lblNombre"));
+        eliminarUsuarioView.getLblTituloBusquedaUsuario().setText(bundle.getString("lblTituloEliminarUsuario"));
+    }
+
+    private void cambioIdiomaBuscarUsuario(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        buscarUsuarioView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+
+// ===== LABELS =====
+        buscarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
+        buscarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
+        buscarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+        buscarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
+        buscarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
+        buscarUsuarioView.getLblFechaCaducidad().setText(bundle.getString("lblFechaCaducidad"));
+        buscarUsuarioView.getLblMembresia().setText(bundle.getString("lblMembresia"));
+        buscarUsuarioView.getLblTituloBuscado().setText(bundle.getString("lblNombre"));
+        buscarUsuarioView.getLblTituloBusquedaUsuario().setText(bundle.getString("lblTituloBuscarUsuario"));
+    }
+
+    private void cambioIdiomaActualizarUsuario(ResourceBundle bundle) {
+        actualizarUsuarioView.getBtnActualizacion().setText(bundle.getString("btnActualizacion"));
+        actualizarUsuarioView.getBtnBuscar().setText(bundle.getString("btnBuscar"));
+
+        actualizarUsuarioView.getLblApellido().setText(bundle.getString("lblApellido"));
+        actualizarUsuarioView.getLblCedula().setText(bundle.getString("lblCedula"));
+        actualizarUsuarioView.getLblContrasena().setText(bundle.getString("lblContraseña"));
+        actualizarUsuarioView.getLblDireccion().setText(bundle.getString("lblDireccion"));
+        actualizarUsuarioView.getLblDiscapacidad().setText(bundle.getString("lblDiscapacidad"));
+        actualizarUsuarioView.getLblEdad().setText(bundle.getString("lblEdad"));
+        actualizarUsuarioView.getLblEmail().setText(bundle.getString("lblEmail"));
+        actualizarUsuarioView.getLblMembresia().setText(bundle.getString("lblMembresia"));
+        actualizarUsuarioView.getLblNombre().setText(bundle.getString("lblNombre"));
+        actualizarUsuarioView.getLblRenovar().setText(bundle.getString("lblRenovar"));
+        actualizarUsuarioView.getLblTituloBusquedaUsuario().setText(bundle.getString("lblTituloActualizarUsuario"));
+
+        actualizarUsuarioView.getComboBoxStringsMembresia().removeAllItems();
+        String[] membresias = bundle.getString("comboBoxMembresia").split(",");
+        for (String membresia : membresias) {
+            actualizarUsuarioView.getComboBoxStringsMembresia().addItem(membresia.trim());
+        }
 
     }
 
-    private void cambioIdiomaEliminarUsuario() {
+    private void cambioIdiomaListarUsuario(ResourceBundle bundle) {
 
+        listarUsuarioView.getBtnListarUsuario().setText(bundle.getString("btnListarUsuario"));
+        configurarTabla(bundle);
     }
 
-    private void cambioIdiomaBuscarUsuario() {
-
+    private void configurarTabla(ResourceBundle bundle) {
+        String[] columnas = bundle.getString("columnasLibro").split(",");
+        listarUsuarioView.setModelo(new DefaultTableModel(columnas, 0));
+        listarUsuarioView.getTblListarUsuario().setModel(listarUsuarioView.getModelo());
     }
 
-    private void cambioIdiomaActualizarUsuario() {
-
+    public void mostrarInformacion(String mensaje, JInternalFrame frame) {
+        JOptionPane.showMessageDialog(frame, mensaje);
     }
+    //IMPLEMENTACION EN ELIMINAR
 
-    private void cambioIdiomaListarUsuario() {
+    public boolean confirmarAccion(String mensaje, JInternalFrame frame) {
+        int opcion = JOptionPane.showConfirmDialog(
+                frame,
+                mensaje,
+                "Confirmación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
 
+        return opcion == JOptionPane.YES_OPTION;
     }
 
 }

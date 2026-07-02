@@ -8,7 +8,11 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.BoxLayout;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,7 +50,7 @@ public class PrestamoController {
         this.usuarioDAO = usuarioDAO;
         this.libroDAO = libroDAO;
         configurarEventos();
-        cambioIdioma();
+
     }
 
     private void configurarEventos() {
@@ -60,44 +64,44 @@ public class PrestamoController {
     private void configurarEventosDevolucionPrestamo() {
         devolucionPrestamoView.getBtnCedula().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarDevolucion(1);
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarDevolucion(1);
+            }
+        });
         devolucionPrestamoView.getBtnID().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarDevolucion(2);
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarDevolucion(2);
+            }
+        });
         devolucionPrestamoView.getBtnISBN().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscarDevolucion(3);
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarDevolucion(3);
+            }
+        });
 
         devolucionPrestamoView.getBtnDevolucion().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        devolucion();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                devolucion();
+            }
+        });
 
     }
 
     private void configurarEventosListarPrestamo() {
         listarPrestamoView.getBtnListarRegistro().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        listarPrestamos();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listarPrestamos();
+            }
+        });
         listarPrestamos();
 
     }
@@ -105,18 +109,18 @@ public class PrestamoController {
     private void configurarEventosCrearPrestamo() {
         crearPrestamoView.getBtnAceptar().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        crearPrestamo();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crearPrestamo();
+            }
+        });
         crearPrestamoView.getBtnIngresarOtroLibro().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        ingresarOtroLibro();
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ingresarOtroLibro();
+            }
+        });
 
     }
 
@@ -124,27 +128,27 @@ public class PrestamoController {
         configurarTabla();
         buscarPrestamoView.getBtnCedula().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                        buscar(1);
-                    }
-                });
+                buscar(1);
+            }
+        });
         buscarPrestamoView.getBtnID().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
-                        buscar(2);
-                    }
-                });
+                buscar(2);
+            }
+        });
         buscarPrestamoView.getBtnISBN().addActionListener(
                 new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        buscar(3);
-                    }
-                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscar(3);
+            }
+        });
 
     }
 
@@ -160,7 +164,7 @@ public class PrestamoController {
         }
 
         if (prestamoSeleccionadoBuscar == null) {
-            System.out.println("Préstamo no encontrado");
+            mostrarInformacion("Préstamo no encontrado", buscarPrestamoView);
             return;
         }
         buscarPrestamoView.getLblIDBuscado().setText(String.valueOf((char) prestamoSeleccionadoBuscar.getId()));
@@ -187,8 +191,8 @@ public class PrestamoController {
 
     private void configurarTabla() {
         modelo = new DefaultTableModel();
-        modelo.addColumn("ISBN");
-        modelo.addColumn("Titulo");
+        modelo.addColumn(cambioISBN);
+        modelo.addColumn(cambioNombre);
 
         buscarPrestamoView.getTblLibrosBuscados().setModel(modelo);
         devolucionPrestamoView.getTblLibrosBuscados().setModel(modelo);
@@ -197,7 +201,7 @@ public class PrestamoController {
     public void cargarDatos(List<Libro> libros) {
         modelo.setRowCount(0);
         for (Libro libro : libros) {
-            Object[] fila = { libro.getISBN(), libro.getNombre() };
+            Object[] fila = {libro.getISBN(), libro.getNombre()};
             modelo.addRow(fila);
         }
 
@@ -216,7 +220,7 @@ public class PrestamoController {
         }
 
         if (prestamoSeleccionadoDevolucion == null) {
-            System.out.println("Préstamo no encontrado");
+            mostrarInformacion("Préstamo no encontrado", devolucionPrestamoView);
             return;
         }
         devolucionPrestamoView.getLblIDBuscado().setText(String.valueOf((char) prestamoSeleccionadoDevolucion.getId()));
@@ -246,7 +250,7 @@ public class PrestamoController {
             Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
 
             if (usuario == null) {
-                System.out.println("Usuario no encontrado");
+                mostrarInformacion("Usuario no encontrado", crearPrestamoView);
                 return;
             }
 
@@ -256,7 +260,7 @@ public class PrestamoController {
         Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
 
         if (libro == null) {
-            System.out.println("Libro no encontrado");
+            mostrarInformacion("Libro no encontrado", crearPrestamoView);
             return;
         }
 
@@ -264,15 +268,22 @@ public class PrestamoController {
 
         crearPrestamoView.getTxtISBN().setText("");
 
-        System.out.println("Libro agregado al préstamo");
+        mostrarInformacion("Libro agregado al préstamo", crearPrestamoView);
     }
 
     private void devolucion() {
+
         if (prestamoSeleccionadoDevolucion == null) {
-            System.out.println("PRODUCTO NO SELECCIONADO");
+            mostrarInformacion("Debe buscar un préstamo primero", devolucionPrestamoView);
             return;
         }
+
+        if (!confirmarAccion("¿Desea registrar la devolución del préstamo?", devolucionPrestamoView)) {
+            return;
+        }
+
         prestamoSeleccionadoDevolucion.registrarDevolucion();
+        mostrarInformacion("Préstamo devuelto correctamente", devolucionPrestamoView);
     }
 
     private void crearPrestamo() {
@@ -281,7 +292,7 @@ public class PrestamoController {
             Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
 
             if (usuario == null) {
-                System.out.println("Usuario no encontrado");
+                mostrarInformacion("Usuario no encontrado", crearPrestamoView);
                 return;
             }
 
@@ -291,52 +302,33 @@ public class PrestamoController {
         Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
 
         if (libro == null) {
-            System.out.println("Libro no encontrado");
+            mostrarInformacion("Libro no encontrado", crearPrestamoView);
             return;
         }
 
         prestamoTemporal.agregarLibro(libro);
 
         prestamoDAO.crear(prestamoTemporal);
-        System.out.println(prestamoTemporal);
 
-        System.out.println("Préstamo creado");
+        mostrarInformacion("Préstamo creado correctamente", crearPrestamoView);
 
         prestamoTemporal = null;
     }
-
-    private void cambioIdioma() {
-        cambioIdiomaDevolucionPrestamo();
-        cambioIdiomaBuscarPrestamo();
-        cambioIdiomaListarPrestamo();
-        cambioIdiomaCrearPrestamo();
-    }
-
-    private void cambioIdiomaCrearPrestamo() {
-
-    }
-
-    private void cambioIdiomaListarPrestamo() {
-
-    }
-
-    private void cambioIdiomaBuscarPrestamo() {
-
-    }
-
-    private void cambioIdiomaDevolucionPrestamo() {
-
-    }
+    PrestamoView[] prestamoViewLista = null;
 
     private void listarPrestamos() {
         JPanel panel = new JPanel();
-panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-for (Prestamo prestamo : prestamoDAO.listar()) {
-    panel.add(cambiarPanel(prestamo));
-}
+        prestamoViewLista = new PrestamoView[prestamoDAO.listar().size()];
+        int i = 0;
+        for (Prestamo prestamo : prestamoDAO.listar()) {
+            panel.add(cambiarPanel(prestamo));
+            prestamoViewLista[i].add(panel);
+            i++;
+        }
 
-listarPrestamoView.getScrollPanePrestamos().setViewportView(panel);
+        listarPrestamoView.getScrollPanePrestamos().setViewportView(panel);
 
     }
 
@@ -367,8 +359,8 @@ listarPrestamoView.getScrollPanePrestamos().setViewportView(panel);
 
     private void configurarTablaPanel(PrestamoView prestamoView) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ISBN");
-        modelo.addColumn("Titulo");
+        modelo.addColumn(cambioISBN);
+        modelo.addColumn(cambioNombre);
 
         prestamoView.getTblLibrosBuscados().setModel(modelo);
     }
@@ -380,11 +372,106 @@ listarPrestamoView.getScrollPanePrestamos().setViewportView(panel);
         modelo.setRowCount(0);
 
         for (Libro libro : libros) {
-            modelo.addRow(new Object[] {
-                    libro.getISBN(),
-                    libro.getNombre()
+            modelo.addRow(new Object[]{
+                libro.getISBN(),
+                libro.getNombre()
             });
         }
+    }
+
+    public void cambioIdioma(ResourceBundle bundle) {
+        cambioIdiomaDevolucionPrestamo(bundle);
+        cambioIdiomaBuscarPrestamo(bundle);
+        cambioIdiomaListarPrestamo(bundle);
+        cambioIdiomaCrearPrestamo(bundle);
+    }
+
+    private void cambioIdiomaCrearPrestamo(ResourceBundle bundle) {
+// ===== BOTONES =====
+        crearPrestamoView.getBtnAceptar().setText(bundle.getString("btnAceptar"));
+        crearPrestamoView.getBtnIngresarOtroLibro().setText(bundle.getString("btnIngresarOtroLibro"));
+
+// ===== LABELS =====
+        crearPrestamoView.getLblCedula().setText(bundle.getString("lblCedula"));
+        crearPrestamoView.getLblISBN().setText(bundle.getString("lblISBN"));
+        crearPrestamoView.getLblTituloCreacionPrestamo().setText(bundle.getString("lblTituloCrearPrestamo"));
+    }
+
+    private String cambioISBN = "ISBN";
+    private String cambioNombre = "Titulo";
+
+    private void cambioIdiomaListarPrestamo(ResourceBundle bundle) {
+
+        // ===== BOTÓN =====
+        listarPrestamoView.getBtnListarRegistro().setText(bundle.getString("btnListarPrestamo"));
+        cambioISBN = bundle.getString("lblISBN");
+        cambioNombre = bundle.getString("lblTitulo");
+
+        for (int i = 0; i < prestamoViewLista.length; i++) {
+
+            configurarTablaPanel(prestamoViewLista[i]);
+        }
+
+        configurarTabla();
+
+    }
+
+    private void cambioIdiomaBuscarPrestamo(ResourceBundle bundle) {
+// ===== BOTONES =====
+        buscarPrestamoView.getBtnCedula().setText(bundle.getString("btnCedula"));
+        buscarPrestamoView.getBtnID().setText(bundle.getString("btnID"));
+        buscarPrestamoView.getBtnISBN().setText(bundle.getString("btnISBN"));
+
+// ===== LABELS =====
+        buscarPrestamoView.getLblBuscarPor().setText(bundle.getString("lblBuscarPor"));
+        buscarPrestamoView.getLblCedula2().setText(bundle.getString("lblCedula"));
+        buscarPrestamoView.getLblCedula3().setText(bundle.getString("lblCedula"));
+        buscarPrestamoView.getLblEmail2().setText(bundle.getString("lblEmail"));
+        buscarPrestamoView.getLblEstado2().setText(bundle.getString("lblEstado"));
+        buscarPrestamoView.getLblFechaDevuelto().setText(bundle.getString("lblFechaDevuelto"));
+        buscarPrestamoView.getLblFechaPedido().setText(bundle.getString("lblFechaPedido"));
+        buscarPrestamoView.getLblID().setText(bundle.getString("lblID"));
+        buscarPrestamoView.getLblID2().setText(bundle.getString("lblID"));
+        buscarPrestamoView.getLblISBN3().setText(bundle.getString("lblISBN"));
+        buscarPrestamoView.getLblNombre().setText(bundle.getString("lblNombre"));
+        buscarPrestamoView.getLblTituloBusquedaPrestamo().setText(bundle.getString("lblTituloBuscarPrestamo"));
+    }
+
+    private void cambioIdiomaDevolucionPrestamo(ResourceBundle bundle) {
+        // ===== BOTONES =====
+        devolucionPrestamoView.getBtnCedula().setText(bundle.getString("btnCedula"));
+        devolucionPrestamoView.getBtnDevolucion().setText(bundle.getString("btnDevolucion"));
+        devolucionPrestamoView.getBtnID().setText(bundle.getString("btnID"));
+        devolucionPrestamoView.getBtnISBN().setText(bundle.getString("btnISBN"));
+
+// ===== LABELS =====
+        devolucionPrestamoView.getLblCedula().setText(bundle.getString("lblCedula"));
+        devolucionPrestamoView.getLblCedula2().setText(bundle.getString("lblCedula"));
+        devolucionPrestamoView.getLblDevuelto().setText(bundle.getString("lblFechaDevuelto"));
+        devolucionPrestamoView.getLblEstado().setText(bundle.getString("lblEstado"));
+        devolucionPrestamoView.getLblGmail().setText(bundle.getString("lblEmail"));
+        devolucionPrestamoView.getLblID().setText(bundle.getString("lblID"));
+        devolucionPrestamoView.getLblID2().setText(bundle.getString("lblID"));
+        devolucionPrestamoView.getLblISBN().setText(bundle.getString("lblISBN"));
+        devolucionPrestamoView.getLblNombre().setText(bundle.getString("lblNombre"));
+        devolucionPrestamoView.getLblPedido().setText(bundle.getString("lblFechaPedido"));
+        devolucionPrestamoView.getLblTItuloDevolucionPrestamo().setText(bundle.getString("lblTituloDevolucionPrestamo"));
+        devolucionPrestamoView.getLblTextoPorBuscar().setText(bundle.getString("lblBuscarPor"));
+    }
+
+    public void mostrarInformacion(String mensaje, JInternalFrame frame) {
+        JOptionPane.showMessageDialog(frame, mensaje);
+    }
+
+    public boolean confirmarAccion(String mensaje, JInternalFrame frame) {
+        int opcion = JOptionPane.showConfirmDialog(
+                frame,
+                mensaje,
+                "Confirmación",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        return opcion == JOptionPane.YES_OPTION;
     }
 
 }

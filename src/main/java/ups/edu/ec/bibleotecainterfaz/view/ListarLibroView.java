@@ -26,6 +26,17 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
         configurarTabla();
     }
 
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
+    }
+    
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,10 +104,9 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblListarLibro;
     // End of variables declaration//GEN-END:variables
-private void configurarTabla() {
+     private void configurarTabla() {
         String[] columnas = {"Nombre", "ISBN", "Autor", "+18", "Genero", "Idioma"};
         modelo = new DefaultTableModel(columnas, 0);
-
         tblListarLibro.setModel(modelo);
     }
 
