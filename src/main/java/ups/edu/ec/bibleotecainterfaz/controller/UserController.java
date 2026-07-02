@@ -131,13 +131,21 @@ public class UserController {
         });
         listarUsuario();
     }
+    private String[] mensajes = {
+    "Usuario no encontrado",                    // 0
+    "Usuario actualizado correctamente",        // 1
+    "No se pudo actualizar el usuario",         // 2
+    "¿Está seguro de eliminar este usuario?",   // 3
+    "Usuario eliminado correctamente",          // 4
+    "Usuario creado correctamente"              // 5
+};
 
     private void buscarActUsuario() {
 
         Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            mostrarInformacion("Usuario no encontrado", actualizarUsuarioView);
+            mostrarInformacion(mensajes[0], actualizarUsuarioView);
             return;
         }
 
@@ -161,7 +169,7 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(actualizarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            mostrarInformacion("Usuario no encontrado", actualizarUsuarioView);
+            mostrarInformacion(mensajes[0], actualizarUsuarioView);
             return;
         }
         Usuario nuevoUsuario = new Usuario(actualizarUsuarioView.getTxtEmailBuscado().getText(),
@@ -175,7 +183,7 @@ public class UserController {
                 actualizarUsuarioView.getTxtDireccionBuscado().getText(), usuario.isTieneDiscapacidad());
         nuevoUsuario.agregarMembresia(actualizarUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
         usuarioDAO.actualizar(nuevoUsuario);
-        mostrarInformacion("Usuario actualizado correctamente", actualizarUsuarioView);
+        mostrarInformacion(mensajes[1], actualizarUsuarioView);
 
     }
 
@@ -183,7 +191,7 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            mostrarInformacion("Usuario no encontrado", eliminarUsuarioView);
+            mostrarInformacion(mensajes[0], eliminarUsuarioView);
             return;
         }
 
@@ -207,16 +215,16 @@ public class UserController {
         Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            mostrarInformacion("Usuario no encontrado", eliminarUsuarioView);
+            mostrarInformacion(mensajes[0], eliminarUsuarioView);
             return;
         }
 
-        if (!confirmarAccion("¿Está seguro de eliminar este usuario?", eliminarUsuarioView)) {
+        if (!confirmarAccion(mensajes[2], eliminarUsuarioView)) {
             return;
         }
 
         usuarioDAO.eliminar(usuario.getCedula());
-        mostrarInformacion("Usuario eliminado correctamente", eliminarUsuarioView);
+        mostrarInformacion(mensajes[3], eliminarUsuarioView);
     }
 
     private void crearUsuario() {
@@ -237,14 +245,14 @@ public class UserController {
         u.agregarMembresia(crearUsuarioView.getComboBoxStringsMembresia().getSelectedItem().toString());
         usuarioDAO.crear(u);
 
-        mostrarInformacion("Usuario creado correctamente", crearUsuarioView);
+        mostrarInformacion(mensajes[0], crearUsuarioView);
     }
 
     private void buscarUsuario() {
         Usuario usuario = usuarioDAO.buscar(buscarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
-            mostrarInformacion("Usuario no encontrado", buscarUsuarioView);
+            mostrarInformacion(mensajes[0], buscarUsuarioView);
             return;
         }
 
@@ -274,6 +282,8 @@ public class UserController {
         cambioIdiomaEliminarUsuario(bundle);
         cambioIdiomaCrearUsuario(bundle);
         cambioIdiomaListarUsuario(bundle);
+        mensajes = bundle.getString("mensajesUsuario").split(",");
+        
 
     }
 
@@ -387,4 +397,5 @@ public class UserController {
         return opcion == JOptionPane.YES_OPTION;
     }
 
+    
 }

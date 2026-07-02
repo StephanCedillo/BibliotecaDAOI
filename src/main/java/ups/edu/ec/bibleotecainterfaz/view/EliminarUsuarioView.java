@@ -178,7 +178,7 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
         jPanel3.setBackground(new java.awt.Color(249, 245, 245));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/LibroBuscar.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/usuario.png"))); // NOI18N
 
         txtEmailBuscado.setEditable(false);
         txtEmailBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
@@ -294,7 +294,7 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
                     .addComponent(txtEdadBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMembresia)
                     .addComponent(txtMembresiaBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDireccion)
                     .addComponent(txtDireccionBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

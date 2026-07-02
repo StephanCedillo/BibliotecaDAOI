@@ -80,14 +80,14 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(btnListarUsuario)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(btnListarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(24, 24, 24)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(45, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(15, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,6 +116,13 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel(columnas, 0);
 
         tblListarUsuario.setModel(modelo);
+        tblListarUsuario.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tblListarUsuario.getColumnModel().getColumn(1).setPreferredWidth(350);
+        tblListarUsuario.getColumnModel().getColumn(2).setPreferredWidth(100);
+        tblListarUsuario.getColumnModel().getColumn(3).setPreferredWidth(270);
+        tblListarUsuario.getColumnModel().getColumn(4).setPreferredWidth(300);
+        tblListarUsuario.getColumnModel().getColumn(5).setPreferredWidth(300);
+        tblListarUsuario.getColumnModel().getColumn(6).setPreferredWidth(300);
     }
 
     public void cargarDatos(List<Usuario> usuarios) {

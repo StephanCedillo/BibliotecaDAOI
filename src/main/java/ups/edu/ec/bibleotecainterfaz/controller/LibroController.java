@@ -7,6 +7,8 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JInternalFrame;
@@ -152,13 +154,20 @@ public class LibroController {
         }
 
     }
-
+    
+    
+    private String[] mensajes = {"No se encontro el libro"
+            ,"No se pudo actualizar el libro",
+            "¿Está seguro de eliminar este libro?",
+            "Libro creado correctamente",
+    };
+    
     private void buscarActLibro() {
 
         Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
         if (libro == null) {
-            mostrarInformacion("Libro no encontrado", actualizarLibroView);
+            mostrarInformacion(mensajes[0], actualizarLibroView);
             return;
         }
 
@@ -181,7 +190,7 @@ public class LibroController {
         Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
         if (libro == null) {
-            mostrarInformacion("Libro no encontrado", actualizarLibroView);
+            mostrarInformacion(mensajes[0], actualizarLibroView);
             return;
         }
 
@@ -193,9 +202,9 @@ public class LibroController {
         libro.setIdioma(actualizarLibroView.getTxtIdiomaBuscado().getText());
 
         if (libroDAO.actualizar(libro)) {
-            mostrarInformacion("Libro actualizado correctamente", actualizarLibroView);
+            mostrarInformacion(mensajes[0], actualizarLibroView);
         } else {
-            mostrarInformacion("No se pudo actualizar el libro", actualizarLibroView);
+            mostrarInformacion(mensajes[1], actualizarLibroView);
         }
     }
 
@@ -203,7 +212,7 @@ public class LibroController {
         Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
 
         if (libro == null) {
-            mostrarInformacion("Libro no encontrado", eliminarLibroView);
+            mostrarInformacion(mensajes[0], eliminarLibroView);
             return;
         }
 
@@ -228,16 +237,16 @@ public class LibroController {
         Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
 
         if (libro == null) {
-            mostrarInformacion("Libro no encontrado", eliminarLibroView);
+            mostrarInformacion(mensajes[0], eliminarLibroView);
             return;
         }
 
-        if (!confirmarAccion("¿Está seguro de eliminar este libro?", eliminarLibroView)) {
+        if (!confirmarAccion(mensajes[2], eliminarLibroView)) {
             return;
         }
 
         libroDAO.eliminar(libro.getISBN());
-        mostrarInformacion("Libro eliminado correctamente", eliminarLibroView);
+
     }
 
     private void crearLibro() {
@@ -250,7 +259,7 @@ public class LibroController {
                 crearLibroView.getTxtIdioma().getText(),
                 false));
 
-        mostrarInformacion("Libro creado correctamente", crearLibroView);
+        mostrarInformacion(mensajes[3], crearLibroView);
     }
 
     private String restriccionEdad = "Si posee";
@@ -260,7 +269,7 @@ public class LibroController {
         Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
 
         if (libro == null) {
-            mostrarInformacion("Libro no encontrado", buscarLibroView);
+            mostrarInformacion(mensajes[0], buscarLibroView);
             return;
         }
 
@@ -314,6 +323,7 @@ public class LibroController {
         cambioIdiomaEliminarLibro(bundle);
         cambioIdiomaCrearLibro(bundle);
         cambioIdiomaListarLibro(bundle);
+        mensajes = bundle.getString("mensajesLibro").split(",");
     }
 
     private void cambioIdiomaCrearLibro(ResourceBundle bundle) {

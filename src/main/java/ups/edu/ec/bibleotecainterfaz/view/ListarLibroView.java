@@ -73,12 +73,10 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnListarLibro)
-                .addGap(201, 201, 201))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnListarLibro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 678, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,7 +84,7 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnListarLibro)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +108,12 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
         String[] columnas = {"Nombre", "ISBN", "Autor", "+18", "Genero", "Idioma"};
         modelo = new DefaultTableModel(columnas, 0);
         tblListarLibro.setModel(modelo);
+        tblListarLibro.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tblListarLibro.getColumnModel().getColumn(1).setPreferredWidth(80);
+        tblListarLibro.getColumnModel().getColumn(2).setPreferredWidth(145);
+        tblListarLibro.getColumnModel().getColumn(3).setPreferredWidth(80);
+        tblListarLibro.getColumnModel().getColumn(4).setPreferredWidth(70);
+        tblListarLibro.getColumnModel().getColumn(5).setPreferredWidth(120);
     }
 
     public void cargarDatos(List<Libro> libros) {

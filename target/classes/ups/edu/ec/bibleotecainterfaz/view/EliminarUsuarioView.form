@@ -237,7 +237,7 @@
                           <Component id="lblMembresia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtMembresiaBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDireccion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDireccionBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -254,7 +254,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/LibroBuscar.png"/>
+                  <Image iconType="3" name="/assets/usuario.png"/>
                 </Property>
               </Properties>
             </Component>
