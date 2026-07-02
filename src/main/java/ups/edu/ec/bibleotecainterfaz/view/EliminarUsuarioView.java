@@ -135,6 +135,8 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
         lblNombreBuscado = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaUsuario.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

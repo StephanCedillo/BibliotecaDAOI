@@ -316,6 +316,7 @@ public class PrestamoController {
     }
     PrestamoView[] prestamoViewLista = null;
 
+
     private void listarPrestamos() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -323,8 +324,9 @@ public class PrestamoController {
         prestamoViewLista = new PrestamoView[prestamoDAO.listar().size()];
         int i = 0;
         for (Prestamo prestamo : prestamoDAO.listar()) {
-            panel.add(cambiarPanel(prestamo));
-            prestamoViewLista[i].add(panel);
+            PrestamoView temporal = cambiarPanel(prestamo);
+            panel.add(temporal);
+            prestamoViewLista[i]=temporal;
             i++;
         }
 
@@ -345,6 +347,8 @@ public class PrestamoController {
 
         prestamoView.getTxtFechaPedidoBuscado().setText(prestamo.getFechaPedido().toString());
         prestamoView.getTxtFechaDevueltoBuscado().setText(prestamo.getFechaDevolucion().toString());
+        
+       
 
         if (prestamo.isEstado()) {
             prestamoView.getPnlEstadoDevuelto().setBackground(new Color(0, 255, 0));
@@ -363,6 +367,10 @@ public class PrestamoController {
         modelo.addColumn(cambioNombre);
 
         prestamoView.getTblLibrosBuscados().setModel(modelo);
+        
+         
+        
+
     }
 
     public void cargarDatosPanel(PrestamoView prestamoView, List<Libro> libros) {
@@ -377,6 +385,7 @@ public class PrestamoController {
                 libro.getNombre()
             });
         }
+        
     }
 
     public void cambioIdioma(ResourceBundle bundle) {
@@ -406,14 +415,28 @@ public class PrestamoController {
         listarPrestamoView.getBtnListarRegistro().setText(bundle.getString("btnListarPrestamo"));
         cambioISBN = bundle.getString("lblISBN");
         cambioNombre = bundle.getString("lblTitulo");
+        
+       
 
         for (int i = 0; i < prestamoViewLista.length; i++) {
 
             configurarTablaPanel(prestamoViewLista[i]);
+            cambioPanelIdioma(prestamoViewLista[i],bundle);
         }
 
         configurarTabla();
 
+    }
+    private void cambioPanelIdioma(PrestamoView prestamoView,ResourceBundle bundle){
+         prestamoView.getLblCedula3().setText(bundle.getString("lblCedula"));
+        prestamoView.getLblEmail2().setText(bundle.getString("lblEmail"));
+        prestamoView.getLblEstado2().setText(bundle.getString("lblEstado"));
+        prestamoView.getLblFechaDevuelto().setText(bundle.getString("lblFechaDevuelto"));
+        prestamoView.getLblFechaPedido().setText(bundle.getString("lblFechaPedido"));
+     
+        prestamoView.getLblID2().setText(bundle.getString("lblID"));
+       
+        prestamoView.getLblNombre().setText(bundle.getString("lblNombre"));
     }
 
     private void cambioIdiomaBuscarPrestamo(ResourceBundle bundle) {

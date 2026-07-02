@@ -139,6 +139,8 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
         pnlEstado = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaLibro.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

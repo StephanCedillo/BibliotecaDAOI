@@ -58,6 +58,8 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
         tblListarUsuario = new javax.swing.JTable();
         btnListarUsuario = new javax.swing.JButton();
 
+        setClosable(true);
+
         tblListarUsuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

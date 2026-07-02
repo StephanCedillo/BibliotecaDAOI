@@ -142,6 +142,8 @@ public class CrearUsuarioView extends javax.swing.JInternalFrame {
         lblMembresia = new javax.swing.JLabel();
         comboBoxStringsMembresia = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

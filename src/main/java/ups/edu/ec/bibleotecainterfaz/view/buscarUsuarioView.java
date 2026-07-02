@@ -133,6 +133,8 @@ public class BuscarUsuarioView extends javax.swing.JInternalFrame {
         pnlEstadoDiscapacidadBuscado = new javax.swing.JPanel();
         txtFormatedFechaCaducidadBuscado = new javax.swing.JFormattedTextField();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaUsuario.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

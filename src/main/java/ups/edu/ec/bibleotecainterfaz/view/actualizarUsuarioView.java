@@ -188,6 +188,8 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
         comboBoxStringsMembresia = new javax.swing.JComboBox<>();
         btnActualizacion = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaUsuario.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

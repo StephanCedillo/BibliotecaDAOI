@@ -76,7 +76,7 @@ public void crearListadoTemporal(int cantidad) {
                 i % 2 == 0
         );
 
-        usuario.agregarMembresia(i % 2 == 0 ? "Premium" : "Basica");
+        usuario.agregarMembresia(i % 2 == 0 ? "Corporativa" : "Normal");
 
         listaUsuarios.add(usuario);
     }

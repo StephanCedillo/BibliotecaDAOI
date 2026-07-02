@@ -132,6 +132,8 @@ public class BuscarLibroView extends javax.swing.JInternalFrame {
         lblEstado = new javax.swing.JLabel();
         pnlEstado = new javax.swing.JPanel();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaLibro.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

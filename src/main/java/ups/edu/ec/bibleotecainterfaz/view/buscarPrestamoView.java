@@ -267,6 +267,8 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         btnCedula = new javax.swing.JButton();
         lblBuscarPor = new javax.swing.JLabel();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloBusquedaPrestamo.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N

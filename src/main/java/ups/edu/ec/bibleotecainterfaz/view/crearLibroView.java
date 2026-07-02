@@ -58,6 +58,8 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         comboBoxAutores = new javax.swing.JComboBox<>();
         btnCrearAutor = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

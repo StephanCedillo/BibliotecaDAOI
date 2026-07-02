@@ -4,6 +4,7 @@
  */
 package ups.edu.ec.bibleotecainterfaz.view;
 
+import java.awt.Graphics;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JDesktopPane;
@@ -15,6 +16,9 @@ import ups.edu.ec.bibleotecainterfaz.controller.LibroController;
 import ups.edu.ec.bibleotecainterfaz.controller.PrestamoController;
 import ups.edu.ec.bibleotecainterfaz.controller.PrincipalController;
 import ups.edu.ec.bibleotecainterfaz.controller.UserController;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 ;
 
@@ -55,9 +59,13 @@ public class PrincipalView extends javax.swing.JFrame {
     private LibroController libroController;
     private PrestamoController prestamoController;
     private UserController userController;
+    
+    //=======IMAGEN====s
+        private Image image;
 
     public PrincipalView() {
         initComponents();
+        
         // ======= LIBRO =========
         crearLibroView = new CrearLibroView();
         actualizarLibroView = new ActualizarLibroView();
@@ -94,10 +102,13 @@ public class PrincipalView extends javax.swing.JFrame {
                 crearUsuarioView, listarUsuarioView, devolucionPrestamoView, buscarPrestamoView, crearPrestamoView,
                 listarPrestamoView, libroController, prestamoController, userController, libroDAO, usuarioDAO,
                 prestamoDAO);
-   
+        
+     
 
+        
    
     }
+    
 
     public CrearLibroView getCrearLibroView() {
         return crearLibroView;
@@ -346,6 +357,15 @@ public class PrincipalView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopPane.setBackground(new java.awt.Color(0, 0, 0));
+        desktopPane.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        desktopPane.setToolTipText("");
+        desktopPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jMenuBar2.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuBar2.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        jMenuBar2.setFont(new java.awt.Font("ITF Devanagari Marathi", 0, 14)); // NOI18N
+
         menuLibro.setText("Libros");
 
         btnCrearLibro.setText("Crear");
@@ -445,7 +465,7 @@ public class PrincipalView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
         );
 
         pack();

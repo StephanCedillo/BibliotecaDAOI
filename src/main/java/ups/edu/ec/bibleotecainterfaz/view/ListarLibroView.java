@@ -50,6 +50,8 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
         tblListarLibro = new javax.swing.JTable();
         btnListarLibro = new javax.swing.JButton();
 
+        setClosable(true);
+
         tblListarLibro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

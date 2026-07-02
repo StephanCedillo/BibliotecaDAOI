@@ -1,0 +1,73 @@
+Date : 2026-07-02 07:00:32
+Directory : /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src
+Total : 36 files,  7075 codes, 548 comments, 1552 blanks, all 9175 lines
+
+Languages
++-----------------+------------+------------+------------+------------+------------+
+| language        | files      | code       | comment    | blank      | total      |
++-----------------+------------+------------+------------+------------+------------+
+| Java            |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| Java Properties |          4 |        296 |        104 |         80 |        480 |
++-----------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                         |         36 |      7,075 |        548 |      1,552 |      9,175 |
+| main                                                                                                                                      |         36 |      7,075 |        548 |      1,552 |      9,175 |
+| main/java                                                                                                                                 |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| main/java/ups                                                                                                                             |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| main/java/ups/edu                                                                                                                         |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| main/java/ups/edu/ec                                                                                                                      |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| main/java/ups/edu/ec/bibleotecainterfaz                                                                                                   |         32 |      6,779 |        444 |      1,472 |      8,695 |
+| main/java/ups/edu/ec/bibleotecainterfaz/controller                                                                                        |          4 |      1,141 |         71 |        260 |      1,472 |
+| main/java/ups/edu/ec/bibleotecainterfaz/dao                                                                                               |          6 |        240 |         27 |         84 |        351 |
+| main/java/ups/edu/ec/bibleotecainterfaz/models                                                                                            |          6 |        430 |          8 |        151 |        589 |
+| main/java/ups/edu/ec/bibleotecainterfaz/view                                                                                              |         16 |      4,968 |        338 |        977 |      6,283 |
+| main/resources                                                                                                                            |          4 |        296 |        104 |         80 |        480 |
+| main/resources/i18n                                                                                                                       |          4 |        296 |        104 |         80 |        480 |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| filename                                                                                                                                  | language        | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java     | Java            |        332 |         19 |         70 |        421 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrestamoController.java  | Java            |        367 |         15 |         96 |        478 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrincipalController.java | Java            |        137 |         20 |         25 |        182 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/UserController.java      | Java            |        305 |         17 |         69 |        391 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAO.java                   | Java            |         14 |          8 |          4 |         26 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAOMemoria.java            | Java            |         79 |          1 |         26 |        106 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/PrestamoDAO.java                | Java            |         12 |          8 |          6 |         26 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/PrestamoDAOMemoria.java         | Java            |         60 |          1 |         22 |         83 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAO.java                 | Java            |         11 |          8 |          5 |         24 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAOMemoria.java          | Java            |         64 |          1 |         21 |         86 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Autor.java                   | Java            |         31 |          4 |         18 |         53 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Libro.java                   | Java            |         99 |          0 |         30 |        129 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Membresia.java               | Java            |         66 |          0 |         20 |         86 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Persona.java                 | Java            |         79 |          0 |         30 |        109 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Prestamo.java                | Java            |        104 |          4 |         36 |        144 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Usuario.java                 | Java            |         51 |          0 |         17 |         68 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarLibroView.java       | Java            |        357 |         20 |         69 |        446 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarUsuarioView.java     | Java            |        383 |         21 |         81 |        485 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarLibroView.java           | Java            |        329 |         20 |         57 |        406 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarPrestamoView.java        | Java            |        499 |          7 |        100 |        606 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarUsuarioView.java         | Java            |        305 |         21 |         61 |        387 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearLibroView.java            | Java            |        408 |         17 |         65 |        490 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearPrestamoView.java         | Java            |        222 |         19 |         38 |        279 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearUsuarioView.java          | Java            |        391 |         21 |         64 |        476 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/DevolucionPrestamoView.java    | Java            |        452 |         24 |         81 |        557 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarLibroView.java         | Java            |        341 |         20 |         61 |        422 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarUsuarioView.java       | Java            |        309 |         21 |         63 |        393 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarLibroView.java           | Java            |         88 |         19 |         22 |        129 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarPrestamoView.java        | Java            |         46 |         19 |         20 |         85 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarUsuarioView.java         | Java            |         94 |         20 |         22 |        136 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/PrestamoView.java              | Java            |        261 |         19 |         45 |        325 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/PrincipalView.java             | Java            |        483 |         50 |        128 |        661 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_de_DE.properties                               | Java Properties |         74 |         26 |         20 |        120 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_en_US.properties                               | Java Properties |         74 |         26 |         20 |        120 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_es_EC.properties                               | Java Properties |         74 |         26 |         21 |        121 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_ru_RU.properties                               | Java Properties |         74 |         26 |         19 |        119 |
+| Total                                                                                                                                     |                 |      7,075 |        548 |      1,552 |      9,175 |
++-------------------------------------------------------------------------------------------------------------------------------------------+-----------------+------------+------------+------------+------------+

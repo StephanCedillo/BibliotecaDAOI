@@ -48,6 +48,8 @@ public class ListarPrestamoView extends javax.swing.JInternalFrame {
         btnListarRegistro = new javax.swing.JButton();
         scrollPanePrestamos = new javax.swing.JScrollPane();
 
+        setClosable(true);
+
         btnListarRegistro.setText("Listar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
