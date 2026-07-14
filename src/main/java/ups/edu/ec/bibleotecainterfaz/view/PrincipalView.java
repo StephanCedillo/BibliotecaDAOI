@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import ups.edu.ec.bibleotecainterfaz.dao.*;
+import ups.edu.ec.bibleotecainterfaz.controller.AutorController;
 import ups.edu.ec.bibleotecainterfaz.controller.LibroController;
 import ups.edu.ec.bibleotecainterfaz.controller.PrestamoController;
 import ups.edu.ec.bibleotecainterfaz.controller.PrincipalController;
@@ -42,6 +43,13 @@ public class PrincipalView extends javax.swing.JFrame {
     private BuscarUsuarioView buscarUsuarioView;
     private ListarUsuarioView listarUsuarioView;
 
+    //==========AUTOR==========
+    private CrearAutorView crearAutorView;
+    private ActualizarAutorView actualizarAutorView;
+    private EliminarAutorView eliminarAutorView;
+    private BuscarAutorView buscarAutorView;
+    private ListarAutorView listarAutorView;
+
     // ======= PRESTAMO =========
     private CrearPrestamoView crearPrestamoView;
     private BuscarPrestamoView buscarPrestamoView;
@@ -52,6 +60,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private LibroDAO libroDAO;
     private UsuarioDAO usuarioDAO;
     private PrestamoDAO prestamoDAO;
+    private AutorDAO autorDAO;
 
     // ========CONTROLLERS=========
     private PrincipalController principalController;
@@ -59,13 +68,11 @@ public class PrincipalView extends javax.swing.JFrame {
     private LibroController libroController;
     private PrestamoController prestamoController;
     private UserController userController;
-    
-    //=======IMAGEN====s
-        private Image image;
+    private AutorController autorController;
 
     public PrincipalView() {
         initComponents();
-        
+
         // ======= LIBRO =========
         crearLibroView = new CrearLibroView();
         actualizarLibroView = new ActualizarLibroView();
@@ -80,6 +87,13 @@ public class PrincipalView extends javax.swing.JFrame {
         buscarUsuarioView = new BuscarUsuarioView();
         listarUsuarioView = new ListarUsuarioView();
 
+        //======== AUTOR ==========
+        crearAutorView = new CrearAutorView();
+        actualizarAutorView = new ActualizarAutorView();
+        eliminarAutorView = new EliminarAutorView();
+        buscarAutorView = new BuscarAutorView();
+        listarAutorView = new ListarAutorView();
+
         // ======= PRÉSTAMO =========
         crearPrestamoView = new CrearPrestamoView();
         buscarPrestamoView = new BuscarPrestamoView();
@@ -90,25 +104,41 @@ public class PrincipalView extends javax.swing.JFrame {
         libroDAO = new LibroDAOMemoria();
         usuarioDAO = new UsuarioDAOMemoria();
         prestamoDAO = new PrestamoDAOMemoria();
+        autorDAO = new AutorDAOMemoria();
 
-        // ========CONTROLLERS=========
-      //  libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView, listarLibroView,libroDAO);
-      //  prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoView, crearPrestamoView, listarPrestamoView);
-      //  userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView, crearUsuarioView, listarUsuarioView);
-        
         // ========CONTROLLER PRINCIPAL=========
-        principalController = new PrincipalController(this, actualizarLibroView, buscarLibroView, eliminarLibroView,
-                crearLibroView, listarLibroView, actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
-                crearUsuarioView, listarUsuarioView, devolucionPrestamoView, buscarPrestamoView, crearPrestamoView,
-                listarPrestamoView, libroController, prestamoController, userController, libroDAO, usuarioDAO,
-                prestamoDAO);
-        
-     
+        principalController = new PrincipalController(
+                this,
+                actualizarLibroView,
+                buscarLibroView,
+                eliminarLibroView,
+                crearLibroView,
+                listarLibroView,
+                actualizarUsuarioView,
+                buscarUsuarioView,
+                eliminarUsuarioView,
+                crearUsuarioView,
+                listarUsuarioView,
+                devolucionPrestamoView,
+                buscarPrestamoView,
+                crearPrestamoView,
+                listarPrestamoView,
+                crearAutorView,
+                buscarAutorView,
+                eliminarAutorView,
+                listarAutorView,
+                actualizarAutorView,
+                libroController,
+                prestamoController,
+                userController,
+                autorController,
+                libroDAO,
+                usuarioDAO,
+                prestamoDAO,
+                autorDAO
+        );
 
-        
-   
     }
-    
 
     public CrearLibroView getCrearLibroView() {
         return crearLibroView;
@@ -289,7 +319,6 @@ public class PrincipalView extends javax.swing.JFrame {
     public JMenu getMenuUsuarios() {
         return menuUsuarios;
     }
-    
 
     public JMenuItem getMenuItemAleman() {
         return menuItemAleman;
@@ -307,7 +336,6 @@ public class PrincipalView extends javax.swing.JFrame {
         return menuItemRuso;
     }
 
- 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -322,6 +350,7 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         menuLibro = new javax.swing.JMenu();
@@ -336,6 +365,12 @@ public class PrincipalView extends javax.swing.JFrame {
         btnEliminarUsuario = new javax.swing.JMenuItem();
         btnListarUsuario = new javax.swing.JMenuItem();
         btnBuscarUsuario = new javax.swing.JMenuItem();
+        btnActualizacionAutor = new javax.swing.JMenu();
+        btnCrearAutor = new javax.swing.JMenuItem();
+        btnActualizarAutor = new javax.swing.JMenuItem();
+        btnEliminarAutor = new javax.swing.JMenuItem();
+        btnListarAutor = new javax.swing.JMenuItem();
+        btnBuscarAutor = new javax.swing.JMenuItem();
         menuRegistro = new javax.swing.JMenu();
         btnCrearPrestamo = new javax.swing.JMenuItem();
         btnDevolucion = new javax.swing.JMenuItem();
@@ -354,6 +389,8 @@ public class PrincipalView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -414,6 +451,30 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(menuUsuarios);
 
+        btnActualizacionAutor.setText("Autores");
+
+        btnCrearAutor.setText("Crear");
+        btnCrearAutor.addActionListener(this::btnCrearAutorActionPerformed);
+        btnActualizacionAutor.add(btnCrearAutor);
+
+        btnActualizarAutor.setText("Actualizar");
+        btnActualizarAutor.addActionListener(this::btnActualizarAutorActionPerformed);
+        btnActualizacionAutor.add(btnActualizarAutor);
+
+        btnEliminarAutor.setText("Eliminar");
+        btnEliminarAutor.addActionListener(this::btnEliminarAutorActionPerformed);
+        btnActualizacionAutor.add(btnEliminarAutor);
+
+        btnListarAutor.setText("Listar");
+        btnListarAutor.addActionListener(this::btnListarAutorActionPerformed);
+        btnActualizacionAutor.add(btnListarAutor);
+
+        btnBuscarAutor.setText("Buscar");
+        btnBuscarAutor.addActionListener(this::btnBuscarAutorActionPerformed);
+        btnActualizacionAutor.add(btnBuscarAutor);
+
+        jMenuBar2.add(btnActualizacionAutor);
+
         menuRegistro.setText("Registros");
 
         btnCrearPrestamo.setText("Registro");
@@ -435,7 +496,7 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(menuRegistro);
 
-        menuConfiguracion.setText("Configuracion");
+        menuConfiguracion.setText("Idioma");
 
         menuItemEspanol.setText("Español");
         menuItemEspanol.addActionListener(this::menuItemEspanolActionPerformed);
@@ -486,6 +547,47 @@ public class PrincipalView extends javax.swing.JFrame {
     private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuItemInglesActionPerformed
+
+    private void btnListarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarAutorActionPerformed
+
+        if (!listarAutorView.isVisible()) {
+            desktopPane.remove(listarAutorView);
+            listarAutorView.setVisible(true);
+            desktopPane.add(listarAutorView);
+        }
+    }//GEN-LAST:event_btnListarAutorActionPerformed
+
+    private void btnBuscarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAutorActionPerformed
+        if (!buscarAutorView.isVisible()) {
+            desktopPane.remove(buscarAutorView);
+            buscarAutorView.setVisible(true);
+            desktopPane.add(buscarAutorView);
+        }
+    }//GEN-LAST:event_btnBuscarAutorActionPerformed
+
+    private void btnActualizarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAutorActionPerformed
+        if (!actualizarAutorView.isVisible()) {
+            desktopPane.remove(actualizarAutorView);
+            actualizarAutorView.setVisible(true);
+            desktopPane.add(actualizarAutorView);
+        }
+    }//GEN-LAST:event_btnActualizarAutorActionPerformed
+
+    private void btnCrearAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAutorActionPerformed
+        if (!crearAutorView.isVisible()) {
+            desktopPane.remove(crearAutorView);
+            crearAutorView.setVisible(true);
+            desktopPane.add(crearAutorView);
+        }
+    }//GEN-LAST:event_btnCrearAutorActionPerformed
+
+    private void btnEliminarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAutorActionPerformed
+        if (!eliminarAutorView.isVisible()) {
+            desktopPane.remove(eliminarAutorView);
+            eliminarAutorView.setVisible(true);
+            desktopPane.add(eliminarAutorView);
+        }
+    }//GEN-LAST:event_btnEliminarAutorActionPerformed
 
     private void btnListarLibroActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnListarLibroActionPerformed
         if (!listarLibroView.isVisible()) {
@@ -647,17 +749,23 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu btnActualizacionAutor;
+    private javax.swing.JMenuItem btnActualizarAutor;
     private javax.swing.JMenuItem btnActualizarLibro;
     private javax.swing.JMenuItem btnActualizarUsuario;
+    private javax.swing.JMenuItem btnBuscarAutor;
     private javax.swing.JMenuItem btnBuscarLibro;
     private javax.swing.JMenuItem btnBuscarPrestamo;
     private javax.swing.JMenuItem btnBuscarUsuario;
+    private javax.swing.JMenuItem btnCrearAutor;
     private javax.swing.JMenuItem btnCrearLibro;
     private javax.swing.JMenuItem btnCrearPrestamo;
     private javax.swing.JMenuItem btnCrearUsuario;
     private javax.swing.JMenuItem btnDevolucion;
+    private javax.swing.JMenuItem btnEliminarAutor;
     private javax.swing.JMenuItem btnEliminarLibro;
     private javax.swing.JMenuItem btnEliminarUsuario;
+    private javax.swing.JMenuItem btnListarAutor;
     private javax.swing.JMenuItem btnListarLibro;
     private javax.swing.JMenuItem btnListarPrestamo;
     private javax.swing.JMenuItem btnListarUsuario;
@@ -667,6 +775,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuConfiguracion;
     private javax.swing.JMenuItem menuItemAleman;
     private javax.swing.JMenuItem menuItemEspanol;

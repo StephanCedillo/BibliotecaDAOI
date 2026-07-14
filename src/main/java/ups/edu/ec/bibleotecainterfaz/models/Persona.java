@@ -1,6 +1,7 @@
 package ups.edu.ec.bibleotecainterfaz.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Persona {
     private String cedula;
@@ -105,4 +106,27 @@ public class Persona {
     public String obtenerNombreCompleto(){
         return nombre + " " + apellido;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.cedula);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        return true;
+    }
+    
 }

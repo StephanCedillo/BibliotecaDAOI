@@ -1,0 +1,15 @@
+"filename", "language", "Java", "Java Properties", "comment", "blank", "total"
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/AutorController.java", "Java", 295, 0, 0, 100, 395
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java", "Java", 82, 0, 0, 41, 123
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/AutorDAO.java", "Java", 12, 0, 8, 4, 24
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/AutorDAOMemoria.java", "Java", 56, 0, 0, 24, 80
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAO.java", "Java", -2, 0, 0, 0, -2
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/LibroDAOMemoria.java", "Java", -14, 0, 0, 2, -12
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Autor.java", "Java", -3, 0, 0, -7, -10
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarAutorView.java", "Java", 32, 0, 0, 10, 42
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarAutorView.java", "Java", 29, 0, 0, 10, 39
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearAutorView.java", "Java", 21, 0, 1, 10, 32
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarAutorView.java", "Java", 32, 0, 0, 10, 42
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarAutorView.java", "Java", 8, 0, 0, 6, 14
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/resources/i18n/mensajes_es_EC.properties", "Java Properties", 0, 1, 0, 2, 3
+"Total", "-", 548, 1, 9, 212, 770

@@ -8,6 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import ups.edu.ec.bibleotecainterfaz.view.*;
 import ups.edu.ec.bibleotecainterfaz.controller.*;
 import ups.edu.ec.bibleotecainterfaz.dao.*;
@@ -41,26 +44,39 @@ public class PrincipalController {
     private CrearPrestamoView crearPrestamoView;
     private ListarPrestamoView listarPrestamoView;
 
+     // ======= AUTOR =========
+
+    private CrearAutorView crearAutorView;
+    private BuscarAutorView buscarAutorView;
+    private EliminarAutorView eliminarAutorView;
+    private ListarAutorView listarAutorView;
+    private ActualizarAutorView actualizarAutorView;
+
     // ======= CONTROLLERS LOGICA SEPARADA =========
     private LibroController libroController;
     private PrestamoController prestamoController;
     private UserController userController;
+     private AutorController autorController;
 
     // ======= DAO LOGICA SEPARADA =========
     private LibroDAO libroDAO;
     private UsuarioDAO usuarioDAO;
     private PrestamoDAO prestamoDAO;
+    private AutorDAO autorDAO;
 
-    // Cambiar Constructor cuando el Alfonso acabe
+   
+     
     public PrincipalController(PrincipalView principalView, ActualizarLibroView actualizarLibroView,
             BuscarLibroView buscarLibroView, EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView,
             ListarLibroView listarLibroView, ActualizarUsuarioView actualizarUsuarioView,
             BuscarUsuarioView buscarUsuarioView, EliminarUsuarioView eliminarUsuarioView,
             CrearUsuarioView crearUsuarioView, ListarUsuarioView listarUsuarioView,
             DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
-            CrearPrestamoView crearPrestamoView, ListarPrestamoView listarPrestamoView,
-            LibroController libroController, PrestamoController prestamoController, UserController userController,
-            LibroDAO libroDAO, UsuarioDAO usuarioDAO, PrestamoDAO prestamoDAO) {
+            CrearPrestamoView crearPrestamoView, ListarPrestamoView listarPrestamoView, CrearAutorView crearAutorView,
+            BuscarAutorView buscarAutorView, EliminarAutorView eliminarAutorView, ListarAutorView listarAutorView,
+            ActualizarAutorView actualizarAutorView, LibroController libroController,
+            PrestamoController prestamoController, UserController userController, AutorController autorController,
+            LibroDAO libroDAO, UsuarioDAO usuarioDAO, PrestamoDAO prestamoDAO, AutorDAO autorDAO) {
         this.principalView = principalView;
         this.actualizarLibroView = actualizarLibroView;
         this.buscarLibroView = buscarLibroView;
@@ -76,15 +92,24 @@ public class PrincipalController {
         this.buscarPrestamoiew = buscarPrestamoiew;
         this.crearPrestamoView = crearPrestamoView;
         this.listarPrestamoView = listarPrestamoView;
+        this.crearAutorView = crearAutorView;
+        this.buscarAutorView = buscarAutorView;
+        this.eliminarAutorView = eliminarAutorView;
+        this.listarAutorView = listarAutorView;
+        this.actualizarAutorView = actualizarAutorView;
         this.libroController = libroController;
         this.prestamoController = prestamoController;
         this.userController = userController;
+        this.autorController = autorController;
         this.libroDAO = libroDAO;
         this.usuarioDAO = usuarioDAO;
         this.prestamoDAO = prestamoDAO;
+        this.autorDAO = autorDAO;
         inicializarControllers();
         configurarEvento();
     }
+
+
 
     private final static Locale espanol = new Locale("es", "EC");
     private final static Locale ingles = new Locale("en", "US");
@@ -93,6 +118,7 @@ public class PrincipalController {
 
     private void configurarEvento() {
 
+        formatoGuardado();
         principalView.getMenuItemEspanol().addActionListener(
                 new ActionListener() {
             @Override
@@ -107,7 +133,7 @@ public class PrincipalController {
                 cambiarIdioma(ingles);
             }
         });
-        
+
         principalView.getMenuItemRuso().addActionListener(
                 new ActionListener() {
             @Override
@@ -123,6 +149,69 @@ public class PrincipalController {
             }
         });
 
+    }
+
+    private void formatoGuardado() {
+        // Se crea como JDialog 
+        JDialog contenedor = new JDialog(principalView, "Seleccione tipo de almacenamiento", true);
+        contenedor.setSize(554, 295);
+        contenedor.setLocationRelativeTo(principalView);
+        contenedor.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+
+        PreguntaGuardado pregunta = new PreguntaGuardado();
+        contenedor.add(pregunta);
+
+        pregunta.getBtnArchivo().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                formatearArchivo();
+
+                contenedor.dispose();
+            }
+        });
+
+        pregunta.getBtnMemoria().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                formatearMemoria();
+
+                contenedor.dispose();
+            }
+        });
+
+        contenedor.setVisible(true);
+    }
+
+    private void formatearMemoria() {
+        libroDAO = new LibroDAOMemoria();
+        usuarioDAO = new UsuarioDAOMemoria();
+        prestamoDAO = new PrestamoDAOMemoria();
+        autorDAO = new AutorDAOMemoria();
+    }
+
+    private void formatearArchivo() {
+        libroDAO = new LibroDAOArchivo();
+        usuarioDAO = new UsuarioDAOArchivo();
+        prestamoDAO = new PrestamoDAOArchivo();
+        autorDAO = new AutorDAOArchivo();
+
+    }
+
+    private void inicializarControllers() {
+        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
+                listarLibroView, libroDAO);
+
+        userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
+                crearUsuarioView, listarUsuarioView, usuarioDAO);
+        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, crearPrestamoView,
+                listarPrestamoView, prestamoDAO, usuarioDAO, libroDAO);
+        autorController = new AutorController(
+        crearAutorView,actualizarAutorView,eliminarAutorView,buscarAutorView, listarAutorView,autorDAO);
+        
+        
     }
 
     public void cambiarIdioma(Locale locale) {
@@ -168,14 +257,6 @@ public class PrincipalController {
 
     }
 
-    private void inicializarControllers() {
-        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
-                listarLibroView, libroDAO);
 
-        userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
-                crearUsuarioView, listarUsuarioView, usuarioDAO);
-        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, crearPrestamoView,
-                listarPrestamoView, prestamoDAO, usuarioDAO, libroDAO);
-    }
 
 }

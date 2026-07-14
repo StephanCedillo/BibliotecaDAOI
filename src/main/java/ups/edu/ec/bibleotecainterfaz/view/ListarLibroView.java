@@ -113,22 +113,8 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
         tblListarLibro.getColumnModel().getColumn(2).setPreferredWidth(145);
         tblListarLibro.getColumnModel().getColumn(3).setPreferredWidth(80);
         tblListarLibro.getColumnModel().getColumn(4).setPreferredWidth(70);
-        tblListarLibro.getColumnModel().getColumn(5).setPreferredWidth(120);
+
     }
 
-    public void cargarDatos(List<Libro> libros) {
-        modelo.setRowCount(0);
-
-        for (Libro libro : libros) {
-            Object[] fila = {
-                libro.getNombre(),
-                libro.getISBN(),
-                libro.getAutor(),
-                libro.isSirestriccionEdad(),
-                libro.getGenero(),
-                libro.getIdioma()
-            };
-            modelo.addRow(fila);
-        }
-    }
+    
 }

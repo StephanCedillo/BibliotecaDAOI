@@ -15,11 +15,9 @@ import ups.edu.ec.bibleotecainterfaz.models.Autor;
 public interface LibroDAO {
     void crear(Libro libro);
     Libro buscar(String ISBN);
-    void crearAutor(Autor autor);
     boolean actualizar(Libro libro);
     boolean eliminar(String ISBN);
     List<Libro> listar();
-    List<Autor> listarAutores();
     void crearListadoTemporal(int cantidad);
     
 }

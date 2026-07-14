@@ -1,7 +1,7 @@
 package ups.edu.ec.bibleotecainterfaz.models;
 
-
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -9,44 +9,34 @@ import java.util.ArrayList;
  */
 public class Autor extends Persona {
 
-    private ArrayList<Libro> libros;
-
-   
-
-    
-
     public Autor(String nombre, String apellido) {
         super(nombre, apellido);
-        libros = new ArrayList<>();
+
     }
-    
 
     @Override
     public String toString() {
 
-       return super.getNombre() +" "+super.getApellido();
+        return super.getNombre() + " " + super.getApellido();
     }
 
-    public void agregarLibro(Libro libro) {
-        if (libro != null) {
-            this.libros.add(libro);
-        }
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNombre(), getApellido());
     }
 
-    public String mostrarLibrosPublicados() {
-        if (libros.isEmpty()) {
-            return "El autor no tiene libros registrados.";
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
         }
 
-        String lista = "Libros de " + getNombre() + " " + getApellido() + ":\n";
-        for (Libro libro : libros) {
-            lista += "- " + libro.estaDisponible() + " (ISBN: " + libro.toString() + ")\n";
-        }
-        return lista;
-    }
-
-    public int contarLibros() {
-        return this.libros.size();
+        Autor other = (Autor) obj;
+        return Objects.equals(getNombre(), other.getNombre())
+                && Objects.equals(getApellido(), other.getApellido());
     }
 
 }

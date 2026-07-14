@@ -112,7 +112,7 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblListarUsuario;
     // End of variables declaration//GEN-END:variables
   private void configurarTabla() {
-        String[] columnas = {"Nombre", "Email", "Edad", "Direccion", "Membresia", "Caduca en"};
+        String[] columnas = {"Nombre", "Email", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
         modelo = new DefaultTableModel(columnas, 0);
 
         tblListarUsuario.setModel(modelo);
@@ -136,7 +136,7 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
                 usuario.getDireccion(),
                 usuario.getMembresia().getTipoMembresia(),
                 usuario.getMembresia().getFechaVencimiento(),
-
+                usuario.isTieneDiscapacidad() ? "Sí" : "No"
             };
             modelo.addRow(fila);
         }

@@ -1,0 +1,48 @@
+Date : 2026-07-09 12:22:15
+Directory : /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src
+Total : 14 files,  884 codes, 112 comments, 162 blanks, all 1158 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Java     |         14 |        884 |        112 |        162 |      1,158 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                          | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                             |         14 |        884 |        112 |        162 |      1,158 |
+| main                                                                                                                                          |         14 |        884 |        112 |        162 |      1,158 |
+| main/java                                                                                                                                     |         14 |        884 |        112 |        162 |      1,158 |
+| main/java/ups                                                                                                                                 |         14 |        884 |        112 |        162 |      1,158 |
+| main/java/ups/edu                                                                                                                             |         14 |        884 |        112 |        162 |      1,158 |
+| main/java/ups/edu/ec                                                                                                                          |         14 |        884 |        112 |        162 |      1,158 |
+| main/java/ups/edu/ec/bibleotecainterfaz                                                                                                       |         14 |        884 |        112 |        162 |      1,158 |
+| main/java/ups/edu/ec/bibleotecainterfaz/controller                                                                                            |          3 |         47 |          7 |          8 |         62 |
+| main/java/ups/edu/ec/bibleotecainterfaz/excepciones                                                                                           |          1 |          7 |          8 |          2 |         17 |
+| main/java/ups/edu/ec/bibleotecainterfaz/models                                                                                                |          2 |         21 |          0 |          4 |         25 |
+| main/java/ups/edu/ec/bibleotecainterfaz/view                                                                                                  |          8 |        809 |         97 |        148 |      1,054 |
++-----------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                                      | language | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/AutorController.java         | Java     |         20 |          8 |          8 |         36 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java         | Java     |         23 |         -1 |         -2 |         20 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrestamoController.java      | Java     |          4 |          0 |          2 |          6 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/excepciones/CambiosVaciosException.java | Java     |          7 |          8 |          2 |         17 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Persona.java                     | Java     |         21 |          0 |          3 |         24 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Usuario.java                     | Java     |          0 |          0 |          1 |          1 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarAutorView.java           | Java     |        159 |         20 |         26 |        205 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarAutorView.java               | Java     |        149 |         20 |         25 |        194 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearAutorView.java                | Java     |        139 |         21 |         24 |        184 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearLibroView.java                | Java     |         -8 |          0 |          0 |         -8 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearPrestamoView.java             | Java     |         90 |          0 |         10 |        100 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarAutorView.java             | Java     |        159 |         20 |         26 |        205 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarAutorView.java               | Java     |         48 |         19 |         11 |         78 |
+| /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/PrincipalView.java                 | Java     |         73 |         -3 |         26 |         96 |
+| Total                                                                                                                                         |          |        884 |        112 |        162 |      1,158 |
++-----------------------------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

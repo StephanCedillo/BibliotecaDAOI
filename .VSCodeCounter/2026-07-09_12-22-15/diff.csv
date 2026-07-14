@@ -1,0 +1,16 @@
+"filename", "language", "Java", "comment", "blank", "total"
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/AutorController.java", "Java", 20, 8, 8, 36
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/LibroController.java", "Java", 23, -1, -2, 20
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/controller/PrestamoController.java", "Java", 4, 0, 2, 6
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/excepciones/CambiosVaciosException.java", "Java", 7, 8, 2, 17
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Persona.java", "Java", 21, 0, 3, 24
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Usuario.java", "Java", 0, 0, 1, 1
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ActualizarAutorView.java", "Java", 159, 20, 26, 205
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/BuscarAutorView.java", "Java", 149, 20, 25, 194
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearAutorView.java", "Java", 139, 21, 24, 184
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearLibroView.java", "Java", -8, 0, 0, -8
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/CrearPrestamoView.java", "Java", 90, 0, 10, 100
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/EliminarAutorView.java", "Java", 159, 20, 26, 205
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/ListarAutorView.java", "Java", 48, 19, 11, 78
+"/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/view/PrincipalView.java", "Java", 73, -3, 26, 96
+"Total", "-", 884, 112, 162, 1158

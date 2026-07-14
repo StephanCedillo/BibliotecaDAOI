@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ups.edu.ec.bibleotecainterfaz.controller;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.BoxLayout;
 import javax.swing.JInternalFrame;
@@ -20,9 +17,8 @@ import ups.edu.ec.bibleotecainterfaz.dao.*;
 import ups.edu.ec.bibleotecainterfaz.models.Libro;
 import ups.edu.ec.bibleotecainterfaz.models.Prestamo;
 import ups.edu.ec.bibleotecainterfaz.models.Usuario;
+import ups.edu.ec.bibleotecainterfaz.enums.MensajePrestamo;
 import ups.edu.ec.bibleotecainterfaz.view.*;
-
-;
 
 /**
  *
@@ -38,6 +34,26 @@ public class PrestamoController {
     private PrestamoDAO prestamoDAO;
     private UsuarioDAO usuarioDAO;
     private LibroDAO libroDAO;
+    private PrestamoView[] prestamoViewLista = null;
+    private Prestamo prestamoSeleccionadoDevolucion = null;
+    private Prestamo prestamoTemporal = null;
+    private DefaultTableModel modelo;
+
+    private String cambioISBN = "ISBN";
+    private String cambioNombre = "Titulo";
+
+    // Arreglo actualizado con todos los mensajes (9 en total)
+    private String[] mensajes = {
+        "Prestamo no encontrado", // 0
+        "Usuario no encontrado", // 1
+        "Libro no encontrado", // 2
+        "Libro agregado al préstamo", // 3
+        "Debe buscar un préstamo primero", // 4
+        "¿Desea registrar la devolución del préstamo?", // 5
+        "Préstamo devuelto correctamente", // 6
+        "Préstamo creado correctamente", // 7
+        "Ingrese un ID válido" // 8
+    };
 
     public PrestamoController(DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
             CrearPrestamoView crearPrestamoView, ListarPrestamoView listarPrestamoView, PrestamoDAO prestamoDAO,
@@ -49,8 +65,8 @@ public class PrestamoController {
         this.prestamoDAO = prestamoDAO;
         this.usuarioDAO = usuarioDAO;
         this.libroDAO = libroDAO;
-        configurarEventos();
 
+        configurarEventos();
     }
 
     private void configurarEventos() {
@@ -121,6 +137,18 @@ public class PrestamoController {
                 ingresarOtroLibro();
             }
         });
+        crearPrestamoView.getLblbtnCedula().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                buscarUsuario();
+            }
+        });
+        crearPrestamoView.getLblbtnLibro().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                buscarLibro();
+            }
+        });
 
     }
 
@@ -152,53 +180,52 @@ public class PrestamoController {
 
     }
 
-    private String[] mensajes = {
-        "Prestamo no encontrado",
-        "Usuario no encontrado",
-        "Libro no encontrado",
-        "Libro agregado al préstamo",
-        "Debe buscar un préstamo primero",
-        "¿Desea registrar la devolución del préstamo?",
-        "Préstamo devuelto correctamente",
-        "Préstamo creado correctamente"
-    };
-
     private void buscar(int i) {
         Prestamo prestamoSeleccionadoBuscar = null;
         if (i == 1) {
             prestamoSeleccionadoBuscar = prestamoDAO.buscarCedula(buscarPrestamoView.getTxtICedula().getText());
         } else if (i == 2) {
-            prestamoSeleccionadoBuscar = prestamoDAO
-                    .buscarID(Integer.parseInt(buscarPrestamoView.getTxtID().getText()));
+            try {
+                int id = Integer.parseInt(buscarPrestamoView.getTxtID().getText());
+                prestamoSeleccionadoBuscar = prestamoDAO.buscarID(id);
+            } catch (NumberFormatException ex) {
+                mostrarInformacion(MensajePrestamo.ERR_ID_VALIDO.getTexto(mensajes), buscarPrestamoView);
+                return;
+            }
         } else {
             prestamoSeleccionadoBuscar = prestamoDAO.buscarISBN(buscarPrestamoView.getTxtISBN().getText());
         }
 
         if (prestamoSeleccionadoBuscar == null) {
-            mostrarInformacion(mensajes[0], buscarPrestamoView);
+            mostrarInformacion(MensajePrestamo.PRESTAMO_NO_ENCONTRADO.getTexto(mensajes), buscarPrestamoView);
             return;
         }
-        buscarPrestamoView.getLblIDBuscado().setText(String.valueOf((char) prestamoSeleccionadoBuscar.getId()));
-        buscarPrestamoView.getTxtCedulaBuscado().setText(prestamoSeleccionadoBuscar.getUsuario().getCedula());
-        buscarPrestamoView.getTxtGmailBuscado().setText(prestamoSeleccionadoBuscar.getUsuario().getEmail());
-        buscarPrestamoView.getTxtNombreBuscado().setText(prestamoSeleccionadoBuscar.getUsuario().getNombre()
-                + prestamoSeleccionadoBuscar.getUsuario().getApellido());
 
-        buscarPrestamoView.getTxtFechaPedidoBuscado()
-                .setText(prestamoSeleccionadoBuscar.getFechaDevolucion().toString());
-        buscarPrestamoView.getTxtFechaDevueltoBuscado()
-                .setText(prestamoSeleccionadoBuscar.getFechaDevolucion().toString());
+        buscarPrestamoView.getLblIDBuscado().setText(String.valueOf(prestamoSeleccionadoBuscar.getId()));
+
+        // Validación de nulidad para Usuario
+        Usuario usuario = prestamoSeleccionadoBuscar.getUsuario();
+        if (usuario != null) {
+            buscarPrestamoView.getTxtCedulaBuscado().setText(usuario.getCedula() != null ? usuario.getCedula() : "");
+            buscarPrestamoView.getTxtGmailBuscado().setText(usuario.getEmail() != null ? usuario.getEmail() : "");
+            buscarPrestamoView.getTxtNombreBuscado().setText((usuario.getNombre() != null ? usuario.getNombre() : "")
+                    + " " + (usuario.getApellido() != null ? usuario.getApellido() : ""));
+        }
+
+        // Validación de nulidad para Fechas
+        buscarPrestamoView.getTxtFechaPedidoBuscado().setText(
+                prestamoSeleccionadoBuscar.getFechaPedido() != null ? prestamoSeleccionadoBuscar.getFechaPedido().toString() : "N/A");
+        buscarPrestamoView.getTxtFechaDevueltoBuscado().setText(
+                prestamoSeleccionadoBuscar.getFechaDevolucion() != null ? prestamoSeleccionadoBuscar.getFechaDevolucion().toString() : "N/A");
 
         if (prestamoSeleccionadoBuscar.isEstado()) {
             buscarPrestamoView.getPnlEstadoDevuelto().setBackground(new Color(0, 255, 0));
         } else {
             buscarPrestamoView.getPnlEstadoDevuelto().setBackground(new Color(255, 51, 51));
         }
+
         cargarDatos(prestamoSeleccionadoBuscar.getLibro());
-
     }
-
-    private DefaultTableModel modelo;
 
     private void configurarTabla() {
         modelo = new DefaultTableModel();
@@ -211,39 +238,52 @@ public class PrestamoController {
 
     public void cargarDatos(List<Libro> libros) {
         modelo.setRowCount(0);
-        for (Libro libro : libros) {
-            Object[] fila = {libro.getISBN(), libro.getNombre()};
-            modelo.addRow(fila);
+        if (libros == null) {
+            return;
         }
 
+        for (Libro libro : libros) {
+            if (libro != null) {
+                Object[] fila = {libro.getISBN(), libro.getNombre()};
+                modelo.addRow(fila);
+            }
+        }
     }
-
-    private Prestamo prestamoSeleccionadoDevolucion = null;
 
     private void buscarDevolucion(int i) {
         if (i == 1) {
             prestamoSeleccionadoDevolucion = prestamoDAO.buscarCedula(devolucionPrestamoView.getTxtICedula().getText());
         } else if (i == 2) {
-            prestamoSeleccionadoDevolucion = prestamoDAO
-                    .buscarID(Integer.parseInt(devolucionPrestamoView.getTxtID().getText()));
+            try {
+                int id = Integer.parseInt(devolucionPrestamoView.getTxtID().getText()); // Corrección visual menor
+                prestamoSeleccionadoDevolucion = prestamoDAO.buscarID(id);
+            } catch (NumberFormatException ex) {
+                mostrarInformacion(MensajePrestamo.ERR_ID_VALIDO.getTexto(mensajes), devolucionPrestamoView); // Corrección de vista
+                return;
+            }
         } else {
             prestamoSeleccionadoDevolucion = prestamoDAO.buscarISBN(devolucionPrestamoView.getTxtISBN().getText());
         }
 
         if (prestamoSeleccionadoDevolucion == null) {
-            mostrarInformacion(mensajes[0], devolucionPrestamoView);
+            mostrarInformacion(MensajePrestamo.PRESTAMO_NO_ENCONTRADO.getTexto(mensajes), devolucionPrestamoView);
             return;
         }
-        devolucionPrestamoView.getLblIDBuscado().setText(String.valueOf((char) prestamoSeleccionadoDevolucion.getId()));
-        devolucionPrestamoView.getTxtCedulaBuscado().setText(prestamoSeleccionadoDevolucion.getUsuario().getCedula());
-        devolucionPrestamoView.getTxtGmailBuscado().setText(prestamoSeleccionadoDevolucion.getUsuario().getEmail());
-        devolucionPrestamoView.getTxtNombreBuscado().setText(prestamoSeleccionadoDevolucion.getUsuario().getNombre()
-                + prestamoSeleccionadoDevolucion.getUsuario().getApellido());
 
-        devolucionPrestamoView.getTxtFechaPedidoBuscado()
-                .setText(prestamoSeleccionadoDevolucion.getFechaPedido().toString());
-        devolucionPrestamoView.getTxtFechaDevueltoBuscado()
-                .setText(prestamoSeleccionadoDevolucion.getFechaDevolucion().toString());
+        devolucionPrestamoView.getLblIDBuscado().setText(String.valueOf(prestamoSeleccionadoDevolucion.getId()));
+
+        Usuario usuario = prestamoSeleccionadoDevolucion.getUsuario();
+        if (usuario != null) {
+            devolucionPrestamoView.getTxtCedulaBuscado().setText(usuario.getCedula() != null ? usuario.getCedula() : "");
+            devolucionPrestamoView.getTxtGmailBuscado().setText(usuario.getEmail() != null ? usuario.getEmail() : "");
+            devolucionPrestamoView.getTxtNombreBuscado().setText((usuario.getNombre() != null ? usuario.getNombre() : "")
+                    + " " + (usuario.getApellido() != null ? usuario.getApellido() : ""));
+        }
+
+        devolucionPrestamoView.getTxtFechaPedidoBuscado().setText(
+                prestamoSeleccionadoDevolucion.getFechaPedido() != null ? prestamoSeleccionadoDevolucion.getFechaPedido().toString() : "N/A");
+        devolucionPrestamoView.getTxtFechaDevueltoBuscado().setText(
+                prestamoSeleccionadoDevolucion.getFechaDevolucion() != null ? prestamoSeleccionadoDevolucion.getFechaDevolucion().toString() : "N/A");
 
         if (prestamoSeleccionadoDevolucion.isEstado()) {
             devolucionPrestamoView.getPnlEstadoDevuelto().setBackground(new Color(0, 255, 0));
@@ -253,183 +293,211 @@ public class PrestamoController {
         cargarDatos(prestamoSeleccionadoDevolucion.getLibro());
     }
 
-    private Prestamo prestamoTemporal = null;
-
     private void ingresarOtroLibro() {
-
         if (prestamoTemporal == null) {
             Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
-
             if (usuario == null) {
-                mostrarInformacion(mensajes[1], crearPrestamoView);
+                mostrarInformacion(MensajePrestamo.USUARIO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
                 return;
             }
-
             prestamoTemporal = new Prestamo(usuario, true);
         }
 
         Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
-
         if (libro == null) {
-            mostrarInformacion(mensajes[2], crearPrestamoView);
+            mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
             return;
         }
 
+        buscarLibro();
         prestamoTemporal.agregarLibro(libro);
-
         crearPrestamoView.getTxtISBN().setText("");
-
-        mostrarInformacion(mensajes[3], crearPrestamoView);
+        mostrarInformacion(MensajePrestamo.LIBRO_AGREGADO.getTexto(mensajes), crearPrestamoView);
     }
 
     private void devolucion() {
-
         if (prestamoSeleccionadoDevolucion == null) {
-            mostrarInformacion(mensajes[4], devolucionPrestamoView);
+            mostrarInformacion(MensajePrestamo.BUSCAR_PRESTAMO_PRIMERO.getTexto(mensajes), devolucionPrestamoView);
             return;
         }
-
-        if (!confirmarAccion(mensajes[5], devolucionPrestamoView)) {
+        if (!confirmarAccion(MensajePrestamo.CONFIRMAR_DEVOLUCION.getTexto(mensajes), devolucionPrestamoView)) {
             return;
         }
 
         prestamoSeleccionadoDevolucion.registrarDevolucion();
-        mostrarInformacion(mensajes[6], devolucionPrestamoView);
+        mostrarInformacion(MensajePrestamo.PRESTAMO_DEVUELTO.getTexto(mensajes), devolucionPrestamoView);
+    }
+
+    private void buscarUsuario() {
+        Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
+        if (usuario == null) {
+            mostrarInformacion(MensajePrestamo.USUARIO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
+            return;
+        }
+        crearPrestamoView.getTxtUsuario().setText(usuario.getNombre() + " " + usuario.getApellido());
+    }
+
+    private void buscarLibro() {
+        Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
+        if (libro == null) {
+            mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
+            return;
+        }
+        crearPrestamoView.getTxtLibro().setText(libro.getNombre());
+
     }
 
     private void crearPrestamo() {
-
         if (prestamoTemporal == null) {
             Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
-
             if (usuario == null) {
-                mostrarInformacion(mensajes[1], crearPrestamoView);
+                mostrarInformacion(MensajePrestamo.USUARIO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
                 return;
             }
-
+            buscarUsuario();
             prestamoTemporal = new Prestamo(usuario, true);
         }
 
         Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
-
         if (libro == null) {
-            mostrarInformacion(mensajes[2], crearPrestamoView);
+            mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
             return;
         }
 
         prestamoTemporal.agregarLibro(libro);
-
         prestamoDAO.crear(prestamoTemporal);
+        mostrarInformacion(MensajePrestamo.PRESTAMO_CREADO.getTexto(mensajes), crearPrestamoView);
 
-        mostrarInformacion(mensajes[7], crearPrestamoView);
+        // Validación de nulidad antes de devolver
+        if (prestamoTemporal.getLibro() != null) {
+            for (Libro libroRecorrido : prestamoTemporal.getLibro()) {
+                Libro libGuardado = libroDAO.buscar(libroRecorrido.getISBN());
+                if (libGuardado != null) {
+                    libGuardado.devolver();
+                }
+            }
+        }
 
         prestamoTemporal = null;
     }
-    PrestamoView[] prestamoViewLista = null;
 
     private void listarPrestamos() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        prestamoViewLista = new PrestamoView[prestamoDAO.listar().size()];
-        int i = 0;
-        for (Prestamo prestamo : prestamoDAO.listar()) {
-            PrestamoView temporal = cambiarPanel(prestamo);
-            panel.add(temporal);
-            prestamoViewLista[i] = temporal;
-            i++;
+        List<Prestamo> listaPrestamos = prestamoDAO.listar();
+
+        // Validación para evitar NullPointerException si la lista viene nula
+        if (listaPrestamos != null) {
+            prestamoViewLista = new PrestamoView[listaPrestamos.size()];
+            int i = 0;
+            for (Prestamo prestamo : listaPrestamos) {
+                if (prestamo != null) {
+                    PrestamoView temporal = cambiarPanel(prestamo);
+                    panel.add(temporal);
+                    prestamoViewLista[i] = temporal;
+                    i++;
+                }
+            }
+        } else {
+            prestamoViewLista = new PrestamoView[0];
         }
 
         listarPrestamoView.getScrollPanePrestamos().setViewportView(panel);
-
     }
 
     private PrestamoView cambiarPanel(Prestamo prestamo) {
-
         PrestamoView prestamoView = new PrestamoView();
         configurarTablaPanel(prestamoView);
 
         prestamoView.getLblIDBuscado().setText(String.valueOf(prestamo.getId()));
-        prestamoView.getTxtCedulaBuscado().setText(prestamo.getUsuario().getCedula());
-        prestamoView.getTxtGmailBuscado().setText(prestamo.getUsuario().getEmail());
-        prestamoView.getTxtNombreBuscado()
-                .setText(prestamo.getUsuario().getNombre() + " " + prestamo.getUsuario().getApellido());
 
-        prestamoView.getTxtFechaPedidoBuscado().setText(prestamo.getFechaPedido().toString());
-        prestamoView.getTxtFechaDevueltoBuscado().setText(prestamo.getFechaDevolucion().toString());
+        Usuario usuario = prestamo.getUsuario();
+        if (usuario != null) {
+            prestamoView.getTxtCedulaBuscado().setText(usuario.getCedula() != null ? usuario.getCedula() : "");
+            prestamoView.getTxtGmailBuscado().setText(usuario.getEmail() != null ? usuario.getEmail() : "");
+            prestamoView.getTxtNombreBuscado().setText((usuario.getNombre() != null ? usuario.getNombre() : "")
+                    + " " + (usuario.getApellido() != null ? usuario.getApellido() : ""));
+        }
+
+        prestamoView.getTxtFechaPedidoBuscado().setText(
+                prestamo.getFechaPedido() != null ? prestamo.getFechaPedido().toString() : "N/A");
+        prestamoView.getTxtFechaDevueltoBuscado().setText(
+                prestamo.getFechaDevolucion() != null ? prestamo.getFechaDevolucion().toString() : "N/A");
 
         if (prestamo.isEstado()) {
             prestamoView.getPnlEstadoDevuelto().setBackground(new Color(0, 255, 0));
         } else {
             prestamoView.getPnlEstadoDevuelto().setBackground(new Color(255, 51, 51));
         }
+
         cargarDatosPanel(prestamoView, prestamo.getLibro());
-
         return prestamoView;
-
     }
 
     private void configurarTablaPanel(PrestamoView prestamoView) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn(cambioISBN);
         modelo.addColumn(cambioNombre);
-
         prestamoView.getTblLibrosBuscados().setModel(modelo);
-
     }
 
     public void cargarDatosPanel(PrestamoView prestamoView, List<Libro> libros) {
-
         DefaultTableModel modelo = (DefaultTableModel) prestamoView.getTblLibrosBuscados().getModel();
-
         modelo.setRowCount(0);
-
-        for (Libro libro : libros) {
-            modelo.addRow(new Object[]{
-                libro.getISBN(),
-                libro.getNombre()
-            });
+        if (libros == null) {
+            return;
         }
 
+        for (Libro libro : libros) {
+            if (libro != null) {
+                modelo.addRow(new Object[]{libro.getISBN(), libro.getNombre()});
+            }
+        }
     }
 
     public void cambioIdioma(ResourceBundle bundle) {
-        cambioIdiomaDevolucionPrestamo(bundle);
-        cambioIdiomaBuscarPrestamo(bundle);
-        cambioIdiomaListarPrestamo(bundle);
-        cambioIdiomaCrearPrestamo(bundle);
-        mensajes = bundle.getString("mensajesPrestamo").split(",");
+        if (bundle == null) {
+            return; // Evitar NPE si el bundle no existe
+        }
+        try {
+            cambioIdiomaDevolucionPrestamo(bundle);
+            cambioIdiomaBuscarPrestamo(bundle);
+            cambioIdiomaListarPrestamo(bundle);
+            cambioIdiomaCrearPrestamo(bundle);
+
+            String mensajesStr = bundle.getString("mensajesPrestamo");
+            if (mensajesStr != null) {
+                mensajes = mensajesStr.split(",");
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cambiar idioma: Faltan claves en el archivo de propiedades.");
+        }
     }
 
     private void cambioIdiomaCrearPrestamo(ResourceBundle bundle) {
-// ===== BOTONES =====
         crearPrestamoView.getBtnAceptar().setText(bundle.getString("btnAceptar"));
         crearPrestamoView.getBtnIngresarOtroLibro().setText(bundle.getString("btnIngresarOtroLibro"));
-
-// ===== LABELS =====
         crearPrestamoView.getLblCedula().setText(bundle.getString("lblCedula"));
         crearPrestamoView.getLblISBN().setText(bundle.getString("lblISBN"));
         crearPrestamoView.getLblTituloCreacionPrestamo().setText(bundle.getString("lblTituloCrearPrestamo"));
     }
 
-    private String cambioISBN = "ISBN";
-    private String cambioNombre = "Titulo";
-
     private void cambioIdiomaListarPrestamo(ResourceBundle bundle) {
-
-    
         listarPrestamoView.getBtnListarRegistro().setText(bundle.getString("btnListarPrestamo"));
         cambioISBN = bundle.getString("lblISBN");
         cambioNombre = bundle.getString("lblTitulo");
 
-        for (int i = 0; i < prestamoViewLista.length; i++) {
-
-            configurarTablaPanel(prestamoViewLista[i]);
-            cambioPanelIdioma(prestamoViewLista[i], bundle);
+        // Evitar NullPointerException si se cambia el idioma antes de abrir la vista
+        if (prestamoViewLista != null) {
+            for (int i = 0; i < prestamoViewLista.length; i++) {
+                if (prestamoViewLista[i] != null) {
+                    configurarTablaPanel(prestamoViewLista[i]);
+                    cambioPanelIdioma(prestamoViewLista[i], bundle);
+                }
+            }
         }
-
         configurarTabla();
-
     }
 
     private void cambioPanelIdioma(PrestamoView prestamoView, ResourceBundle bundle) {
@@ -438,19 +506,14 @@ public class PrestamoController {
         prestamoView.getLblEstado2().setText(bundle.getString("lblEstado"));
         prestamoView.getLblFechaDevuelto().setText(bundle.getString("lblFechaDevuelto"));
         prestamoView.getLblFechaPedido().setText(bundle.getString("lblFechaPedido"));
-
         prestamoView.getLblID2().setText(bundle.getString("lblID"));
-
         prestamoView.getLblNombre().setText(bundle.getString("lblNombre"));
     }
 
     private void cambioIdiomaBuscarPrestamo(ResourceBundle bundle) {
-// ===== BOTONES =====
         buscarPrestamoView.getBtnCedula().setText(bundle.getString("btnCedula"));
         buscarPrestamoView.getBtnID().setText(bundle.getString("btnID"));
         buscarPrestamoView.getBtnISBN().setText(bundle.getString("btnISBN"));
-
-// ===== LABELS =====
         buscarPrestamoView.getLblBuscarPor().setText(bundle.getString("lblBuscarPor"));
         buscarPrestamoView.getLblCedula2().setText(bundle.getString("lblCedula"));
         buscarPrestamoView.getLblCedula3().setText(bundle.getString("lblCedula"));
@@ -466,13 +529,10 @@ public class PrestamoController {
     }
 
     private void cambioIdiomaDevolucionPrestamo(ResourceBundle bundle) {
-        // ===== BOTONES =====
         devolucionPrestamoView.getBtnCedula().setText(bundle.getString("btnCedula"));
         devolucionPrestamoView.getBtnDevolucion().setText(bundle.getString("btnDevolucion"));
         devolucionPrestamoView.getBtnID().setText(bundle.getString("btnID"));
         devolucionPrestamoView.getBtnISBN().setText(bundle.getString("btnISBN"));
-
-// ===== LABELS =====
         devolucionPrestamoView.getLblCedula().setText(bundle.getString("lblCedula"));
         devolucionPrestamoView.getLblCedula2().setText(bundle.getString("lblCedula"));
         devolucionPrestamoView.getLblDevuelto().setText(bundle.getString("lblFechaDevuelto"));
@@ -501,5 +561,4 @@ public class PrestamoController {
 
         return opcion == JOptionPane.YES_OPTION;
     }
-
 }

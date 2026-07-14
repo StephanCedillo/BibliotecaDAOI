@@ -10,23 +10,17 @@ import ups.edu.ec.bibleotecainterfaz.models.Libro;
 public class LibroDAOMemoria implements LibroDAO {
 
     private List<Libro> listaLibro;
-    private List<Autor> listaAutor;
+   
 
     public LibroDAOMemoria() {
         listaLibro = new ArrayList<>();
-
-        listaAutor = new ArrayList<>();
     }
 
     @Override
     public void crear(Libro libro) {
         listaLibro.add(libro);
 
-        Autor autorDelLibro = libro.getAutor();
-
-        if (autorDelLibro != null && !listaAutor.contains(autorDelLibro)) {
-            listaAutor.add(autorDelLibro);
-        }
+        
 
     }
 
@@ -67,10 +61,7 @@ public class LibroDAOMemoria implements LibroDAO {
         return listaLibro;
     }
 
-    @Override
-    public void crearAutor(Autor autor) {
-        listaAutor.add(autor);
-    }
+   
 
     @Override
     public void crearListadoTemporal(int cantidad) {
@@ -97,9 +88,6 @@ public class LibroDAOMemoria implements LibroDAO {
         }
     }
 
-    @Override
-    public List<Autor> listarAutores() {
-        return listaAutor;
-    }
+   
 
 }
