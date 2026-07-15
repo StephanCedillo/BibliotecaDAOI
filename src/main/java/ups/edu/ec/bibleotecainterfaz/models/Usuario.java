@@ -17,6 +17,8 @@ public class Usuario extends Persona {
         membresia = new Membresia();
     }
 
+
+
     public String getEmail() {
         return email;
     }
@@ -57,6 +59,13 @@ public class Usuario extends Persona {
         } else {
             membresia = new Membresia(tipo);
         }
+
+    }
+    public void agregarMembresia(Membresia membresiaT) {
+        if(membresiaT == null){
+             membresia = new Membresia("Normal");
+        }
+        membresia = membresiaT;
 
     }
 

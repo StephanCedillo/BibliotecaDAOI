@@ -15,6 +15,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
+import ups.edu.ec.bibleotecainterfaz.dao.AutorDAO;
 
 import ups.edu.ec.bibleotecainterfaz.dao.LibroDAO;
 import ups.edu.ec.bibleotecainterfaz.excepciones.CamposVaciosException;
@@ -42,19 +43,23 @@ public class LibroController {
 
     // =========DAO =========
     private LibroDAO libroDAO;
+    private AutorDAO autorDAO;
 
     public LibroController(ActualizarLibroView actualizarLibroView, BuscarLibroView buscarLibroView,
             EliminarLibroView eliminarLibroView, CrearLibroView crearLibroView, ListarLibroView listarLibroView,
-            LibroDAO libroDAO) {
+            LibroDAO libroDAO,AutorDAO autorDAO) {
         this.actualizarLibroView = actualizarLibroView;
         this.buscarLibroView = buscarLibroView;
         this.eliminarLibroView = eliminarLibroView;
         this.crearLibroView = crearLibroView;
         this.listarLibroView = listarLibroView;
         this.libroDAO = libroDAO;
+        this.autorDAO = autorDAO;
         configurarEventos();
 
-        libroDAO.crearListadoTemporal(10);
+        cargarGeneros(); 
+        actualizarComboAutores();
+  
         listarLibro();
     }
 
@@ -519,6 +524,30 @@ public class LibroController {
         }
     }
 
+    
+    public void cargarGeneros() {
+        crearLibroView.getTxtComboGenero().removeAllItems();
+        for (Genero generoEnum : Genero.values()) {
+            crearLibroView.getTxtComboGenero().addItem(generoEnum.getTexto(generos));
+        }
+    }
+    public void actualizarComboAutores() {
+        crearLibroView.getComboBoxAutores().removeAllItems();
+        actualizarLibroView.getComboBoxAutores().removeAllItems();
+
+        if (autorDAO == null) return;
+
+        java.util.List<Autor> autores = autorDAO.listar();
+        if (autores == null || autores.isEmpty()) {
+            return;
+        }
+
+        for (Autor autor : autores) {
+            crearLibroView.getComboBoxAutores().addItem(autor);
+            actualizarLibroView.getComboBoxAutores().addItem(autor);
+        }
+    }
+    
     public ActualizarLibroView getActualizarLibroView() {
         return actualizarLibroView;
     }
@@ -598,4 +627,10 @@ public class LibroController {
     public void setMensajes(String[] mensajes) {
         this.mensajes = mensajes;
     }
+    public void setAutorDAO(AutorDAO autorDAO) {
+        this.autorDAO = autorDAO;
+        actualizarComboAutores(); // Sincroniza los combos inmediatamente con el nuevo DAO
+    }
+
+   
 }

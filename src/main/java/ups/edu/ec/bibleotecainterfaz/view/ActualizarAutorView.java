@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 import ups.edu.ec.bibleotecainterfaz.models.Autor;
 
 /**
@@ -22,6 +23,11 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
      */
     public ActualizarAutorView() {
         initComponents();
+         initComponents();
+         ((AbstractDocument) txtNombreBuscado.getDocument())
+        .setDocumentFilter(new LimiteCaracteres(10));
+       ((AbstractDocument) txtApellidoBuscado.getDocument())
+        .setDocumentFilter(new LimiteCaracteres(15));
     }
 
     public JButton getBtnActualizacion() {

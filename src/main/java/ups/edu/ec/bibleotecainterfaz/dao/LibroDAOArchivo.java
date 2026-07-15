@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -19,12 +20,14 @@ import ups.edu.ec.bibleotecainterfaz.models.Libro;
 public class LibroDAOArchivo implements LibroDAO {
 
     private final File archivoLibro;
-
+    private static final String NOMBRE_ARCHIVO = "libros.ups";
     private static final int TAM_ISBN = 14;
-    private static final int TAM_AUTOR = 25;
+    private static final int TAM_AUTORNOMBRE = 10;
+    private static final int TAM_AUTORAPELLIDO = 15;
     private static final int TAM_NOMBRE = 10;
     private static final int TAM_GENERO = 16;
     private static final int TAM_IDIOMA = 12;
+    private static final int TAM_LIBRO = 160;
 
     public LibroDAOArchivo() {
 
@@ -36,7 +39,7 @@ public class LibroDAOArchivo implements LibroDAO {
             ruta.mkdirs();
         }
 
-        archivoLibro = new File(ruta, "libros.dat");
+        archivoLibro = new File(ruta, NOMBRE_ARCHIVO);
 
         try {
             if (!archivoLibro.exists()) {
@@ -49,104 +52,31 @@ public class LibroDAOArchivo implements LibroDAO {
 
     @Override
     public void crear(Libro libro) {
-
-        try (RandomAccessFile archivo
-                = new RandomAccessFile(archivoLibro, "rw")) {
-
+        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "rw")) {
             archivo.seek(archivo.length());
-
-            archivo.writeChars(
-                    completarTexto(libro.getISBN(), TAM_ISBN)
-            );
-
-            Autor autor = libro.getAutor();
-
-            archivo.writeChars(
-                    completarTexto(
-                            autor.getNombre() + " " + autor.getApellido(),
-                            TAM_AUTOR
-                    )
-            );
-
-            archivo.writeChars(
-                    completarTexto(libro.getNombre(), TAM_NOMBRE)
-            );
-
-            archivo.writeChars(
-                    completarTexto(libro.getGenero(), TAM_GENERO)
-            );
-
-            archivo.writeBoolean(
-                    libro.isSirestriccionEdad()
-            );
-
-            archivo.writeInt(
-                    libro.getNumeroPaginas()
-            );
-
-            archivo.writeChars(
-                    completarTexto(libro.getIdioma(), TAM_IDIOMA)
-            );
-
-            archivo.writeBoolean(
-                    libro.isSiestadoDisponibilidad()
-            );
-
+            escribirRegistro(archivo, libro);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("No se pudo crear el usuario" + e.getMessage());
         }
-
     }
 
     @Override
     public Libro buscar(String ISBN) {
 
-        try (RandomAccessFile archivo
-                = new RandomAccessFile(archivoLibro, "r")) {
-
-            while (archivo.getFilePointer() < archivo.length()) {
-
-                String isbn = leerTexto(archivo, TAM_ISBN);
-
-                String autorTexto = leerTexto(archivo, TAM_AUTOR);
-
-                String nombre = leerTexto(archivo, TAM_NOMBRE);
-
-                String genero = leerTexto(archivo, TAM_GENERO);
-
-                boolean restriccion = archivo.readBoolean();
-
-                int paginas = archivo.readInt();
-
-                String idioma = leerTexto(archivo, TAM_IDIOMA);
-
-                boolean disponible = archivo.readBoolean();
-
-                if (isbn.trim().equals(ISBN)) {
-
-                    String[] datosAutor = autorTexto.trim().split(" ");
-
-                    Autor autor = new Autor(
-                            datosAutor[0],
-                            datosAutor.length > 1 ? datosAutor[1] : ""
-                    );
-
-                    Libro libro = new Libro(
-                            isbn.trim(),
-                            autor,
-                            nombre.trim(),
-                            genero.trim(),
-                            restriccion,
-                            paginas,
-                            idioma.trim(),
-                            disponible
-                    );
-
-                    return libro;
+        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "r")) {
+            
+            long tamArchivo = archivo.length();
+            long totalRegistros = tamArchivo/TAM_LIBRO;
+            for(int i = 0;i<totalRegistros;i++){
+                long incioBusqueda = i*tamArchivo;
+                
+                String isbnActual = leerTexto(archivo,TAM_ISBN).trim();
+                if(ISBN.equals(isbnActual)){
+                    archivo.seek(incioBusqueda);
+                    return leerRegistro(archivo);
                 }
-
             }
-
+            
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -156,12 +86,70 @@ public class LibroDAOArchivo implements LibroDAO {
 
     @Override
     public boolean actualizar(Libro libro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "r")) {
+            long tamArchivo = archivo.length();
+            long totalRegistros = tamArchivo/TAM_LIBRO;
+            
+            for(int i = 0;i<totalRegistros;i++){
+                
+                long incioBusqueda = i*tamArchivo;
+                String isbnActual = leerTexto(archivo,TAM_ISBN).trim();
+                
+                if(libro.getISBN().equals(isbnActual)){
+                    archivo.seek(incioBusqueda);
+                    escribirRegistro(archivo,libro);
+                    return true;
+                }
+            }
+            
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     @Override
     public boolean eliminar(String ISBN) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        File archivoOriginal = new File(archivoLibro, NOMBRE_ARCHIVO);
+        File archivoTemporal = new File(archivoLibro, "temp.ups");
+        boolean eliminado = false;
+        try(RandomAccessFile lectura =  new RandomAccessFile(archivoOriginal,"r");RandomAccessFile escritura =  new RandomAccessFile(archivoTemporal,"rw")){
+            
+            long tamArchivo = lectura.length();
+            long totalRegistros = tamArchivo/TAM_LIBRO;
+            
+            for(int i = 0;i < totalRegistros; i++){
+                lectura.seek(i * TAM_LIBRO);
+                Libro libroActual = leerRegistro(lectura);
+                
+                if(libroActual.getISBN().equals(ISBN)){
+                    
+                    eliminado = true;
+                    continue;
+                }
+                
+                escribirRegistro(escritura,libroActual);
+                
+            }        
+        }catch(IOException e){
+            System.out.println("Error al eliminar:  " + e.getMessage() );  
+        }
+        if(eliminado){
+            
+            if(archivoOriginal.delete()){
+                
+                if(!archivoTemporal.renameTo(archivoOriginal)){
+                    
+                    System.out.println("No se pudo renombrar el archivo");
+                }
+            }else{
+                System.out.println("No se pudo elimnar el archvio original");
+            }
+        }else{
+           archivoTemporal.delete();
+        }
+        return eliminado;
+        
     }
 
     @Override
@@ -169,47 +157,14 @@ public class LibroDAOArchivo implements LibroDAO {
 
         List<Libro> lista = new ArrayList<>();
 
-        try (RandomAccessFile archivo
-                = new RandomAccessFile(archivoLibro, "r")) {
-
-            while (archivo.getFilePointer() < archivo.length()) {
-
-                String isbn = leerTexto(archivo, TAM_ISBN);
-
-                String autorTexto = leerTexto(archivo, TAM_AUTOR);
-
-                String nombre = leerTexto(archivo, TAM_NOMBRE);
-
-                String genero = leerTexto(archivo, TAM_GENERO);
-
-                boolean restriccion = archivo.readBoolean();
-
-                int paginas = archivo.readInt();
-
-                String idioma = leerTexto(archivo, TAM_IDIOMA);
-
-                boolean disponible = archivo.readBoolean();
-
-                String[] a = autorTexto.trim().split(" ");
-
-                Autor autor = new Autor(
-                        a[0],
-                        a.length > 1 ? a[1] : ""
-                );
-
-                lista.add(new Libro(
-                        isbn.trim(),
-                        autor,
-                        nombre.trim(),
-                        genero.trim(),
-                        restriccion,
-                        paginas,
-                        idioma.trim(),
-                        disponible
-                ));
-
+        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "r")) {
+            
+            long tamArchivo = archivo.length();
+            long numRegistros = tamArchivo/TAM_LIBRO;
+            for(int i = 0; i < numRegistros; i++){
+                archivo.seek(i * TAM_LIBRO);
+                lista.add(leerRegistro(archivo));
             }
-
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -246,4 +201,44 @@ public class LibroDAOArchivo implements LibroDAO {
 
         return texto;
     }
+
+    private void escribirRegistro(RandomAccessFile archivo, Libro libro) throws IOException {
+        // DATOS LIBRO
+        
+        archivo.writeChars(completarTexto(libro.getISBN(),TAM_ISBN));
+        
+        // DATOS DEL AUTOR
+        
+        archivo.writeChars(completarTexto(libro.getAutor().getNombre(),TAM_AUTORNOMBRE));
+        archivo.writeChars(completarTexto(libro.getAutor().getApellido(),TAM_AUTORAPELLIDO));
+        
+        // CONTINUACION DATOS LIBRO
+        
+        archivo.writeChars(completarTexto(libro.getNombre(),TAM_NOMBRE));
+        archivo.writeChars(completarTexto(libro.getGenero(),TAM_GENERO));
+        archivo.writeBoolean(libro.isSirestriccionEdad());
+        archivo.writeInt(libro.getNumeroPaginas());
+        archivo.writeChars(completarTexto(libro.getIdioma(),TAM_IDIOMA));
+        archivo.writeBoolean(libro.isSiestadoDisponibilidad());
+        
+    }
+    private Libro leerRegistro(RandomAccessFile archivo)throws IOException{
+         // DATOS LIBRO
+        String isbn = leerTexto(archivo,TAM_ISBN).trim();
+        
+        // AUTOR
+        String nombre = leerTexto(archivo,TAM_AUTORNOMBRE).trim();
+        String apellido = leerTexto(archivo,TAM_AUTORAPELLIDO).trim();
+        Autor autor = new Autor(nombre,apellido);
+        
+        // CONTINUACION DATOS LIBROS
+        String titulo = leerTexto(archivo,TAM_NOMBRE).trim();
+        String genero = leerTexto(archivo,TAM_GENERO).trim();
+        boolean restricciones= archivo.readBoolean();
+        int numPag = archivo.readInt();
+        String idioma = leerTexto(archivo,TAM_IDIOMA).trim();
+        boolean disponible = archivo.readBoolean();
+        return new Libro(isbn,autor,titulo,genero,restricciones,numPag,idioma,disponible);
+    }
 }
+

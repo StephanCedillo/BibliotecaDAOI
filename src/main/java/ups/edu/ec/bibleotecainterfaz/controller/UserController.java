@@ -16,7 +16,7 @@ import ups.edu.ec.bibleotecainterfaz.excepciones.CamposVaciosException;
 import ups.edu.ec.bibleotecainterfaz.excepciones.ValidadorDato;
 import ups.edu.ec.bibleotecainterfaz.models.Usuario;
 import ups.edu.ec.bibleotecainterfaz.enums.MensajeUsuario;
-import ups.edu.ec.bibleotecainterfaz.enums.Membresia; 
+import ups.edu.ec.bibleotecainterfaz.enums.TipoMembresia; 
 import ups.edu.ec.bibleotecainterfaz.view.*;
 
 /**
@@ -84,7 +84,6 @@ public class UserController {
 
         configurarEventos();
 
-        usuarioDAO.crearListadoTemporal(20);
 
         listarUsuario();
     }
@@ -335,9 +334,9 @@ public class UserController {
         // ===== BOTONES =====
         crearUsuarioView.getBtnAceptar().setText(bundle.getString("btnAceptar"));
 
-        // ===== COMBO BOX (Uso del Enum Membresia) =====
+        // ===== COMBO BOX (Uso del Enum TipoMembresia) =====
         crearUsuarioView.getComboBoxStringsMembresia().removeAllItems();
-        for (Membresia membresiaEnum : Membresia.values()) {
+        for (TipoMembresia membresiaEnum : TipoMembresia.values()) {
             crearUsuarioView.getComboBoxStringsMembresia().addItem(membresiaEnum.getTexto(membresias));
         }
 
@@ -400,9 +399,9 @@ public class UserController {
         actualizarUsuarioView.getLblRenovar().setText(bundle.getString("lblRenovar"));
         actualizarUsuarioView.getLblTituloBusquedaUsuario().setText(bundle.getString("lblTituloActualizarUsuario"));
 
-        // ===== COMBO BOX (Uso del Enum Membresia) =====
+        // ===== COMBO BOX (Uso del Enum TipoMembresia) =====
         actualizarUsuarioView.getComboBoxStringsMembresia().removeAllItems();
-        for (Membresia membresiaEnum : Membresia.values()) {
+        for (TipoMembresia membresiaEnum : TipoMembresia.values()) {
             actualizarUsuarioView.getComboBoxStringsMembresia().addItem(membresiaEnum.getTexto(membresias));
         }
     }
@@ -547,4 +546,78 @@ public class UserController {
             throw new ValidadorDato(MensajeUsuario.ERR_LIMITE_EDAD.getTexto(mensajes));
         }
     }
+
+    public ActualizarUsuarioView getActualizarUsuarioView() {
+        return actualizarUsuarioView;
+    }
+
+    public void setActualizarUsuarioView(ActualizarUsuarioView actualizarUsuarioView) {
+        this.actualizarUsuarioView = actualizarUsuarioView;
+    }
+
+    public BuscarUsuarioView getBuscarUsuarioView() {
+        return buscarUsuarioView;
+    }
+
+    public void setBuscarUsuarioView(BuscarUsuarioView buscarUsuarioView) {
+        this.buscarUsuarioView = buscarUsuarioView;
+    }
+
+    public EliminarUsuarioView getEliminarUsuarioView() {
+        return eliminarUsuarioView;
+    }
+
+    public void setEliminarUsuarioView(EliminarUsuarioView eliminarUsuarioView) {
+        this.eliminarUsuarioView = eliminarUsuarioView;
+    }
+
+    public CrearUsuarioView getCrearUsuarioView() {
+        return crearUsuarioView;
+    }
+
+    public void setCrearUsuarioView(CrearUsuarioView crearUsuarioView) {
+        this.crearUsuarioView = crearUsuarioView;
+    }
+
+    public ListarUsuarioView getListarUsuarioView() {
+        return listarUsuarioView;
+    }
+
+    public void setListarUsuarioView(ListarUsuarioView listarUsuarioView) {
+        this.listarUsuarioView = listarUsuarioView;
+    }
+
+    public DateTimeFormatter getFormato() {
+        return formato;
+    }
+
+    public void setFormato(DateTimeFormatter formato) {
+        this.formato = formato;
+    }
+
+    public UsuarioDAO getUsuarioDAO() {
+        return usuarioDAO;
+    }
+
+    public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
+    }
+
+    public String[] getMembresias() {
+        return membresias;
+    }
+
+    public void setMembresias(String[] membresias) {
+        this.membresias = membresias;
+    }
+
+    public String[] getMensajes() {
+        return mensajes;
+    }
+
+    public void setMensajes(String[] mensajes) {
+        this.mensajes = mensajes;
+    }
+    
+    
 }

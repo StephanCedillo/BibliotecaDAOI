@@ -1,6 +1,6 @@
 package ups.edu.ec.bibleotecainterfaz.enums;
 
-public enum Membresia {
+public enum TipoMembresia {
     NORMAL(0),
     CORPORATIVA(1),
     ACADEMICA(2),
@@ -9,7 +9,7 @@ public enum Membresia {
 
     private final int indice;
 
-    Membresia(int indice) {
+    TipoMembresia(int indice) {
         this.indice = indice;
     }
 

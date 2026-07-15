@@ -346,41 +346,43 @@ public class PrestamoController {
         crearPrestamoView.getTxtLibro().setText(libro.getNombre());
 
     }
-
-    private void crearPrestamo() {
-        if (prestamoTemporal == null) {
-            Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
-            if (usuario == null) {
-                mostrarInformacion(MensajePrestamo.USUARIO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
-                return;
-            }
-            buscarUsuario();
-            prestamoTemporal = new Prestamo(usuario, true);
-        }
-
-        Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
-        if (libro == null) {
-            mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
+private void crearPrestamo() {
+    if (prestamoTemporal == null) {
+        Usuario usuario = usuarioDAO.buscar(crearPrestamoView.getTxtCedula().getText());
+        if (usuario == null) {
+            mostrarInformacion(MensajePrestamo.USUARIO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
             return;
         }
-
-        prestamoTemporal.agregarLibro(libro);
-        prestamoDAO.crear(prestamoTemporal);
-        mostrarInformacion(MensajePrestamo.PRESTAMO_CREADO.getTexto(mensajes), crearPrestamoView);
-
-        // Validación de nulidad antes de devolver
-        if (prestamoTemporal.getLibro() != null) {
-            for (Libro libroRecorrido : prestamoTemporal.getLibro()) {
-                Libro libGuardado = libroDAO.buscar(libroRecorrido.getISBN());
-                if (libGuardado != null) {
-                    libGuardado.devolver();
-                }
-            }
-        }
-
-        prestamoTemporal = null;
+        buscarUsuario();
+        prestamoTemporal = new Prestamo(usuario, true);
     }
 
+    Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
+    if (libro == null) {
+        mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
+        return;
+    }
+
+  
+    prestamoTemporal.agregarLibro(libro);
+    
+
+    prestamoDAO.crear(prestamoTemporal);
+    mostrarInformacion(MensajePrestamo.PRESTAMO_CREADO.getTexto(mensajes), crearPrestamoView);
+
+  
+    if (prestamoTemporal.getLibro() != null) {
+        for (Libro libroRecorrido : prestamoTemporal.getLibro()) {
+            Libro libGuardado = libroDAO.buscar(libroRecorrido.getISBN());
+            if (libGuardado != null) {
+                libGuardado.prestar(); 
+                libroDAO.actualizar(libGuardado); 
+            }
+        }
+    }
+    prestamoTemporal = null;
+}
+   
     private void listarPrestamos() {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -561,4 +563,117 @@ public class PrestamoController {
 
         return opcion == JOptionPane.YES_OPTION;
     }
+
+    public DevolucionPrestamoView getDevolucionPrestamoView() {
+        return devolucionPrestamoView;
+    }
+
+    public BuscarPrestamoView getBuscarPrestamoView() {
+        return buscarPrestamoView;
+    }
+
+    public CrearPrestamoView getCrearPrestamoView() {
+        return crearPrestamoView;
+    }
+
+    public ListarPrestamoView getListarPrestamoView() {
+        return listarPrestamoView;
+    }
+
+    public PrestamoDAO getPrestamoDAO() {
+        return prestamoDAO;
+    }
+
+    public UsuarioDAO getUsuarioDAO() {
+        return usuarioDAO;
+    }
+
+    public LibroDAO getLibroDAO() {
+        return libroDAO;
+    }
+
+    public PrestamoView[] getPrestamoViewLista() {
+        return prestamoViewLista;
+    }
+
+    public Prestamo getPrestamoSeleccionadoDevolucion() {
+        return prestamoSeleccionadoDevolucion;
+    }
+
+    public Prestamo getPrestamoTemporal() {
+        return prestamoTemporal;
+    }
+
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public String getCambioISBN() {
+        return cambioISBN;
+    }
+
+    public String getCambioNombre() {
+        return cambioNombre;
+    }
+
+    public String[] getMensajes() {
+        return mensajes;
+    }
+
+    public void setDevolucionPrestamoView(DevolucionPrestamoView devolucionPrestamoView) {
+        this.devolucionPrestamoView = devolucionPrestamoView;
+    }
+
+    public void setBuscarPrestamoView(BuscarPrestamoView buscarPrestamoView) {
+        this.buscarPrestamoView = buscarPrestamoView;
+    }
+
+    public void setCrearPrestamoView(CrearPrestamoView crearPrestamoView) {
+        this.crearPrestamoView = crearPrestamoView;
+    }
+
+    public void setListarPrestamoView(ListarPrestamoView listarPrestamoView) {
+        this.listarPrestamoView = listarPrestamoView;
+    }
+
+    public void setPrestamoDAO(PrestamoDAO prestamoDAO) {
+        this.prestamoDAO = prestamoDAO;
+    }
+
+    public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+        this.usuarioDAO = usuarioDAO;
+    }
+
+    public void setLibroDAO(LibroDAO libroDAO) {
+        this.libroDAO = libroDAO;
+    }
+
+    public void setPrestamoViewLista(PrestamoView[] prestamoViewLista) {
+        this.prestamoViewLista = prestamoViewLista;
+    }
+
+    public void setPrestamoSeleccionadoDevolucion(Prestamo prestamoSeleccionadoDevolucion) {
+        this.prestamoSeleccionadoDevolucion = prestamoSeleccionadoDevolucion;
+    }
+
+    public void setPrestamoTemporal(Prestamo prestamoTemporal) {
+        this.prestamoTemporal = prestamoTemporal;
+    }
+
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setCambioISBN(String cambioISBN) {
+        this.cambioISBN = cambioISBN;
+    }
+
+    public void setCambioNombre(String cambioNombre) {
+        this.cambioNombre = cambioNombre;
+    }
+
+    public void setMensajes(String[] mensajes) {
+        this.mensajes = mensajes;
+    }
+    
 }

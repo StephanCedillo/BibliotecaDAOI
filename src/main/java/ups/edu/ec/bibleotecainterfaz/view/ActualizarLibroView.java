@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 import ups.edu.ec.bibleotecainterfaz.models.Autor;
 
 /**
@@ -23,7 +24,16 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
      */
     public ActualizarLibroView() {
         initComponents();
-       
+       ((AbstractDocument) txtISBN.
+                getDocument()).setDocumentFilter(new LimiteCaracteres(14));
+       ((AbstractDocument) txtTituloBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(25));
+       ((AbstractDocument) txtIdiomaBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(12));
+       ((AbstractDocument) txtNumeroPaginas.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(4));
+       ((AbstractDocument) txtGeneroBuscado.getDocument())
+        .setDocumentFilter(new LimiteCaracteres(10));
        
     }
 

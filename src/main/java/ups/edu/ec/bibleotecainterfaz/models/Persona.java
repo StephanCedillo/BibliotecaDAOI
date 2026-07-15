@@ -4,32 +4,28 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Persona {
+
     private String cedula;
-    private LocalDate edad;
+    private LocalDate fechaNacimiento;
     private String nombre;
     private String apellido;
     private String direccion;
     private boolean tieneDiscapacidad;
-   
 
-    
-    
-
-    
     public Persona(String nombre, String apellido) {
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
-    public Persona(String cedula, LocalDate edad, String nombre, 
+    public Persona(String cedula, LocalDate fechaNacimiento, String nombre,
             String apellido, String direccion,
             boolean tieneDiscapacidad) {
         this.cedula = cedula;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
-   
+
         this.tieneDiscapacidad = tieneDiscapacidad;
 
     }
@@ -43,11 +39,11 @@ public class Persona {
     }
 
     public LocalDate getFechaEdad() {
-        return edad;
+        return fechaNacimiento;
     }
 
-    public void setFechaEdad(LocalDate edad) {
-        this.edad = edad;
+    public void setFechaEdad(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
@@ -74,8 +70,6 @@ public class Persona {
         this.direccion = direccion;
     }
 
-  
-
     public boolean isTieneDiscapacidad() {
         return tieneDiscapacidad;
     }
@@ -84,26 +78,29 @@ public class Persona {
         this.tieneDiscapacidad = tieneDiscapacidad;
     }
 
- 
-
-   @Override
+    @Override
     public String toString() {
-        return "--DATOS DE LA PERSONA--" +"\n" +
-                "cedula=" + cedula + "\n" +
-                ", edad=" + edad + "\n" +
-                ", nombre=" + nombre +"\n" +
-                ", apellido=" + apellido + "\n" +
-                ", direccion=" + direccion + "\n" +
-                ", tieneDiscapacidad=" + tieneDiscapacidad +"\n" ;
+        return "--DATOS DE LA PERSONA--" + "\n"
+                + "cedula=" + cedula + "\n"
+                + ", nacimiento=" + fechaNacimiento + "\n"
+                + ", nombre=" + nombre + "\n"
+                + ", apellido=" + apellido + "\n"
+                + ", direccion=" + direccion + "\n"
+                + ", tieneDiscapacidad=" + tieneDiscapacidad + "\n";
     }
-    
-    public boolean  esMayorEdad(){
-        return getEdad()>=18;
+
+    public boolean esMayorEdad() {
+        return getEdad() >= 18;
     }
-    public int getEdad(){
-        return LocalDate.now().getYear() - edad.getYear();
+
+    public int getEdad() {
+        if (fechaNacimiento == null) {
+            return 0;
+        }
+        return java.time.Period.between(fechaNacimiento, LocalDate.now()).getYears();
     }
-    public String obtenerNombreCompleto(){
+
+    public String obtenerNombreCompleto() {
         return nombre + " " + apellido;
     }
 
@@ -119,14 +116,11 @@ public class Persona {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         final Persona other = (Persona) obj;
-        return true;
+        return Objects.equals(this.cedula, other.cedula);
     }
-    
+
 }

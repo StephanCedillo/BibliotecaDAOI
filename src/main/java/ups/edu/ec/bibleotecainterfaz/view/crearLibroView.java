@@ -44,6 +44,13 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel7 = new javax.swing.JPanel();
+        lblPreguntaExistenciaAutor = new javax.swing.JLabel();
+        lblNombre2 = new javax.swing.JLabel();
+        txtNombreAutor = new javax.swing.JTextField();
+        lblApellido = new javax.swing.JLabel();
+        txtApellido = new javax.swing.JFormattedTextField();
+        btnCrearAutor = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,13 +72,68 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         radioButtonRestriccion = new javax.swing.JRadioButton();
         comboBoxAutores = new javax.swing.JComboBox<>();
         txtComboGenero = new javax.swing.JComboBox<>();
-        jPanel7 = new javax.swing.JPanel();
-        lblPreguntaExistenciaAutor = new javax.swing.JLabel();
-        lblNombre2 = new javax.swing.JLabel();
-        txtNombreAutor = new javax.swing.JTextField();
-        lblApellido = new javax.swing.JLabel();
-        txtApellido = new javax.swing.JFormattedTextField();
-        btnCrearAutor = new javax.swing.JButton();
+
+        jPanel7.setBackground(new java.awt.Color(249, 245, 245));
+        jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel7.setForeground(new java.awt.Color(249, 245, 245));
+
+        lblPreguntaExistenciaAutor.setBackground(new java.awt.Color(51, 51, 51));
+        lblPreguntaExistenciaAutor.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblPreguntaExistenciaAutor.setForeground(new java.awt.Color(51, 51, 51));
+        lblPreguntaExistenciaAutor.setText("Si el autor no está en el sistema, créalo aquí:");
+
+        lblNombre2.setBackground(new java.awt.Color(51, 51, 51));
+        lblNombre2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblNombre2.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre2.setText("Nombre:");
+
+        txtNombreAutor.addActionListener(this::txtNombreAutorActionPerformed);
+
+        lblApellido.setBackground(new java.awt.Color(51, 51, 51));
+        lblApellido.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblApellido.setText("Apellido:");
+
+        txtApellido.addActionListener(this::txtApellidoActionPerformed);
+
+        btnCrearAutor.setBackground(new java.awt.Color(51, 51, 51));
+        btnCrearAutor.setText("Crear Autor");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtApellido)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreAutor))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblPreguntaExistenciaAutor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNombre2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombreAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblApellido)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCrearAutor)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         setClosable(true);
 
@@ -262,68 +324,6 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        jPanel7.setBackground(new java.awt.Color(249, 245, 245));
-        jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel7.setForeground(new java.awt.Color(249, 245, 245));
-
-        lblPreguntaExistenciaAutor.setBackground(new java.awt.Color(51, 51, 51));
-        lblPreguntaExistenciaAutor.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblPreguntaExistenciaAutor.setForeground(new java.awt.Color(51, 51, 51));
-        lblPreguntaExistenciaAutor.setText("Si el autor no está en el sistema, créalo aquí:");
-
-        lblNombre2.setBackground(new java.awt.Color(51, 51, 51));
-        lblNombre2.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblNombre2.setForeground(new java.awt.Color(51, 51, 51));
-        lblNombre2.setText("Nombre:");
-
-        txtNombreAutor.addActionListener(this::txtNombreAutorActionPerformed);
-
-        lblApellido.setBackground(new java.awt.Color(51, 51, 51));
-        lblApellido.setFont(new java.awt.Font("ITF Devanagari", 0, 14)); // NOI18N
-        lblApellido.setForeground(new java.awt.Color(51, 51, 51));
-        lblApellido.setText("Apellido:");
-
-        txtApellido.addActionListener(this::txtApellidoActionPerformed);
-
-        btnCrearAutor.setBackground(new java.awt.Color(51, 51, 51));
-        btnCrearAutor.setText("Crear Autor");
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellido)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreAutor))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblPreguntaExistenciaAutor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNombre2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNombreAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblApellido)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCrearAutor)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -333,9 +333,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(532, 532, 532))
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,9 +341,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
                 .addGap(53, 53, 53)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -354,7 +350,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

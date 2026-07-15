@@ -23,6 +23,10 @@ public class Libro {
         this.siestadoDisponibilidad = siestadoDisponibilidad;
     }
 
+    public Libro() {
+    }
+
+    
 
     public String getISBN() {
         return ISBN;

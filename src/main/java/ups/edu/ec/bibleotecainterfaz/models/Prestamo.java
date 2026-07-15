@@ -23,6 +23,11 @@ public class Prestamo {
         id = contadorId++; // Esta linea automatiza el nuevo id cada que se crea
         libros = new ArrayList<>();
     }
+    
+    public  String  getCedula(){
+        return usuario.getCedula();
+    }
+    
 
     public Prestamo(Usuario usuario, boolean estado) {
         id = contadorId++;// Esta linea automatiza el nuevo id cada que se crea
@@ -138,6 +143,7 @@ public class Prestamo {
         return hoy.isAfter(fechaDevolucion) && estado;
     }
 
+    
    
 
 }

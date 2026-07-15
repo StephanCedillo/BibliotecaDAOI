@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -24,6 +25,18 @@ public class ActualizarUsuarioView extends javax.swing.JInternalFrame {
      */
     public ActualizarUsuarioView() {
         initComponents();
+         ((AbstractDocument) txtCedula.
+                getDocument()).setDocumentFilter(new LimiteCaracteres(10));
+       ((AbstractDocument) txtNombreBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(10));
+       ((AbstractDocument) txtApellidoBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(10));
+       ((AbstractDocument) txtEmailBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(25));
+       ((AbstractDocument) txtContrasenaBuscado.getDocument())
+               .setDocumentFilter(new LimiteCaracteres(15));
+       ((AbstractDocument) txtDireccionBuscado.getDocument())
+        .setDocumentFilter(new LimiteCaracteres(25));
  
        
     }

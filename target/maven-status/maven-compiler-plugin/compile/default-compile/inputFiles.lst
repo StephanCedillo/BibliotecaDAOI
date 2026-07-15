@@ -16,11 +16,11 @@
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAOArchivo.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/dao/UsuarioDAOMemoria.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/Genero.java
-/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/Membresia.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/MensajeAutor.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/MensajeLibro.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/MensajePrestamo.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/MensajeUsuario.java
+/Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/enums/TipoMembresia.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/excepciones/CamposVaciosException.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/excepciones/ValidadorDato.java
 /Users/stephancedillo/NetBeansProjects/BibleotecaInterfaz/src/main/java/ups/edu/ec/bibleotecainterfaz/models/Autor.java
