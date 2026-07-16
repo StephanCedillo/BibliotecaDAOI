@@ -6,18 +6,20 @@ package ups.edu.ec.bibleotecainterfaz.view;
 
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author stephancedillo
  */
 public class ListarAutorView extends javax.swing.JInternalFrame {
-
+    private DefaultTableModel model;
     /**
      * Creates new form ListarAutorView
      */
     public ListarAutorView() {
         initComponents();
+        configurarTabla();
     }
 
     public JButton getBtnListarAutor() {
@@ -27,6 +29,16 @@ public class ListarAutorView extends javax.swing.JInternalFrame {
     public JTable getTblListarAutor() {
         return tblListarAutor;
     }
+
+    public DefaultTableModel getModel() {
+        return model;
+    }
+
+    public void setModel(DefaultTableModel model) {
+        this.model = model;
+    }
+    
+    
 
    
     
@@ -43,6 +55,8 @@ public class ListarAutorView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListarAutor = new javax.swing.JTable();
         btnListarAutor = new javax.swing.JButton();
+
+        setClosable(true);
 
         tblListarAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,4 +102,12 @@ public class ListarAutorView extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblListarAutor;
     // End of variables declaration//GEN-END:variables
+
+    private void configurarTabla() {
+        String[] columnas = {"Nombre","Apellido"};
+        model = new DefaultTableModel(columnas, 0);
+        tblListarAutor.setModel(model);
+        tblListarAutor.getColumnModel().getColumn(0).setPreferredWidth(80);
+        tblListarAutor.getColumnModel().getColumn(1).setPreferredWidth(80);
+    }
 }

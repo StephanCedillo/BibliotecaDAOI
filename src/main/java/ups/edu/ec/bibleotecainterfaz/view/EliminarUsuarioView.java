@@ -9,6 +9,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -21,6 +22,8 @@ public class EliminarUsuarioView extends javax.swing.JInternalFrame {
      */
     public EliminarUsuarioView() {
         initComponents();
+        ((AbstractDocument) txtCedula.getDocument())
+                .setDocumentFilter(new LimiteCaracteres(10));
  
     }
 

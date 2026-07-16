@@ -112,17 +112,18 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
     private javax.swing.JTable tblListarUsuario;
     // End of variables declaration//GEN-END:variables
   private void configurarTabla() {
-        String[] columnas = {"Nombre", "Email", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
+        String[] columnas = {"Nombre","Cedula", "Email", "Edad", "Direccion", "Membresia", "Caduca en", "Discapacidad"};
         modelo = new DefaultTableModel(columnas, 0);
 
         tblListarUsuario.setModel(modelo);
         tblListarUsuario.getColumnModel().getColumn(0).setPreferredWidth(200);
-        tblListarUsuario.getColumnModel().getColumn(1).setPreferredWidth(350);
-        tblListarUsuario.getColumnModel().getColumn(2).setPreferredWidth(100);
-        tblListarUsuario.getColumnModel().getColumn(3).setPreferredWidth(270);
-        tblListarUsuario.getColumnModel().getColumn(4).setPreferredWidth(300);
+        tblListarUsuario.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tblListarUsuario.getColumnModel().getColumn(2).setPreferredWidth(350);
+        tblListarUsuario.getColumnModel().getColumn(3).setPreferredWidth(100);
+        tblListarUsuario.getColumnModel().getColumn(4).setPreferredWidth(270);
         tblListarUsuario.getColumnModel().getColumn(5).setPreferredWidth(300);
         tblListarUsuario.getColumnModel().getColumn(6).setPreferredWidth(300);
+        tblListarUsuario.getColumnModel().getColumn(7).setPreferredWidth(300);
     }
 
     public void cargarDatos(List<Usuario> usuarios) {
@@ -131,6 +132,7 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
         for (Usuario usuario : usuarios) {
             Object[] fila = {
                 usuario.getNombre(),
+                usuario.getCedula(),
                 usuario.getEmail(),
                 usuario.getEdad(),
                 usuario.getDireccion(),

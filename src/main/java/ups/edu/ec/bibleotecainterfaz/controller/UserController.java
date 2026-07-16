@@ -64,7 +64,8 @@ public class UserController {
         "Su nombre no puede tener caracteres especiales",//16
         "Su apellido no puede tener caracteres especiales",//17
         "Su dirrecion no puede tener caracteres especiales",//18
-        "Limite de edad permitido superado"//19
+        "Limite de edad permitido superado",//19
+        "Cedula invalida"//20
     };
 
     public UserController(
@@ -191,6 +192,7 @@ public class UserController {
             campoVacioActualizar();
             validadorEmail(actualizarUsuarioView.getTxtEmailBuscado().getText());
             validadorCaracteresExEnActualizar();
+            soloNumerosCedula(actualizarUsuarioView.getTxtCedula().getText());
             validadorFechaNac(new java.sql.Date(actualizarUsuarioView.getjCalendarNuevaFecha().getDate().getTime()).toLocalDate());
             //====================================
 
@@ -223,23 +225,29 @@ public class UserController {
     }
 
     private void buscarEliminarUsuario() {
-        Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
+         try{
+            soloNumerosCedula(eliminarUsuarioView.getTxtCedula().getText());
+            Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
-        if (usuario == null) {
-            mostrarInformacion(MensajeUsuario.USUARIO_NO_ENCONTRADO.getTexto(mensajes), eliminarUsuarioView);
-            return;
+            if (usuario == null) {
+                mostrarInformacion(MensajeUsuario.USUARIO_NO_ENCONTRADO.getTexto(mensajes), eliminarUsuarioView);
+                return;
+            }
+
+            eliminarUsuarioView.getLblNombreBuscado().setText(usuario.getNombre() + " " + usuario.getApellido());
+            eliminarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
+            eliminarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
+            eliminarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
+            eliminarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
+                    .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
+            eliminarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
+        }catch(ValidadorDato e){
+            mostrarInformacion(e.getMessage(),eliminarUsuarioView);
         }
-
-        eliminarUsuarioView.getLblNombreBuscado().setText(usuario.getNombre() + " " + usuario.getApellido());
-        eliminarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
-        eliminarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
-        eliminarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
-        eliminarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
-                .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
-        eliminarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
     }
 
     private void eliminarUsuario() {
+            
         Usuario usuario = usuarioDAO.buscar(eliminarUsuarioView.getTxtCedula().getText());
 
         if (usuario == null) {
@@ -253,6 +261,7 @@ public class UserController {
 
         usuarioDAO.eliminar(usuario.getCedula());
         mostrarInformacion(MensajeUsuario.USUARIO_ELIMINADO.getTexto(mensajes), eliminarUsuarioView);
+            
     }
 
     private void crearUsuario() {
@@ -262,6 +271,7 @@ public class UserController {
             validadorEmail(crearUsuarioView.getTxtEmail().getText());
             validadorCaracteresExEnCrear();
             validadorFechaNac(new java.sql.Date(crearUsuarioView.getjCalendarFechaNac().getDate().getTime()).toLocalDate());
+            soloNumerosCedula(crearUsuarioView.getTxtCedula().getText());
             //====================================
             if (actualizarUsuarioView.getComboBoxStringsMembresia().getSelectedItem() == null) {
                 throw new CamposVaciosException("Debe seleccionar una membresía."); 
@@ -298,20 +308,27 @@ public class UserController {
     }
 
     private void buscarUsuario() {
-        Usuario usuario = usuarioDAO.buscar(buscarUsuarioView.getTxtCedula().getText());
+        try{
+            soloNumerosCedula(buscarUsuarioView.getTxtCedula().getText());
+            
+            Usuario usuario = usuarioDAO.buscar(buscarUsuarioView.getTxtCedula().getText());
 
-        if (usuario == null) {
-            mostrarInformacion(MensajeUsuario.USUARIO_NO_ENCONTRADO.getTexto(mensajes), buscarUsuarioView);
-            return;
+            if (usuario == null) {
+                mostrarInformacion(MensajeUsuario.USUARIO_NO_ENCONTRADO.getTexto(mensajes), buscarUsuarioView);
+                return;
+            }
+
+            buscarUsuarioView.getLblTituloBuscado().setText(usuario.getNombre());
+            buscarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
+            buscarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
+            buscarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
+            buscarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
+                    .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
+            buscarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
+        }catch(ValidadorDato valid){
+            mostrarInformacion(valid.getMessage(),buscarUsuarioView);
         }
-
-        buscarUsuarioView.getLblTituloBuscado().setText(usuario.getNombre());
-        buscarUsuarioView.getTxtEmailBuscado().setText(usuario.getEmail());
-        buscarUsuarioView.getTxtEdadBuscado().setText(String.valueOf(usuario.getEdad()));
-        buscarUsuarioView.getTxtDireccionBuscado().setText(usuario.getDireccion());
-        buscarUsuarioView.getTxtFormatedFechaCaducidadBuscado()
-                .setText(usuario.getMembresia().getFechaVencimiento().format(formato));
-        buscarUsuarioView.getTxtMembresiaBuscado().setText(usuario.getMembresia().getTipoMembresia());
+        
     }
 
     private void listarUsuario() {
@@ -412,7 +429,7 @@ public class UserController {
     }
 
     private void configurarTabla(ResourceBundle bundle) {
-        String[] columnas = bundle.getString("columnasLibro").split(",");
+        String[] columnas = bundle.getString("columnasUsuario").split(",");
         listarUsuarioView.setModelo(new DefaultTableModel(columnas, 0));
         listarUsuarioView.getTblListarUsuario().setModel(listarUsuarioView.getModelo());
     }
@@ -541,9 +558,19 @@ public class UserController {
     // VALIDADOR DE FECHA NACIMIENTO
     private void validadorFechaNac(LocalDate fechaIngresada) throws ValidadorDato {
         int añoIngresado = fechaIngresada.getYear();
-        int añoActual = LocalDate.now().getYear() - 6;
+        int añoActual = LocalDate.now().getYear() - 3;
         if (añoIngresado > añoActual) {
             throw new ValidadorDato(MensajeUsuario.ERR_LIMITE_EDAD.getTexto(mensajes));
+        }
+    }
+    // SOLO NUMEROS EN CEDULA
+    private void soloNumerosCedula(String cedula) throws ValidadorDato{
+        for(int i = 0;i < cedula.length();i ++){
+            
+            char c = cedula.charAt(i);
+            if(!Character.isDigit(c)){
+                throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_CONLETRA.getTexto(mensajes));
+            }
         }
     }
 

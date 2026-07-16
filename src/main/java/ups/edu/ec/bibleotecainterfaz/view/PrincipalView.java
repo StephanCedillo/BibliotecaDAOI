@@ -336,6 +336,37 @@ public class PrincipalView extends javax.swing.JFrame {
         return menuItemRuso;
     }
 
+    public JMenu getBtnActualizacionAutor() {
+        return menuAutor;
+    }
+
+    public JMenuItem getBtnActualizarAutor() {
+        return btnActualizarAutor;
+    }
+
+    public JMenuItem getBtnBuscarAutor() {
+        return btnBuscarAutor;
+    }
+
+    public JMenuItem getBtnCrearAutor() {
+        return btnCrearAutor;
+    }
+
+    public JMenuItem getBtnEliminarAutor() {
+        return btnEliminarAutor;
+    }
+
+    public JMenuItem getBtnListarAutor() {
+        return btnListarAutor;
+    }
+
+    public JMenu getMenuAutor() {
+        return menuAutor;
+    }
+    
+    
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -365,7 +396,7 @@ public class PrincipalView extends javax.swing.JFrame {
         btnEliminarUsuario = new javax.swing.JMenuItem();
         btnListarUsuario = new javax.swing.JMenuItem();
         btnBuscarUsuario = new javax.swing.JMenuItem();
-        btnActualizacionAutor = new javax.swing.JMenu();
+        menuAutor = new javax.swing.JMenu();
         btnCrearAutor = new javax.swing.JMenuItem();
         btnActualizarAutor = new javax.swing.JMenuItem();
         btnEliminarAutor = new javax.swing.JMenuItem();
@@ -451,29 +482,29 @@ public class PrincipalView extends javax.swing.JFrame {
 
         jMenuBar2.add(menuUsuarios);
 
-        btnActualizacionAutor.setText("Autores");
+        menuAutor.setText("Autores");
 
         btnCrearAutor.setText("Crear");
         btnCrearAutor.addActionListener(this::btnCrearAutorActionPerformed);
-        btnActualizacionAutor.add(btnCrearAutor);
+        menuAutor.add(btnCrearAutor);
 
         btnActualizarAutor.setText("Actualizar");
         btnActualizarAutor.addActionListener(this::btnActualizarAutorActionPerformed);
-        btnActualizacionAutor.add(btnActualizarAutor);
+        menuAutor.add(btnActualizarAutor);
 
         btnEliminarAutor.setText("Eliminar");
         btnEliminarAutor.addActionListener(this::btnEliminarAutorActionPerformed);
-        btnActualizacionAutor.add(btnEliminarAutor);
+        menuAutor.add(btnEliminarAutor);
 
         btnListarAutor.setText("Listar");
         btnListarAutor.addActionListener(this::btnListarAutorActionPerformed);
-        btnActualizacionAutor.add(btnListarAutor);
+        menuAutor.add(btnListarAutor);
 
         btnBuscarAutor.setText("Buscar");
         btnBuscarAutor.addActionListener(this::btnBuscarAutorActionPerformed);
-        btnActualizacionAutor.add(btnBuscarAutor);
+        menuAutor.add(btnBuscarAutor);
 
-        jMenuBar2.add(btnActualizacionAutor);
+        jMenuBar2.add(menuAutor);
 
         menuRegistro.setText("Registros");
 
@@ -749,7 +780,6 @@ public class PrincipalView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu btnActualizacionAutor;
     private javax.swing.JMenuItem btnActualizarAutor;
     private javax.swing.JMenuItem btnActualizarLibro;
     private javax.swing.JMenuItem btnActualizarUsuario;
@@ -776,6 +806,7 @@ public class PrincipalView extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu menuAutor;
     private javax.swing.JMenu menuConfiguracion;
     private javax.swing.JMenuItem menuItemAleman;
     private javax.swing.JMenuItem menuItemEspanol;

@@ -231,6 +231,7 @@ private void formatearArchivo() {
         libroController.cambioIdioma(bundle);
         userController.cambioIdioma(bundle);
         prestamoController.cambioIdioma(bundle);
+        autorController.cambioIdioma(bundle);
     }
 
     public void cambiarIdiomaLocal(ResourceBundle bundle) {
@@ -239,7 +240,7 @@ private void formatearArchivo() {
         principalView.getMenuUsuarios().setText(bundle.getString("menuUsuarios"));
         principalView.getMenuRegistro().setText(bundle.getString("menuRegistro"));
         principalView.getMenuConfiguracion().setText(bundle.getString("menuConfiguracion"));
-
+        principalView.getMenuAutor().setText(bundle.getString("menuAutor"));
 // ===== OPCIONES LIBROS =====
         principalView.getBtnCrearLibro().setText(bundle.getString("btnCrearLibro"));
         principalView.getBtnActualizarLibro().setText(bundle.getString("btnActualizarLibro"));
@@ -259,6 +260,13 @@ private void formatearArchivo() {
         principalView.getBtnBuscarPrestamo().setText(bundle.getString("btnBuscarPrestamo"));
         principalView.getBtnListarPrestamo().setText(bundle.getString("btnListarPrestamo"));
         principalView.getBtnDevolucion().setText(bundle.getString("btnDevolucion"));
+        
+// ===== OPCIONES AUTOR =====
+        principalView.getBtnCrearAutor().setText(bundle.getString("btnCrearAutor"));
+        principalView.getBtnActualizarAutor().setText(bundle.getString("btnActualizarAutor"));
+        principalView.getBtnEliminarAutor().setText(bundle.getString("btnEliminarAutor"));
+        principalView.getBtnBuscarAutor().setText(bundle.getString("btnBuscarAutor"));
+        principalView.getBtnListarAutor().setText(bundle.getString("btnListarAutor"));
 
 // ===== IDIOMAS =====
         principalView.getMenuItemEspanol().setText(bundle.getString("menuItemEspanol"));

@@ -29,7 +29,8 @@ public enum MensajeUsuario {
     ERR_NOMBRE_ESP(16),
     ERR_APELLIDO_ESP(17),
     ERR_DIRECCION_ESP(18),
-    ERR_LIMITE_EDAD(19);
+    ERR_LIMITE_EDAD(19),
+    ERR_CEDULA_CONLETRA(20);
 
     private final int indice;
 

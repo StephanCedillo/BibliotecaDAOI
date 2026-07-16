@@ -7,9 +7,6 @@ package ups.edu.ec.bibleotecainterfaz.controller;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
@@ -23,6 +20,7 @@ import ups.edu.ec.bibleotecainterfaz.models.Autor;
 import ups.edu.ec.bibleotecainterfaz.models.Libro;
 import ups.edu.ec.bibleotecainterfaz.enums.MensajeLibro;
 import ups.edu.ec.bibleotecainterfaz.enums.Genero; 
+import ups.edu.ec.bibleotecainterfaz.excepciones.ValidadorDato;
 import ups.edu.ec.bibleotecainterfaz.view.ActualizarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.BuscarLibroView;
 import ups.edu.ec.bibleotecainterfaz.view.EliminarLibroView;
@@ -99,7 +97,8 @@ public class LibroController {
             "El número de páginas debe ser mayor a 0.", // 13
             "El título del libro no puede estar vacío para la actualización.", // 14
             "El campo de género no puede quedar vacío.", // 15
-            "El campo de idioma no puede quedar vacío." // 16
+            "El campo de idioma no puede quedar vacío.", // 16
+            "El ISBN no contiene letras"//17
     };
 
     private void configurarEventos() {
@@ -177,25 +176,31 @@ public class LibroController {
     }
 
     private void buscarActLibro() {
-        Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
+        try{
+            ibsnSoloNumero(actualizarLibroView.getTxtISBN().getText());
+            Libro libro = libroDAO.buscar(actualizarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), actualizarLibroView);
-            return;
-        }
+            if (libro == null) {
+                mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), actualizarLibroView);
+                return;
+            }
 
-        actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
-        actualizarLibroView.getRadioButtonRestriccion().setSelected(libro.isSirestriccionEdad());
-        actualizarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        actualizarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        actualizarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+            actualizarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+            actualizarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+            actualizarLibroView.getComboBoxAutores().setSelectedItem(libro.getAutor());
+            actualizarLibroView.getRadioButtonRestriccion().setSelected(libro.isSirestriccionEdad());
+            actualizarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+            actualizarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+            actualizarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
 
-        if (libro.estaDisponible()) {
-            actualizarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            actualizarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            if (libro.estaDisponible()) {
+                actualizarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+            } else {
+                actualizarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            }
+            
+        }catch (ValidadorDato ex){
+            mostrarInformacion(ex.getMessage(), actualizarLibroView);
         }
     }
 
@@ -241,27 +246,33 @@ public class LibroController {
     }
 
     private void buscarElimLibro() {
-        Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
+        try{
+            ibsnSoloNumero(eliminarLibroView.getTxtISBN().getText());
+            Libro libro = libroDAO.buscar(eliminarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), eliminarLibroView);
-            return;
-        }
+            if (libro == null) {
+                mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), eliminarLibroView);
+                return;
+            }
 
-        eliminarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        eliminarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        eliminarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+            eliminarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+            eliminarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+            eliminarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
 
-        eliminarLibroView.getTxtRestriccionEdadBuscada()
-                .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
-        eliminarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        eliminarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        eliminarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+            eliminarLibroView.getTxtRestriccionEdadBuscada()
+                    .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
+            eliminarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+            eliminarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+            eliminarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
 
-        if (libro.estaDisponible()) {
-            eliminarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            eliminarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            if (libro.estaDisponible()) {
+                eliminarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+            } else {
+                eliminarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            }
+            
+        }catch (ValidadorDato ex){
+            mostrarInformacion(ex.getMessage(), eliminarLibroView);
         }
     }
 
@@ -293,7 +304,7 @@ public class LibroController {
                     crearLibroView.getRadioButtonRestriccion().isSelected(),
                     numeroPaginas,
                     crearLibroView.getTxtIdioma().getText());
-
+            ibsnSoloNumero(crearLibroView.getTxtISBN().getText());
             libroDAO.crear(new Libro(
                     crearLibroView.getTxtISBN().getText(),
                     (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
@@ -312,31 +323,39 @@ public class LibroController {
             mostrarInformacion(MensajeLibro.ERR_AUTOR_GENERO_VALIDOS.getTexto(mensajes), crearLibroView);
         } catch (CamposVaciosException ex2) {
             mostrarInformacion(ex2.getMessage(), crearLibroView);
+        } catch (ValidadorDato ex3){
+            mostrarInformacion(ex3.getMessage(), crearLibroView);
         }
     }
 
     private void buscarLibro() {
-        Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
+        try{
+            ibsnSoloNumero(buscarLibroView.getTxtISBN().getText());
+            Libro libro = libroDAO.buscar(buscarLibroView.getTxtISBN().getText());
 
-        if (libro == null) {
-            mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), buscarLibroView);
-            return;
-        }
+            if (libro == null) {
+                mostrarInformacion(MensajeLibro.LIBRO_NO_ENCONTRADO.getTexto(mensajes), buscarLibroView);
+                return;
+            }
 
-        buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
-        buscarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
-        buscarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
+            buscarLibroView.getLblTituloBuscado().setText(libro.getNombre());
+            buscarLibroView.getTxtISBNBuscado().setText(libro.getISBN());
+            buscarLibroView.getTxtAutorBuscado().setText(libro.getAutor().toString());
 
-        buscarLibroView.getTxtRestriccionEdadBuscada()
-                .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
-        buscarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
-        buscarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
-        buscarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
+            buscarLibroView.getTxtRestriccionEdadBuscada()
+                    .setText(libro.isSirestriccionEdad() ? restriccionEdad : restriccionEdadNo);
+            buscarLibroView.getTxtIdiomaBuscado().setText(libro.getIdioma());
+            buscarLibroView.getTxtGeneroBuscado().setText(libro.getGenero());
+            buscarLibroView.getTxtNumeroPaginas().setText(String.valueOf(libro.getNumeroPaginas()));
 
-        if (libro.estaDisponible()) {
-            buscarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
-        } else {
-            buscarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            if (libro.estaDisponible()) {
+                buscarLibroView.getPnlEstado().setBackground(new Color(0, 255, 0));
+            } else {
+                buscarLibroView.getPnlEstado().setBackground(new Color(255, 51, 51));
+            }
+            
+        }catch (ValidadorDato ex){
+            mostrarInformacion(ex.getMessage(), buscarLibroView);
         }
     }
 
@@ -521,6 +540,17 @@ public class LibroController {
 
         if (numeroPaginas <= 0) {
             throw new CamposVaciosException(MensajeLibro.ERR_PAGINAS_MAYOR_CERO.getTexto(mensajes));
+        }
+    }
+    
+    public void ibsnSoloNumero(String isbn) throws ValidadorDato{
+        for(int i = 0;i < isbn.length();i++){
+            
+            char c = isbn.charAt(i);
+            
+            if(!Character.isDigit(c)){
+                throw new ValidadorDato(MensajeLibro.ERR_ISBN_LETTERS.getTexto(mensajes));
+            }
         }
     }
 

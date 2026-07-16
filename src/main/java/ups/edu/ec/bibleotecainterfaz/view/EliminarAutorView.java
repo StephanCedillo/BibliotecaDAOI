@@ -42,7 +42,7 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblISBN() {
-        return lblISBN;
+        return lblAutorBuscado;
     }
 
     public JLabel getLblNombre() {
@@ -50,7 +50,7 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
     }
 
     public JLabel getLblTituloBusquedaLibro() {
-        return lblTituloBusquedaLibro;
+        return lblTituloEliminarAutor;
     }
 
     public JFormattedTextField getTxtApellidoBuscado() {
@@ -60,6 +60,16 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
     public JTextField getTxtNombreBuscado() {
         return txtNombreBuscado;
     }
+
+    public JLabel getLblAutorBuscado() {
+        return lblAutorBuscado;
+    }
+
+    public JLabel getLblTituloEliminarAutor() {
+        return lblTituloEliminarAutor;
+    }
+    
+    
 
     
     /**
@@ -72,9 +82,9 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblTituloBusquedaLibro = new javax.swing.JLabel();
+        lblTituloEliminarAutor = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblISBN = new javax.swing.JLabel();
+        lblAutorBuscado = new javax.swing.JLabel();
         comboBoxAutores1 = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -84,17 +94,20 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
         txtApellidoBuscado = new javax.swing.JFormattedTextField();
         btnEliminar = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
-        lblTituloBusquedaLibro.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
-        lblTituloBusquedaLibro.setForeground(new java.awt.Color(0, 0, 0));
-        lblTituloBusquedaLibro.setText("Eliminar Autor");
+        lblTituloEliminarAutor.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
+        lblTituloEliminarAutor.setForeground(new java.awt.Color(0, 0, 0));
+        lblTituloEliminarAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloEliminarAutor.setText("ELIMINAR AUTOR");
 
         jPanel2.setBackground(new java.awt.Color(249, 245, 245));
 
-        lblISBN.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        lblISBN.setForeground(new java.awt.Color(0, 0, 0));
-        lblISBN.setText("Autor:");
+        lblAutorBuscado.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblAutorBuscado.setForeground(new java.awt.Color(0, 0, 0));
+        lblAutorBuscado.setText("Autor:");
 
         comboBoxAutores1.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
@@ -104,7 +117,7 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAutorBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(comboBoxAutores1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -114,7 +127,7 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAutorBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxAutores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -127,12 +140,14 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
 
         lblApellido.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
         lblApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblApellido.setText("Apellido:");
 
         txtNombreBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
         lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Nombre:");
 
         txtApellidoBuscado.addActionListener(this::txtApellidoBuscadoActionPerformed);
@@ -144,14 +159,12 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtApellidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreBuscado)))
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtApellidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -175,29 +188,30 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(14, Short.MAX_VALUE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(lblTituloBusquedaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(lblTituloEliminarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addComponent(lblTituloBusquedaLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTituloEliminarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -238,9 +252,9 @@ public class EliminarAutorView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblISBN;
+    private javax.swing.JLabel lblAutorBuscado;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblTituloBusquedaLibro;
+    private javax.swing.JLabel lblTituloEliminarAutor;
     private javax.swing.JFormattedTextField txtApellidoBuscado;
     private javax.swing.JTextField txtNombreBuscado;
     // End of variables declaration//GEN-END:variables

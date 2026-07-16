@@ -46,8 +46,8 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
         return lblApellido;
     }
 
-    public JLabel getLblISBN() {
-        return lblISBN;
+    public JLabel getLblAutor() {
+        return lblAutor;
     }
 
     public JLabel getLblNombre() {
@@ -79,7 +79,7 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         lblTituloActualizarAutor = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblISBN = new javax.swing.JLabel();
+        lblAutor = new javax.swing.JLabel();
         comboBoxAutores1 = new javax.swing.JComboBox<>();
         btnBuscar = new javax.swing.JButton();
         btnActualizacion = new javax.swing.JButton();
@@ -89,17 +89,20 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
         lblNombre = new javax.swing.JLabel();
         txtApellidoBuscado = new javax.swing.JFormattedTextField();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         lblTituloActualizarAutor.setFont(new java.awt.Font("ITF Devanagari", 1, 24)); // NOI18N
         lblTituloActualizarAutor.setForeground(new java.awt.Color(0, 0, 0));
+        lblTituloActualizarAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTituloActualizarAutor.setText("ACTUALIZAR AUTOR");
 
         jPanel2.setBackground(new java.awt.Color(249, 245, 245));
 
-        lblISBN.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
-        lblISBN.setForeground(new java.awt.Color(0, 0, 0));
-        lblISBN.setText("Autor:");
+        lblAutor.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
+        lblAutor.setForeground(new java.awt.Color(0, 0, 0));
+        lblAutor.setText("Autor:");
 
         comboBoxAutores1.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
@@ -109,7 +112,7 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(comboBoxAutores1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -119,7 +122,7 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxAutores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -135,12 +138,14 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
 
         lblApellido.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
         lblApellido.setForeground(new java.awt.Color(51, 51, 51));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblApellido.setText("Apellido:");
 
         txtNombreBuscado.setFont(new java.awt.Font("ITF Devanagari", 0, 13)); // NOI18N
 
         lblNombre.setFont(new java.awt.Font("ITF Devanagari", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Nombre:");
 
         txtApellidoBuscado.addActionListener(this::txtApellidoBuscadoActionPerformed);
@@ -152,14 +157,12 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtApellidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreBuscado)))
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtApellidoBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -181,10 +184,7 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(237, 237, 237)
-                        .addComponent(lblTituloActualizarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -195,7 +195,10 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
                                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE))
                                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(17, 17, 17)))))
+                                .addGap(17, 17, 17))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(lblTituloActualizarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -243,7 +246,7 @@ public class ActualizarAutorView extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblISBN;
+    private javax.swing.JLabel lblAutor;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTituloActualizarAutor;
     private javax.swing.JFormattedTextField txtApellidoBuscado;

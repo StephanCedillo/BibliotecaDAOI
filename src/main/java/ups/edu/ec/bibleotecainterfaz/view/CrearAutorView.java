@@ -50,6 +50,11 @@ public class CrearAutorView extends javax.swing.JInternalFrame {
     public JTextField getTxtNombreAutor() {
         return txtNombreAutor;
     }
+
+    public JLabel getLblTituloCrearAutor() {
+        return lblTituloCrearAutor;
+    }
+    
     
     
 
@@ -64,7 +69,7 @@ public class CrearAutorView extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblTituloCrearAutor = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         lblPreguntaExistenciaAutor = new javax.swing.JLabel();
         lblNombre2 = new javax.swing.JLabel();
@@ -73,25 +78,28 @@ public class CrearAutorView extends javax.swing.JInternalFrame {
         txtApellido = new javax.swing.JFormattedTextField();
         btnCrearAutor = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel1.setBackground(new java.awt.Color(240, 237, 237));
 
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setFont(new java.awt.Font("Malayalam MN", 3, 18)); // NOI18N
-        jLabel2.setText("CREACION DE AUTORES");
+        lblTituloCrearAutor.setFont(new java.awt.Font("Malayalam MN", 3, 18)); // NOI18N
+        lblTituloCrearAutor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTituloCrearAutor.setText("CREACION DE AUTORES");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel2)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(lblTituloCrearAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+            .addComponent(lblTituloCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         jPanel7.setBackground(new java.awt.Color(249, 245, 245));
@@ -129,14 +137,14 @@ public class CrearAutorView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtApellido)
+                    .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtNombreAutor)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPreguntaExistenciaAutor)
                             .addComponent(lblNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnCrearAutor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNombreAutor))
+                            .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPreguntaExistenciaAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -207,13 +215,13 @@ public class CrearAutorView extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearAutor;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblNombre2;
     private javax.swing.JLabel lblPreguntaExistenciaAutor;
+    private javax.swing.JLabel lblTituloCrearAutor;
     private javax.swing.JFormattedTextField txtApellido;
     private javax.swing.JTextField txtNombreAutor;
     // End of variables declaration//GEN-END:variables
