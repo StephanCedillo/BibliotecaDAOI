@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -20,6 +21,12 @@ public class BuscarLibroView extends javax.swing.JInternalFrame {
      */
     public BuscarLibroView() {
         initComponents();
+       
+
+        ((AbstractDocument) getTxtISBN().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(14));
+      
+   
     }
     public JPanel getPnlEstado() {
         return pnlEstado;

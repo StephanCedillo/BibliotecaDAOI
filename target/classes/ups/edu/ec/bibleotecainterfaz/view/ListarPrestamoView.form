@@ -51,6 +51,9 @@
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="scrollPanePrestamos">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
     </Container>

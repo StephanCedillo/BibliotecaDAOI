@@ -54,25 +54,33 @@ public class LibroDAOArchivo implements LibroDAO {
     public void crear(Libro libro) {
         try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "rw")) {
             archivo.seek(archivo.length());
+            libro.setSiestadoDisponibilidad(true);
             escribirRegistro(archivo, libro);
         } catch (IOException e) {
             System.out.println("No se pudo crear el usuario" + e.getMessage());
         }
     }
 
-    @Override
+  @Override
     public Libro buscar(String ISBN) {
 
         try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "r")) {
             
             long tamArchivo = archivo.length();
-            long totalRegistros = tamArchivo/TAM_LIBRO;
-            for(int i = 0;i<totalRegistros;i++){
-                long incioBusqueda = i*tamArchivo;
+            long totalRegistros = tamArchivo / TAM_LIBRO;
+            
+            for(int i = 0; i < totalRegistros; i++) {
+              
+                long incioBusqueda = i * TAM_LIBRO; 
                 
-                String isbnActual = leerTexto(archivo,TAM_ISBN).trim();
+            
+                archivo.seek(incioBusqueda);
+                
+                String isbnActual = leerTexto(archivo, TAM_ISBN).trim();
+                
                 if(ISBN.equals(isbnActual)){
-                    archivo.seek(incioBusqueda);
+                    // Volver al inicio del registro para leerlo completo
+                    archivo.seek(incioBusqueda); 
                     return leerRegistro(archivo);
                 }
             }
@@ -83,21 +91,27 @@ public class LibroDAOArchivo implements LibroDAO {
 
         return null;
     }
-
-    @Override
+  @Override
     public boolean actualizar(Libro libro) {
-        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "r")) {
+    
+        try (RandomAccessFile archivo = new RandomAccessFile(archivoLibro, "rw")) { 
             long tamArchivo = archivo.length();
-            long totalRegistros = tamArchivo/TAM_LIBRO;
+            long totalRegistros = tamArchivo / TAM_LIBRO;
             
-            for(int i = 0;i<totalRegistros;i++){
+            for(int i = 0; i < totalRegistros; i++){
                 
-                long incioBusqueda = i*tamArchivo;
-                String isbnActual = leerTexto(archivo,TAM_ISBN).trim();
+           
+                long incioBusqueda = i * TAM_LIBRO; 
+                
+            
+                archivo.seek(incioBusqueda);
+                
+                String isbnActual = leerTexto(archivo, TAM_ISBN).trim();
                 
                 if(libro.getISBN().equals(isbnActual)){
-                    archivo.seek(incioBusqueda);
-                    escribirRegistro(archivo,libro);
+                    // Volver al inicio del registro para sobreescribirlo
+                    archivo.seek(incioBusqueda); 
+                    escribirRegistro(archivo, libro);
                     return true;
                 }
             }
@@ -107,7 +121,6 @@ public class LibroDAOArchivo implements LibroDAO {
         }
         return false;
     }
-
     @Override
     public boolean eliminar(String ISBN) {
         File archivoOriginal = new File(archivoLibro, NOMBRE_ARCHIVO);

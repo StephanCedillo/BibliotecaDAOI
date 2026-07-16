@@ -69,6 +69,7 @@ public class ListarAutorView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblListarAutor.setEnabled(false);
         jScrollPane1.setViewportView(tblListarAutor);
 
         btnListarAutor.setText("Listar");

@@ -63,6 +63,7 @@ public class ListarLibroView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblListarLibro.setEnabled(false);
         jScrollPane1.setViewportView(tblListarLibro);
 
         btnListarLibro.setText("Listar");

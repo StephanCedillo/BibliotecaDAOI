@@ -178,6 +178,7 @@ public class PrestamoView extends javax.swing.JPanel {
                 "ISBN", "Nombre"
             }
         ));
+        tblLibrosBuscados.setEnabled(false);
         jScrollPane1.setViewportView(tblLibrosBuscados);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);

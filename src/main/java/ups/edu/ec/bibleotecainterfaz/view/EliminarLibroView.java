@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -20,6 +21,12 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
      */
     public EliminarLibroView() {
         initComponents();
+      
+
+        ((AbstractDocument) getTxtISBN().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(14));
+         
+   
     }
     
 

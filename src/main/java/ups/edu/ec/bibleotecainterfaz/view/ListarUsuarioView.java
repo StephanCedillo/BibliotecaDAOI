@@ -71,6 +71,7 @@ public class ListarUsuarioView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblListarUsuario.setEnabled(false);
         jScrollPane1.setViewportView(tblListarUsuario);
 
         btnListarUsuario.setText("Listar");

@@ -105,8 +105,9 @@ public class PrincipalController {
         this.usuarioDAO = usuarioDAO;
         this.prestamoDAO = prestamoDAO;
         this.autorDAO = autorDAO;
-        inicializarControllers();
-        configurarEvento();
+         configurarEvento();
+   
+       
     }
 
 
@@ -190,29 +191,7 @@ public class PrincipalController {
         usuarioDAO = new UsuarioDAOMemoria();
         prestamoDAO = new PrestamoDAOMemoria();
         autorDAO = new AutorDAOMemoria();
-         libroController.setLibroDAO(libroDAO);
-    userController.setUsuarioDAO(usuarioDAO);
-    prestamoController.setPrestamoDAO(prestamoDAO);
-    autorController.setAutorDAO(autorDAO);
-    libroController.setAutorDAO(autorDAO);
-    }
-private void formatearArchivo() {
-    libroDAO = new LibroDAOArchivo();
-    usuarioDAO = new UsuarioDAOArchivo();
-    prestamoDAO = new PrestamoDAOArchivo(usuarioDAO,libroDAO);
-    autorDAO = new AutorDAOArchivo();
-    
-
-    libroController.setAutorDAO(autorDAO);
-    libroController.setLibroDAO(libroDAO);
-    userController.setUsuarioDAO(usuarioDAO);
-    prestamoController.setPrestamoDAO(prestamoDAO);
-    autorController.setAutorDAO(autorDAO);
-}
-    
-
-    private void inicializarControllers() {
-        libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
+          libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
                 listarLibroView, libroDAO,autorDAO);
 
         userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
@@ -222,8 +201,41 @@ private void formatearArchivo() {
         autorController = new AutorController(
             crearAutorView, actualizarAutorView, eliminarAutorView, buscarAutorView, listarAutorView, 
             autorDAO, libroController);
+         libroController.setLibroDAO(libroDAO);
+    userController.setUsuarioDAO(usuarioDAO);
+    prestamoController.setPrestamoDAO(prestamoDAO);
+    autorController.setAutorDAO(autorDAO);
+    libroController.setAutorDAO(autorDAO);
+   
         
     }
+private void formatearArchivo() {
+    libroDAO = new LibroDAOArchivo();
+    usuarioDAO = new UsuarioDAOArchivo();
+    prestamoDAO = new PrestamoDAOArchivo(usuarioDAO,libroDAO);
+    autorDAO = new AutorDAOArchivo();
+    
+ libroController = new LibroController(actualizarLibroView, buscarLibroView, eliminarLibroView, crearLibroView,
+                listarLibroView, libroDAO,autorDAO);
+
+        userController = new UserController(actualizarUsuarioView, buscarUsuarioView, eliminarUsuarioView,
+                crearUsuarioView, listarUsuarioView, usuarioDAO);
+        prestamoController = new PrestamoController(devolucionPrestamoView, buscarPrestamoiew, crearPrestamoView,
+                listarPrestamoView, prestamoDAO, usuarioDAO, libroDAO);
+        autorController = new AutorController(
+            crearAutorView, actualizarAutorView, eliminarAutorView, buscarAutorView, listarAutorView, 
+            autorDAO, libroController);
+    libroController.setAutorDAO(autorDAO);
+    libroController.setLibroDAO(libroDAO);
+    userController.setUsuarioDAO(usuarioDAO);
+    prestamoController.setPrestamoDAO(prestamoDAO);
+    autorController.setAutorDAO(autorDAO);
+    
+        
+}
+    
+
+    
 
     public void cambiarIdioma(Locale locale) {
         ResourceBundle bundle = ResourceBundle.getBundle("i18n.mensajes", locale);

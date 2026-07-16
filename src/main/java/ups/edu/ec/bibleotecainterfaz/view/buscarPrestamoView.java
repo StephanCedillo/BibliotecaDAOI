@@ -12,15 +12,24 @@ import javax.swing.JRootPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 public class BuscarPrestamoView extends javax.swing.JInternalFrame {
 
    
     public BuscarPrestamoView() {
         initComponents();
-      
+       initComponents();
+        ((AbstractDocument) getTxtICedula().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(10));
+
+        ((AbstractDocument) getTxtISBN().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(14));
+         ((AbstractDocument) getTxtID().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(4));
    
     }
+    
 
     public JLabel getLblBuscarPor() {
         return lblBuscarPor;
@@ -288,6 +297,8 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
         lblCedula2.setFont(new java.awt.Font("ITF Devanagari", 1, 18)); // NOI18N
         lblCedula2.setForeground(new java.awt.Color(0, 0, 0));
         lblCedula2.setText("Cedula:");
+
+        txtICedula.addActionListener(this::txtICedulaActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -569,6 +580,10 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtICedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtICedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtICedulaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

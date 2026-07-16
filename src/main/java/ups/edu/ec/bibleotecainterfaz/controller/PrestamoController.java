@@ -451,11 +451,21 @@ private void crearPrestamo() {
             return;
         }
 
-        for (Libro libro : libros) {
-            if (libro != null) {
-                modelo.addRow(new Object[]{libro.getISBN(), libro.getNombre()});
-            }
-        }
+        
+      for (Libro libro : libros) {
+          
+    if (libro != null) { 
+        Libro libroEncontrado = libroDAO.buscar((libro.getISBN()));
+
+        System.out.println("ISBN: " + libro.getISBN());
+        System.out.println("Nombre: " + libroEncontrado.getNombre());
+
+        modelo.addRow(new Object[]{
+            libro.getISBN(),
+            libroEncontrado.getNombre()
+        });
+    }
+}
     }
 
     public void cambioIdioma(ResourceBundle bundle) {
