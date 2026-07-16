@@ -193,6 +193,7 @@ public class CrearPrestamoView extends javax.swing.JInternalFrame {
 
         txtNombre.setBackground(new java.awt.Color(204, 204, 204));
 
+        txtUsuario.setEditable(false);
         txtUsuario.setFont(new java.awt.Font("Hiragino Mincho ProN", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout txtNombreLayout = new javax.swing.GroupLayout(txtNombre);
@@ -214,6 +215,7 @@ public class CrearPrestamoView extends javax.swing.JInternalFrame {
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 204));
 
+        txtLibro.setEditable(false);
         txtLibro.setFont(new java.awt.Font("Hiragino Mincho ProN", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);

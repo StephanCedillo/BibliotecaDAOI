@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.text.AbstractDocument;
 
 /**
  *
@@ -22,6 +23,15 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
      */
     public DevolucionPrestamoView() {
         initComponents();
+        
+        ((AbstractDocument) getTxtICedula().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(10));
+
+        ((AbstractDocument) getTxtISBN().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(14));
+         ((AbstractDocument) getTxtID().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(4));
+   
 
         
     }

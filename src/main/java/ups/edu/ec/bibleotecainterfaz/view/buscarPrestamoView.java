@@ -19,7 +19,7 @@ public class BuscarPrestamoView extends javax.swing.JInternalFrame {
    
     public BuscarPrestamoView() {
         initComponents();
-       initComponents();
+  
         ((AbstractDocument) getTxtICedula().getDocument())
                 .setDocumentFilter(new LimiteCaracteres(10));
 
