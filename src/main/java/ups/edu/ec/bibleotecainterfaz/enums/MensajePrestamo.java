@@ -18,7 +18,8 @@ public enum MensajePrestamo {
     CONFIRMAR_DEVOLUCION(5),
     PRESTAMO_DEVUELTO(6),
     PRESTAMO_CREADO(7),
-    ERR_ID_VALIDO(8);
+    ERR_ID_VALIDO(8),
+    LIBRO_NO_DISPOINBLE(9);
 
     private final int indice;
 

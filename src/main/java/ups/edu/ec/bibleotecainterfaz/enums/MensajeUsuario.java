@@ -30,8 +30,8 @@ public enum MensajeUsuario {
     ERR_APELLIDO_ESP(17),
     ERR_DIRECCION_ESP(18),
     ERR_LIMITE_EDAD(19),
-    ERR_CEDULA_CONLETRA(20);
-
+    ERR_CEDULA_CONLETRA(20),
+    ERR_CEDULA_INVALIDA(21);
     private final int indice;
 
     MensajeUsuario(int indice) {

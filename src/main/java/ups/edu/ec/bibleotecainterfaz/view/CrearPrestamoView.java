@@ -25,7 +25,7 @@ public class CrearPrestamoView extends javax.swing.JInternalFrame {
                 .setDocumentFilter(new LimiteCaracteres(10));
 
         ((AbstractDocument) getTxtISBN().getDocument())
-                .setDocumentFilter(new LimiteCaracteres(14));
+                .setDocumentFilter(new LimiteCaracteres(13));
     }
 
     public JLabel getLblbtnCedula() {

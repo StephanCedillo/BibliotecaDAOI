@@ -25,7 +25,7 @@ public class ActualizarLibroView extends javax.swing.JInternalFrame {
     public ActualizarLibroView() {
         initComponents();
        ((AbstractDocument) txtISBN.
-                getDocument()).setDocumentFilter(new LimiteCaracteres(14));
+                getDocument()).setDocumentFilter(new LimiteCaracteres(13));
        ((AbstractDocument) txtTituloBuscado.getDocument())
                .setDocumentFilter(new LimiteCaracteres(25));
        ((AbstractDocument) txtIdiomaBuscado.getDocument())

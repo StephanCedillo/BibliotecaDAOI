@@ -52,7 +52,8 @@ public class PrestamoController {
         "¿Desea registrar la devolución del préstamo?", // 5
         "Préstamo devuelto correctamente", // 6
         "Préstamo creado correctamente", // 7
-        "Ingrese un ID válido" // 8
+        "Ingrese un ID válido", // 8
+        "Libro no disponible"// 9
     };
 
     public PrestamoController(DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
@@ -309,7 +310,7 @@ public class PrestamoController {
             return;
         }
           if(!libro.estaDisponible()){
-        mostrarInformacion("LIBRO NO DISPONIBLE", crearPrestamoView);
+        mostrarInformacion(MensajePrestamo.LIBRO_NO_DISPOINBLE.getTexto(mensajes), crearPrestamoView);
         return;
     }
 
@@ -378,7 +379,7 @@ private void crearPrestamo() {
         return;
     }
     if(!libro.estaDisponible()){
-        mostrarInformacion("LIBRO NO DISPONIBLE", crearPrestamoView);
+        mostrarInformacion(MensajePrestamo.LIBRO_NO_DISPOINBLE.getTexto(mensajes), crearPrestamoView);
         return;
     }
 

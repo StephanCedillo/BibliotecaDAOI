@@ -28,7 +28,7 @@ public class DevolucionPrestamoView extends javax.swing.JInternalFrame {
                 .setDocumentFilter(new LimiteCaracteres(10));
 
         ((AbstractDocument) getTxtISBN().getDocument())
-                .setDocumentFilter(new LimiteCaracteres(14));
+                .setDocumentFilter(new LimiteCaracteres(13));
          ((AbstractDocument) getTxtID().getDocument())
                 .setDocumentFilter(new LimiteCaracteres(4));
    

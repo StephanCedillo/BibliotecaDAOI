@@ -24,7 +24,7 @@ public class EliminarLibroView extends javax.swing.JInternalFrame {
       
 
         ((AbstractDocument) getTxtISBN().getDocument())
-                .setDocumentFilter(new LimiteCaracteres(14));
+                .setDocumentFilter(new LimiteCaracteres(13));
          
    
     }

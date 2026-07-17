@@ -25,7 +25,7 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
     public CrearLibroView() {
         initComponents();
         ((AbstractDocument) getTxtISBN().getDocument())
-                .setDocumentFilter(new LimiteCaracteres(14));
+                .setDocumentFilter(new LimiteCaracteres(13));
 
         ((AbstractDocument) getTxtNombre().getDocument())
                 .setDocumentFilter(new LimiteCaracteres(10));
@@ -38,6 +38,8 @@ public class CrearLibroView extends javax.swing.JInternalFrame {
 
         ((AbstractDocument) getTxtApellido().getDocument())
                 .setDocumentFilter(new LimiteCaracteres(10));
+        ((AbstractDocument) getTxtNumeroPaginas().getDocument())
+                .setDocumentFilter(new LimiteCaracteres(4));
     }
 
     @SuppressWarnings("unchecked")

@@ -98,7 +98,9 @@ public class LibroController {
             "El título del libro no puede estar vacío para la actualización.", // 14
             "El campo de género no puede quedar vacío.", // 15
             "El campo de idioma no puede quedar vacío.", // 16
-            "El ISBN no contiene letras"//17
+            "El ISBN no contiene letras",//17
+            "El ISBN no es valido ya que tiene menos de 13 digitos",//18
+            "El ISBN ingresado no es valido"//19
     };
 
     private void configurarEventos() {
@@ -295,8 +297,8 @@ public class LibroController {
         try {
 
             int numeroPaginas = Integer.parseInt(crearLibroView.getTxtNumeroPaginas().getText());
-
             validarCamposCrearLibro(
+                   
                     crearLibroView.getTxtISBN().getText(),
                     (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
                     crearLibroView.getTxtNombre().getText(),
@@ -305,6 +307,12 @@ public class LibroController {
                     numeroPaginas,
                     crearLibroView.getTxtIdioma().getText());
             ibsnSoloNumero(crearLibroView.getTxtISBN().getText());
+            
+            // ===== VALIDADORES DE ISBN ====
+            validadorIbsnLength(crearLibroView.getTxtISBN().getText());
+            validadorIbsn(crearLibroView.getTxtISBN().getText());
+            // ==============================
+            
             libroDAO.crear(new Libro(
                     crearLibroView.getTxtISBN().getText(),
                     (Autor) crearLibroView.getComboBoxAutores().getSelectedItem(),
@@ -575,6 +583,35 @@ public class LibroController {
         for (Autor autor : autores) {
             crearLibroView.getComboBoxAutores().addItem(autor);
             actualizarLibroView.getComboBoxAutores().addItem(autor);
+        }
+    }
+    
+    //Validador de ISBN
+    private void validadorIbsn(String isbn) throws ValidadorDato{
+        int suma = 0;
+        // Solo se recorren los primeros 12 dígitos
+        for (int i = 0; i < 12; i++) {
+
+            int digito = isbn.charAt(i) - '0';
+
+            if (i % 2 == 0) {
+                suma += digito;
+            } else {
+                suma += digito * 3;
+            }
+        }
+        // luego se valida si el ultimo digito hace que la suma sea multiplo de 10
+        int digitoCalculado = (10 - (suma % 10)) % 10;
+        int digitoIngresado = isbn.charAt(12) - '0';
+
+        if (digitoCalculado != digitoIngresado) {
+            throw new ValidadorDato(MensajeLibro.ERR_IBSN_NO_VALIDO.getTexto(mensajes));
+        }
+    }
+    
+    private void validadorIbsnLength(String isbn) throws ValidadorDato{
+        if(isbn.length()<13){
+            throw new ValidadorDato(MensajeLibro.ERR_ISBN_MENOR13.getTexto(mensajes));
         }
     }
     
