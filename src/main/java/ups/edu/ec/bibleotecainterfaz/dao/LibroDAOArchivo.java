@@ -21,13 +21,13 @@ public class LibroDAOArchivo implements LibroDAO {
 
     private final File archivoLibro;
     private static final String NOMBRE_ARCHIVO = "libros.ups";
-    private static final int TAM_ISBN = 14;
+    private static final int TAM_ISBN = 13;
     private static final int TAM_AUTORNOMBRE = 10;
     private static final int TAM_AUTORAPELLIDO = 15;
     private static final int TAM_NOMBRE = 10;
     private static final int TAM_GENERO = 16;
     private static final int TAM_IDIOMA = 12;
-    private static final int TAM_LIBRO = 160;
+    private static final int TAM_LIBRO = 158;
 
     public LibroDAOArchivo() {
 
@@ -79,7 +79,7 @@ public class LibroDAOArchivo implements LibroDAO {
                 String isbnActual = leerTexto(archivo, TAM_ISBN).trim();
                 
                 if(ISBN.equals(isbnActual)){
-                    // Volver al inicio del registro para leerlo completo
+                 
                     archivo.seek(incioBusqueda); 
                     return leerRegistro(archivo);
                 }
@@ -187,7 +187,7 @@ public class LibroDAOArchivo implements LibroDAO {
 
     @Override
     public void crearListadoTemporal(int cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       
     }
 
     private String completarTexto(String texto, int tamaño) {
@@ -219,7 +219,7 @@ public class LibroDAOArchivo implements LibroDAO {
         // DATOS LIBRO
         
         archivo.writeChars(completarTexto(libro.getISBN(),TAM_ISBN));
-        
+       
         // DATOS DEL AUTOR
         
         archivo.writeChars(completarTexto(libro.getAutor().getNombre(),TAM_AUTORNOMBRE));

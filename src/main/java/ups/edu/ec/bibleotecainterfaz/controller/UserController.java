@@ -65,7 +65,8 @@ public class UserController {
         "Su apellido no puede tener caracteres especiales",//17
         "Su dirrecion no puede tener caracteres especiales",//18
         "Limite de edad permitido superado",//19
-        "Cedula invalida"//20
+        "La cedula no contiene letras",//20
+        "Cedula no valida vuelva a ingresarla"
     };
 
     public UserController(
@@ -272,6 +273,7 @@ public class UserController {
             validadorCaracteresExEnCrear();
             validadorFechaNac(new java.sql.Date(crearUsuarioView.getjCalendarFechaNac().getDate().getTime()).toLocalDate());
             soloNumerosCedula(crearUsuarioView.getTxtCedula().getText());
+            validadorCedula(crearUsuarioView.getTxtCedula().getText());
             //====================================
             if (actualizarUsuarioView.getComboBoxStringsMembresia().getSelectedItem() == null) {
                 throw new CamposVaciosException("Debe seleccionar una membresía."); 
@@ -571,6 +573,40 @@ public class UserController {
             if(!Character.isDigit(c)){
                 throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_CONLETRA.getTexto(mensajes));
             }
+        }
+    }
+    // VALIDADOR DE CEDULA
+    private void validadorCedula(String cedula) throws ValidadorDato{
+        if (cedula == null || cedula.length() != 10) {
+            throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_INVALIDA.getTexto(mensajes));
+        }
+        char[] digitos = cedula.toCharArray();
+        int provincia = (digitos[0] - '0') * 10 + (digitos[1] - '0');
+        if (provincia < 1 || provincia > 24) {
+            throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_INVALIDA.getTexto(mensajes));
+        }
+        int suma = 0;
+        int digitoVerificadorReal = digitos[9] - '0';
+
+        for (int i = 0; i < 9; i++) {
+            int digito = digitos[i] - '0';
+
+            if (digito < 0 || digito > 9) throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_INVALIDA.getTexto(mensajes));;
+            if (i % 2 == 0) {
+                digito *= 2;
+                if (digito > 9) {
+                    digito -= 9;
+                }
+            }
+            suma += digito;
+        }
+        int residuo = suma % 10;
+        int verificadorCalculado = (residuo == 0) ? 0 : (10 - residuo);
+
+        if(verificadorCalculado != digitoVerificadorReal){
+            throw new ValidadorDato(MensajeUsuario.ERR_CEDULA_INVALIDA.getTexto(mensajes));
+        }else{
+            return;
         }
     }
 

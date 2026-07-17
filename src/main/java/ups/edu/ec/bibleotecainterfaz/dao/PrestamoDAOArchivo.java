@@ -17,9 +17,9 @@ public class PrestamoDAOArchivo implements PrestamoDAO {
     private static final String NOMBRE_ARCHIVO = "prestamos.ups";
 
     private static final int TAM_CEDULA = 10;
-    private static final int TAM_ISBN = 14;
+    private static final int TAM_ISBN = 13;
 
-    private static final int TAM_PRESTAMO = 125;
+    private static final int TAM_PRESTAMO = 119;
 
     private final UsuarioDAO usuarioDAO;
 

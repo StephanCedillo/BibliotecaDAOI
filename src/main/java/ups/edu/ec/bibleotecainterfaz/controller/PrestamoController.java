@@ -52,7 +52,8 @@ public class PrestamoController {
         "¿Desea registrar la devolución del préstamo?", // 5
         "Préstamo devuelto correctamente", // 6
         "Préstamo creado correctamente", // 7
-        "Ingrese un ID válido" // 8
+        "Ingrese un ID válido", // 8
+        "Libro no disponible"// 9
     };
 
     public PrestamoController(DevolucionPrestamoView devolucionPrestamoView, BuscarPrestamoView buscarPrestamoiew,
@@ -308,6 +309,10 @@ public class PrestamoController {
             mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
             return;
         }
+          if(!libro.estaDisponible()){
+        mostrarInformacion(MensajePrestamo.LIBRO_NO_DISPOINBLE.getTexto(mensajes), crearPrestamoView);
+        return;
+    }
 
         buscarLibro();
         prestamoTemporal.agregarLibro(libro);
@@ -325,7 +330,17 @@ public class PrestamoController {
         }
 
         prestamoSeleccionadoDevolucion.registrarDevolucion();
+        prestamoSeleccionadoDevolucion.setEstado(false);
         mostrarInformacion(MensajePrestamo.PRESTAMO_DEVUELTO.getTexto(mensajes), devolucionPrestamoView);
+        
+         for (Libro libroRecorrido : prestamoSeleccionadoDevolucion.getLibro()) {
+            Libro libGuardado = libroDAO.buscar(libroRecorrido.getISBN());
+            if (libGuardado != null) {
+                libGuardado.devolver();
+                libroDAO.actualizar(libGuardado); 
+            }
+        }
+         prestamoDAO.devolucion(prestamoTemporal);
     }
 
     private void buscarUsuario() {
@@ -357,14 +372,24 @@ private void crearPrestamo() {
         prestamoTemporal = new Prestamo(usuario, true);
     }
 
+    
     Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
-    if (libro == null) {
+    if (libro == null && prestamoTemporal.getLibro().isEmpty()) {
         mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
         return;
     }
+    if(!libro.estaDisponible()){
+        mostrarInformacion(MensajePrestamo.LIBRO_NO_DISPOINBLE.getTexto(mensajes), crearPrestamoView);
+        return;
+    }
+
+    if(libro!= null){
+        prestamoTemporal.agregarLibro(libro);
+    
+    }
 
   
-    prestamoTemporal.agregarLibro(libro);
+    
     
 
     prestamoDAO.crear(prestamoTemporal);

@@ -27,7 +27,9 @@ public enum MensajeLibro {
     REQ_TITULO_ACT(14),
     REQ_GENERO_ACT(15),
     REQ_IDIOMA_ACT(16),
-    ERR_ISBN_LETTERS(17);
+    ERR_ISBN_LETTERS(17),
+    ERR_ISBN_MENOR13(18),
+    ERR_IBSN_NO_VALIDO(19);
 
     private final int indice;
 
