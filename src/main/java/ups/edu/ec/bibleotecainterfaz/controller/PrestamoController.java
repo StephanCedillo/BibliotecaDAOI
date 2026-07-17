@@ -308,6 +308,10 @@ public class PrestamoController {
             mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
             return;
         }
+          if(!libro.estaDisponible()){
+        mostrarInformacion("LIBRO NO DISPONIBLE", crearPrestamoView);
+        return;
+    }
 
         buscarLibro();
         prestamoTemporal.agregarLibro(libro);
@@ -325,7 +329,17 @@ public class PrestamoController {
         }
 
         prestamoSeleccionadoDevolucion.registrarDevolucion();
+        prestamoSeleccionadoDevolucion.setEstado(false);
         mostrarInformacion(MensajePrestamo.PRESTAMO_DEVUELTO.getTexto(mensajes), devolucionPrestamoView);
+        
+         for (Libro libroRecorrido : prestamoSeleccionadoDevolucion.getLibro()) {
+            Libro libGuardado = libroDAO.buscar(libroRecorrido.getISBN());
+            if (libGuardado != null) {
+                libGuardado.devolver();
+                libroDAO.actualizar(libGuardado); 
+            }
+        }
+         prestamoDAO.devolucion(prestamoTemporal);
     }
 
     private void buscarUsuario() {
@@ -357,14 +371,24 @@ private void crearPrestamo() {
         prestamoTemporal = new Prestamo(usuario, true);
     }
 
+    
     Libro libro = libroDAO.buscar(crearPrestamoView.getTxtISBN().getText());
-    if (libro == null) {
+    if (libro == null && prestamoTemporal.getLibro().isEmpty()) {
         mostrarInformacion(MensajePrestamo.LIBRO_NO_ENCONTRADO.getTexto(mensajes), crearPrestamoView);
         return;
     }
+    if(!libro.estaDisponible()){
+        mostrarInformacion("LIBRO NO DISPONIBLE", crearPrestamoView);
+        return;
+    }
+
+    if(libro!= null){
+        prestamoTemporal.agregarLibro(libro);
+    
+    }
 
   
-    prestamoTemporal.agregarLibro(libro);
+    
     
 
     prestamoDAO.crear(prestamoTemporal);

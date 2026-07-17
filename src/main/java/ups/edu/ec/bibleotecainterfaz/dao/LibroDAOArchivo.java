@@ -79,7 +79,7 @@ public class LibroDAOArchivo implements LibroDAO {
                 String isbnActual = leerTexto(archivo, TAM_ISBN).trim();
                 
                 if(ISBN.equals(isbnActual)){
-                    // Volver al inicio del registro para leerlo completo
+                 
                     archivo.seek(incioBusqueda); 
                     return leerRegistro(archivo);
                 }
@@ -219,7 +219,7 @@ public class LibroDAOArchivo implements LibroDAO {
         // DATOS LIBRO
         
         archivo.writeChars(completarTexto(libro.getISBN(),TAM_ISBN));
-        
+       
         // DATOS DEL AUTOR
         
         archivo.writeChars(completarTexto(libro.getAutor().getNombre(),TAM_AUTORNOMBRE));

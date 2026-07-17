@@ -163,10 +163,10 @@ public class UsuarioDAOArchivo implements UsuarioDAO {
 
     @Override
     public void crearListadoTemporal(int cantidad) {
-        // hola no se que hace este metodo jsjs
+       
     }
     
-    // --- METODOS  DE LECTURA Y ESCRITURA ME DABA PEREZA ESCRIBIR VARIAS VECES ESTO LA VRD XD NO ME CULPES  ---
+    // --- METODOS  DE LECTURA Y ESCRITURA  ---
 
     private void escribirRegistro(RandomAccessFile archivo, Usuario usuario) throws IOException {
         // USUARIO
